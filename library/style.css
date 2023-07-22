@@ -58,10 +58,24 @@ button:hover {
   cursor: pointer;
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
 .container {
   width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
+  outline: 1px solid red;
 }
 
 /* H E A D E R */
@@ -96,6 +110,34 @@ header {
   padding: 10px;
   line-height: 2.5;
 }
+.header__link:hover,
+.header__link:focus {
+  color: var(--accentColor);
+}
+
 .logo__link {
   padding: 10px 0 10px 10px;
+  color: var(--textColor-invert);
+}
+
+.logo__link:hover,
+.logo__link:focus {
+  color: var(--accentColor);
+}
+
+/* W E L C O M */
+
+.welcome {
+  height: calc(100vw * 60 / 144);
+  width: 100%;
+
+  background: linear-gradient(
+    180deg,
+    #0c0c0e 0%,
+    #0c0c0e 0.01%,
+    rgba(18, 18, 21, 0.1) 100%
+  );
+  background-image: url(./assets/images/welcome.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
