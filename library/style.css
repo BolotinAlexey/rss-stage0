@@ -1,13 +1,17 @@
 :root {
   --bgColor: #0c0c0e;
   --accentColor: #bb945f;
-  --secondColor: #8e8e8e;
+  --placeholderColor: #8e8e8e;
   --textColor: #000;
   --textColor-invert: #fff;
 }
 
 body {
   box-sizing: border-box;
+}
+
+* {
+  font: 400 20px 'Inter';
 }
 
 h1,
@@ -17,7 +21,9 @@ h4,
 h5,
 h6,
 p,
-ul {
+ul,
+body,
+div {
   margin: 0;
   padding: 0;
 }
@@ -55,4 +61,41 @@ button:hover {
 .container {
   width: 1440px;
   margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* H E A D E R */
+header {
+  background-color: var(--bgColor);
+  color: var(--textColor-invert);
+}
+
+.header__wrap {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__title {
+  flex-grow: 1;
+  font-family: 'Forum';
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.66667;
+  letter-spacing: 0.6px;
+}
+
+.header__list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__link {
+  padding: 10px;
+  line-height: 2.5;
+}
+.logo__link {
+  padding: 10px 0 10px 10px;
 }
