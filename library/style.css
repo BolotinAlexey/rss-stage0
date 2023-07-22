@@ -1,5 +1,55 @@
+:root {
+  --bgColor: #0c0c0e;
+  --accentColor: #bb945f;
+  --secondColor: #8e8e8e;
+  --textColor: #000;
+  --textColor-invert: #fff;
+}
+
 body {
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+a:hover,
+button:hover {
+  cursor: pointer;
 }
 
 .container {
