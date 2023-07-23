@@ -7,6 +7,7 @@
 }
 
 body {
+  scroll-behavior: smooth;
   /* overflow-x: hidden; */
 }
 
@@ -24,7 +25,8 @@ h6,
 p,
 ul,
 body,
-div {
+div,
+input {
   margin: 0;
   padding: 0;
 }
@@ -78,7 +80,7 @@ button:hover {
   padding: 0 20px;
   outline: 1px solid red;
 }
-.section {
+.section:not(.welcome) {
   padding-top: 20px;
 }
 
@@ -145,20 +147,22 @@ header {
   color: var(--accentColor);
 }
 
-.logo__link {
-  padding: 10px 0 10px 10px;
+.logo__btn {
+  padding: 0;
   color: var(--textColor-invert);
+  border: none;
+  background-color: transparent;
 }
 
-.logo__link:hover,
-.logo__link:focus {
+.logo__btn:hover,
+.logo__btn:focus {
   color: var(--accentColor);
 }
 
 /* W E L C O M */
 
 .welcome {
-  height: calc(100vw * 60 / 144);
+  height: calc(100vw * 60 / 144 - 10px);
   width: 100%;
 
   background: linear-gradient(
@@ -173,6 +177,58 @@ header {
 }
 
 /* A B O U T */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__subscribe {
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 2;
+}
+
+/* Carousel */
+.carousel-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.about__list {
+  width: calc(166.7% + 50px);
+  display: flex;
+}
+
+.about__item {
+  width: calc((100% + 120px) / 5);
+}
+/* .about__item:not(:last-child) {
+  margin-right: 25px;
+} */
+
+/* Pagination */
+.pagination {
+  position: relative;
+  width: 68px;
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination__item {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: var(--bgColor);
+}
+
+.pagination__item:first-child {
+  background-color: var(--accentColor);
+}
+
+/*  */
+/* F A V O R I T E S */
 .seasons-title {
   font-weight: 700;
 }
