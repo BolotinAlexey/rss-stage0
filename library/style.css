@@ -362,8 +362,35 @@ header {
 /* C O F E  S H O P */
 
 .coffee__describe {
+  margin: 40px 0;
   color: var(--textColor);
   text-align: center;
   line-height: 2;
   letter-spacing: 2px;
+  text-transform: lowercase;
+}
+.coffee__describe .y {
+  text-transform: capitalize;
+}
+.coffee__describe::first-letter {
+  text-transform: capitalize;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__title {
+  color: var(--accentColor);
+  font-family: 'Forum';
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__list {
+  width: 438px;
+  height: 520px;
 }
