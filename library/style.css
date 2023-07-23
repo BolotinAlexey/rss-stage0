@@ -361,6 +361,10 @@ header {
 
 /* C O F E  S H O P */
 
+.coffee {
+  padding-bottom: 40px;
+}
+
 .coffee__describe {
   margin: 40px 0;
   color: var(--textColor);
@@ -381,6 +385,7 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
 .menu__title {
   color: var(--accentColor);
   font-family: 'Forum';
@@ -390,7 +395,51 @@ header {
   text-transform: capitalize;
 }
 
-.menu__list {
+.menu__right .menu__title {
+  text-align: end;
+}
+
+.menu__left .menu__list {
   width: 438px;
-  height: 520px;
+}
+.menu__right .menu__list {
+  width: 482px;
+}
+
+.menu__item {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu__name {
+  color: var(--textColor);
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__right .menu__item {
+  justify-content: end;
+  gap: 220px;
+}
+
+.menu__price {
+  position: relative;
+  text-align: end;
+  color: var(--textColor);
+  font-family: 'Forum';
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.menu__price::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 50%;
+  left: -160px;
+  width: 100px;
+  height: 1px;
+  background-color: var(--accentColor);
 }
