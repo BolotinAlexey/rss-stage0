@@ -443,3 +443,15 @@ header {
   height: 1px;
   background-color: var(--accentColor);
 }
+
+/* C O N T A C T S */
+.contacts__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.map {
+  width: 696px;
+  height: 414px;
+  background-image: url(./assets/images/map.jpg);
+}
