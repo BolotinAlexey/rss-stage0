@@ -14,7 +14,6 @@ body {
 * {
   box-sizing: border-box;
   font: 400 20px 'Inter';
-  line-height: normal;
 }
 
 h1,
@@ -39,6 +38,10 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+b {
+  font-weight: 700;
 }
 
 img {
@@ -448,6 +451,31 @@ header {
 .contacts__wrap {
   display: flex;
   justify-content: space-between;
+  color: var(--textColor);
+  text-transform: capitalize;
+}
+.contacts__wrap * {
+  line-height: 2;
+  letter-spacing: 2px;
+}
+
+.contacts__title {
+  font-weight: 700;
+}
+.all {
+  margin-bottom: 40px;
+}
+.senior {
+  margin-bottom: 20px;
+}
+
+.contacts__tel {
+  margin-bottom: 40px;
+}
+
+.tel-item:not(:last-child),
+.senior {
+  margin-bottom: 20px;
 }
 
 .map {
