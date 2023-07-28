@@ -448,6 +448,9 @@ header {
 }
 
 /* C O N T A C T S */
+.contacts {
+  padding-bottom: 40px;
+}
 .contacts__wrap {
   display: flex;
   justify-content: space-between;
@@ -482,4 +485,17 @@ header {
   width: 696px;
   height: 414px;
   background-image: url(./assets/images/map.jpg);
+}
+
+/* C A R D */
+.card {
+  /* padding: 40px 0; */
+}
+
+.card__wrap {
+  margin-bottom: 40px;
+}
+
+.card__left {
+  width: 600px;
 }
