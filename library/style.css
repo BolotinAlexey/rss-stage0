@@ -578,8 +578,36 @@ button[type='submit'] {
   width: 456px;
 }
 .card__get {
+  margin-bottom: 35px;
   color: var(--textColor);
+  font-family: 'Forum';
   font-size: 30px;
-  font-style: normal;
   letter-spacing: 0.6px;
+  text-align: right;
+}
+
+.card__describe-registration {
+  margin-bottom: 35px;
+  color: var(--textColor);
+  text-align: right;
+  line-height: 2;
+  letter-spacing: 0.4px;
+}
+
+.card__btn__wrap {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.card__btn {
+  width: 75px;
+  padding: 10px 0;
+  border-radius: 2px;
+  border: 1px solid var(--bgColor);
+  color: var(--bgColor);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
