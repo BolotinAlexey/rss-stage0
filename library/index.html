@@ -339,12 +339,29 @@
           <!-- card-left -->
           <div class="card__left">
             <p class="card__find">Find your Library card</p>
-            <div class="gold-bg">
-              <form action="">
-                <label class="card__label">
-                  <input type="text" name="name" id />
-                </label>
-                <input type="number" name="number" />
+            <div class="white-bg">
+              <form>
+                <div class="card__inputs-wrap">
+                  <p class="card__label">Brooklyn Public Library</p>
+                  <ul class="card__inputs__list">
+                    <li class="card__item">
+                      <input
+                        class="card__input"
+                        type="text"
+                        name="name"
+                        placeholder="Reader's name "
+                      />
+                    </li>
+                    <li class="card__item">
+                      <input
+                        class="card__input"
+                        type="number"
+                        name="number"
+                        placeholder="Card number"
+                      />
+                    </li>
+                  </ul>
+                </div>
                 <button type="submit">Check the card</button>
               </form>
             </div>
