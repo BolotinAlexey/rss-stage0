@@ -19,15 +19,25 @@
         <h1 class="header__title">Brooklyn Public Library</h1>
         <nav>
           <ul class="header__list">
-            <li header__item><a class="header__link">About</a></li>
-            <li header__item><a class="header__link">Favorites</a></li>
-            <li header__item><a class="header__link">Coffee shop</a></li>
-            <li header__item><a class="header__link">Contacts</a></li>
-            <li header__item><a class="header__link">Library Card</a></li>
+            <li class="header__item">
+              <a href="#about" class="header__link">About</a>
+            </li>
+            <li class="header__item">
+              <a href="#favorites" class="header__link">Favorites</a>
+            </li>
+            <li class="header__item">
+              <a href="#coffee" class="header__link">Coffee shop</a>
+            </li>
+            <li class="header__item">
+              <a href="#contacts" class="header__link">Contacts</a>
+            </li>
+            <li class="header__item">
+              <a href="#card" class="header__link">Library Card</a>
+            </li>
           </ul>
         </nav>
         <div class="logo">
-          <button class="logo__btn" href="http://">
+          <button class="logo__btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="28"
@@ -52,7 +62,7 @@
       </section>
 
       <!-- A B O U T -->
-      <section class="section about container">
+      <section id="about" class="section about container">
         <h2 class="section__title">About</h2>
         <h3 class="about__subscribe">
           The Brooklyn Library is a free workspace, a large number of books and
@@ -64,35 +74,35 @@
           <ul class="about__list">
             <li class="about__item">
               <img
-                src="./assets/images/image 1.jpg"
+                src="./assets/images/image1.jpg"
                 alt="image1"
                 class="about__img"
               />
             </li>
             <li class="about__item">
               <img
-                src="./assets/images/image 2.jpg"
+                src="./assets/images/image2.jpg"
                 alt="image2"
                 class="about__img"
               />
             </li>
             <li class="about__item">
               <img
-                src="./assets/images/image 3.jpg"
+                src="./assets/images/image3.jpg"
                 alt="image3"
                 class="about__img"
               />
             </li>
             <li class="about__item">
               <img
-                src="./assets/images/image 4.jpg"
+                src="./assets/images/image4.jpg"
                 alt="image4"
                 class="about__img"
               />
             </li>
             <li class="about__item">
               <img
-                src="./assets/images/image 5.jpg"
+                src="./assets/images/image5.jpg"
                 alt="image5"
                 class="about__img"
               />
@@ -101,35 +111,68 @@
         </div>
 
         <!-- Pagination -->
+
         <ul class="pagination">
-          <li class="pagination__item"></li>
-          <li class="pagination__item"></li>
-          <li class="pagination__item"></li>
+          <li class="pagination__item">
+            <button class="pagination__btn">
+              <div class="pagination__circle"></div>
+            </button>
+          </li>
+          <li class="pagination__item">
+            <button class="pagination__btn">
+              <div class="pagination__circle"></div>
+            </button>
+          </li>
+          <li class="pagination__item">
+            <button class="pagination__btn">
+              <div class="pagination__circle"></div>
+            </button>
+          </li>
         </ul>
       </section>
 
       <!-- F A V O R I T E S -->
-      <section class="section favorites container">
+      <section id="favorites" class="section favorites container">
         <h2 class="section__title">Favorites</h2>
         <h3 class="seasons-title">Pick favorites of season</h3>
         <div class="seasons-wrap">
-          <input
-            id="winter"
-            class="season-input"
-            type="radio"
-            name="season"
-            checked
-          />
-          <label class="season" for="winter"> Winter </label>
-
-          <input class="season-input" id="spring" type="radio" name="season" />
-          <label class="season" for="spring"> Spring </label>
-
-          <input class="season-input" id="summer" type="radio" name="season" />
-          <label class="season" for="summer"> Summer </label>
-
-          <input class="season-input" id="autumn" type="radio" name="season" />
-          <label class="season" for="autumn"> Autumn </label>
+          <label class="season" for="winter">
+            <input
+              id="winter"
+              class="season-input"
+              type="radio"
+              name="season"
+              checked
+            />
+            Winter
+          </label>
+          <label class="season" for="spring">
+            <input
+              class="season-input"
+              id="spring"
+              type="radio"
+              name="season"
+            />
+            Spring
+          </label>
+          <label class="season" for="summer">
+            <input
+              class="season-input"
+              id="summer"
+              type="radio"
+              name="season"
+            />
+            Summer
+          </label>
+          <label class="season" for="autumn">
+            <input
+              class="season-input"
+              id="autumn"
+              type="radio"
+              name="season"
+            />
+            Autumn
+          </label>
         </div>
 
         <!-- Articles -->
@@ -138,11 +181,8 @@
           <li class="articles__item">
             <article class="article">
               <p class="article__pick">Staff Picks</p>
-              <a href="http://">
-                <h3 class="article__title">The Book Eaters</h3>
-                <h3 class="article__author">By Sunyi Dian</h3>
-              </a>
-
+              <h3 class="article__title">The Book Eaters</h3>
+              <h3 class="article__author">By Sunyi Dian</h3>
               <p class="article__describe">
                 An unusual sci-fi story about a book eater woman who tries
                 desperately to save her dangerous mind-eater son from tradition
@@ -163,11 +203,8 @@
           <li class="articles__item">
             <article class="article">
               <p class="article__pick">Staff Picks</p>
-              <a href="http://">
-                <h3 class="article__title">Cackle</h3>
-                <h3 class="article__author">By Rachel Harrison</h3>
-              </a>
-
+              <h3 class="article__title">Cackle</h3>
+              <h3 class="article__author">By Rachel Harrison</h3>
               <p class="article__describe">
                 Are your Halloween movies of choice The Witches of Eastwick and
                 Practical Magic? Look no further than here - where a woman
@@ -187,10 +224,8 @@
           <li class="articles__item">
             <article class="article">
               <p class="article__pick">Staff Picks</p>
-              <a href="http://">
-                <h3 class="article__title">Dante: Poet of the Secular World</h3>
-                <h3 class="article__author">By Erich Auerbach</h3>
-              </a>
+              <h3 class="article__title">Dante: Poet of the Secular World</h3>
+              <h3 class="article__author">By Erich Auerbach</h3>
 
               <p class="article__describe">
                 Auerbach's engaging book places the 'Comedy' within the
@@ -212,10 +247,8 @@
           <li class="articles__item">
             <article class="article">
               <p class="article__pick">Staff Picks</p>
-              <a href="http://">
-                <h3 class="article__title">The Last Queen</h3>
-                <h3 class="article__author">By Clive Irving</h3>
-              </a>
+              <h3 class="article__title">The Last Queen</h3>
+              <h3 class="article__author">By Clive Irving</h3>
 
               <p class="article__describe">
                 A timely and revelatory new biography of Queen Elizabeth (and
@@ -233,8 +266,8 @@
         </ul>
       </section>
 
-      <!-- C O F E  S H O P -->
-      <section class="section coffee container">
+      <!-- C O F F E E  S H O P -->
+      <section id="coffee" class="section coffee container">
         <h2 class="section__title">Coffee shop</h2>
         <p class="coffee__describe">
           In our library, we have of cozy coffee shop, welcoming in customers
@@ -308,21 +341,22 @@
       </section>
 
       <!-- C O N T A C T S -->
-      <section class="section contacts container">
+      <section id="contacts" class="section contacts container">
         <h2 class="section__title">Our Contacts</h2>
         <div class="contacts__wrap">
           <div class="contacts__text">
             <h3 class="contacts__title all">For all Library inquiries:</h3>
             <ul class="contacts__tel">
               <li class="tel-item">
-                Please call <a href="tel:+6177302370"></a>(617) 730-2370
+                <a href="tel:+6177302370">Please call (617) 730-2370</a>
               </li>
               <li class="tel-item">
-                For TTY service, please call <a href="tel:+6177302370"></a>(617)
-                730-2370
+                <a href="tel:+6177302370"
+                  >For TTY service, please call (617) 730-2370</a
+                >
               </li>
               <li class="tel-item">
-                Putterham Library: <a href="tel:+6177302385"></a>(617) 730-2385
+                <a href="tel:+6177302385">Putterham Library: (617) 730-2385</a>
               </li>
             </ul>
             <div class="contacts__title senior">Senior Staff</div>
@@ -333,7 +367,7 @@
       </section>
 
       <!-- C A R D -->
-      <section class="section card container">
+      <section id="card" class="section card container">
         <h2 class="section__title">Digital Library Cards</h2>
         <div class="card__wrap">
           <!-- card-left -->
@@ -449,11 +483,11 @@
             </ul>
           </address>
           <ul class="scheduie">
-            <li class="sheduie__item">
+            <li class="scheduie__item">
               Mon - Fri<br />
               08:00 am - 07:00 pm
             </li>
-            <li class="sheduie__item">
+            <li class="scheduie__item">
               Sat - Sun<br />
               10:00 am - 06:00 pm
             </li>

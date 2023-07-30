@@ -106,11 +106,11 @@ input[type='radio'] + label {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  outline: 1px solid red;
 }
 
 .section {
   background-color: #fff;
+  outline: 1px red solid;
 }
 
 .section:not(.welcome) {
@@ -195,7 +195,7 @@ header {
 /* W E L C O M */
 
 .welcome {
-  height: calc(100vw * 60 / 144 - 10px);
+  height: calc(100vw * 60 / 144);
   width: 100%;
 
   background: linear-gradient(
@@ -229,7 +229,7 @@ header {
 }
 
 .about__list {
-  width: calc(166.7% + 50px);
+  width: calc(166.7% + 40px);
   display: flex;
 }
 
@@ -239,25 +239,25 @@ header {
 
 /* Pagination */
 .pagination {
-  position: relative;
-  width: 68px;
-  margin: 40px 0;
+  margin: 35px 0;
   display: flex;
-  justify-content: space-between;
 }
 
-.pagination__item {
+.pagination__btn {
+  padding: 5px;
+  border: none;
+}
+
+.pagination__circle {
   width: 16px;
   height: 16px;
   border-radius: 16px;
   background-color: var(--bgColor);
 }
-
-.pagination__item:first-child {
+.pagination__item:first-of-type .pagination__circle {
   background-color: var(--accentColor);
 }
 
-/*  */
 /* F A V O R I T E S */
 .favorites {
   padding-bottom: 40px;
@@ -269,22 +269,24 @@ header {
 
 .seasons-wrap {
   display: flex;
+  gap: 81px;
   align-items: center;
-  margin: 35px 0;
+  margin: 35px 0 35px -15px;
 }
 
 .season {
   padding: 5px 5px 5px 20px;
-  letter-spacing: normal;
+  cursor: pointer;
+  transform: translateX(10px);
 }
-.season:not(:last-child) {
+/* .season:not(:last-child) {
   margin-right: 85px;
-}
+} */
 
 .season-input {
-  padding: 5px 5px 5px 0;
   width: 17px;
   height: 17px;
+  transform: translateX(-15px);
 }
 
 .season-input:checked + .season {
@@ -379,7 +381,7 @@ header {
   right: -40px;
 }
 
-/* C O F E  S H O P */
+/* C O F F E E  S H O P */
 
 .coffee {
   padding-bottom: 40px;
@@ -441,7 +443,7 @@ header {
 
 .menu__right .menu__item {
   justify-content: end;
-  gap: 220px;
+  gap: 217px;
 }
 
 .menu__price {
@@ -654,8 +656,18 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+.footer__top {
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--textColor-invert);
+}
+
+address {
+  font-size: 15px;
+  line-height: 1.3333;
+}
 
 .media__links {
+  margin-top: 18px;
   display: flex;
   gap: 15px;
 }
@@ -668,4 +680,24 @@ footer {
 .media__item:hover,
 .media__item:active {
   color: var(--accentColor);
+}
+
+.scheduie__item {
+  text-align: end;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.33333;
+}
+.scheduie__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer__down {
+  padding-top: 44px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.school {
+  margin-left: 102px;
 }
