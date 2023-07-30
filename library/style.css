@@ -106,7 +106,6 @@ input[type='radio'] + label {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  outline: 1px solid red;
 }
 
 .section {
@@ -654,8 +653,18 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+.footer__top {
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--textColor-invert);
+}
+
+address {
+  font-size: 15px;
+  line-height: 1.3333;
+}
 
 .media__links {
+  margin-top: 18px;
   display: flex;
   gap: 15px;
 }
@@ -668,4 +677,24 @@ footer {
 .media__item:hover,
 .media__item:active {
   color: var(--accentColor);
+}
+
+.scheduie__item {
+  text-align: end;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.33333;
+}
+.scheduie__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer__down {
+  padding-top: 44px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.school {
+  margin-left: 102px;
 }
