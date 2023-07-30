@@ -239,20 +239,23 @@ header {
 /* Pagination */
 .pagination {
   position: relative;
-  width: 68px;
+  /* width: 68px; */
   margin: 40px 0;
   display: flex;
-  justify-content: space-between;
 }
 
-.pagination__item {
+.pagination__btn {
+  padding: 5px;
+  border: none;
+}
+
+.pagination__circle {
   width: 16px;
   height: 16px;
   border-radius: 16px;
   background-color: var(--bgColor);
 }
-
-.pagination__item:first-child {
+.pagination__item:first-of-type .pagination__circle {
   background-color: var(--accentColor);
 }
 
