@@ -239,7 +239,7 @@ header {
 
 /* Pagination */
 .pagination {
-  margin: 30px 0;
+  margin: 30px 0 35px;
   display: flex;
 }
 
@@ -275,27 +275,38 @@ header {
 
 .seasons-wrap {
   display: flex;
-  gap: 80px;
   align-items: center;
-  margin: 35px 0 35px -15px;
+  margin: 35px 0 35px -20px;
 }
 
 .season {
-  padding: 5px 5px 5px 20px;
+  position: relative;
+  margin-right: 65px;
+  padding: 5px 5px 5px 45px;
   cursor: pointer;
-  transform: translateX(10px);
+}
+.season::before {
+  content: '';
+  position: absolute;
+  transform: translate(calc(-100% - 20px), 25%);
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid var(--textColor);
+}
+.season-input:checked + .season::before {
+  box-shadow: inset 0 0 0 3px var(--textColor-invert);
+  background-color: var(--textColor);
 }
 /* .season:not(:last-child) {
   margin-right: 85px;
 } */
 
 .season-input {
-  width: 17px;
-  height: 17px;
-  transform: translateX(-15px);
+  visibility: hidden;
 }
 
-.season:has(.season-input:checked) {
+.season-input:checked + .season {
   font-weight: 700;
 }
 
