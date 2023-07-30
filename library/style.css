@@ -110,6 +110,7 @@ input[type='radio'] + label {
 
 .section {
   background-color: #fff;
+  outline: 1px red solid;
 }
 
 .section:not(.welcome) {
@@ -194,7 +195,7 @@ header {
 /* W E L C O M */
 
 .welcome {
-  height: calc(100vw * 60 / 144 - 10px);
+  height: calc(100vw * 60 / 144);
   width: 100%;
 
   background: linear-gradient(
@@ -228,7 +229,7 @@ header {
 }
 
 .about__list {
-  width: calc(166.7% + 50px);
+  width: calc(166.7% + 40px);
   display: flex;
 }
 
@@ -238,9 +239,7 @@ header {
 
 /* Pagination */
 .pagination {
-  position: relative;
-  /* width: 68px; */
-  margin: 40px 0;
+  margin: 35px 0;
   display: flex;
 }
 
@@ -259,7 +258,6 @@ header {
   background-color: var(--accentColor);
 }
 
-/*  */
 /* F A V O R I T E S */
 .favorites {
   padding-bottom: 40px;
@@ -271,22 +269,24 @@ header {
 
 .seasons-wrap {
   display: flex;
+  gap: 81px;
   align-items: center;
-  margin: 35px 0;
+  margin: 35px 0 35px -15px;
 }
 
 .season {
   padding: 5px 5px 5px 20px;
-  letter-spacing: normal;
+  cursor: pointer;
+  transform: translateX(10px);
 }
-.season:not(:last-child) {
+/* .season:not(:last-child) {
   margin-right: 85px;
-}
+} */
 
 .season-input {
-  padding: 5px 5px 5px 0;
   width: 17px;
   height: 17px;
+  transform: translateX(-15px);
 }
 
 .season-input:checked + .season {
