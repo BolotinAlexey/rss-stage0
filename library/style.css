@@ -1,0 +1,671 @@
+:root {
+  --bgColor: #0c0c0e;
+  --accentColor: #bb945f;
+  --placeholderColor: #8e8e8e;
+  --textColor: #000;
+  --textColor-invert: #fff;
+  --transitionColor: color 0.3s linear;
+  --transitionBgColor: background-color 0.3s linear;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-color: var(--bgColor);
+  /* overflow-x: hidden; */
+}
+
+* {
+  box-sizing: border-box;
+  font: 400 20px 'Inter';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+body,
+div,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transitionColor);
+}
+a:hover,
+a:focus {
+  color: var(--accentColor);
+  cursor: pointer;
+}
+
+b {
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select,
+a {
+  font-family: inherit;
+  font-size: inherit;
+}
+button {
+  background-color: transparent;
+}
+
+svg {
+  fill: currentColor;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button:hover,
+input[type='radio'],
+input[type='radio'] + label {
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: 1px solid red;
+}
+
+.section {
+  background-color: #fff;
+}
+
+.section:not(.welcome) {
+  padding-top: 20px;
+}
+
+.section__title {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: 'Forum';
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--bgColor);
+}
+
+.section__title::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%);
+  width: 50px;
+  height: 1px;
+  background-color: var(--bgColor);
+  text-align: center;
+}
+
+/* H E A D E R */
+header {
+  background-color: var(--bgColor);
+  color: var(--textColor-invert);
+}
+
+.header__wrap {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__title {
+  flex-grow: 1;
+  font-family: 'Forum';
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.66667;
+  letter-spacing: 0.6px;
+}
+
+.header__list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__link {
+  padding: 10px;
+  line-height: 2.5;
+}
+/* .header__link:hover,
+.header__link:focus {
+  color: var(--accentColor);
+} */
+
+.logo__btn {
+  padding: 0;
+  color: var(--textColor-invert);
+  border: none;
+  transition: var(--transitionColor);
+}
+
+.logo__btn:hover,
+.logo__btn:focus {
+  color: var(--accentColor);
+}
+
+/* W E L C O M */
+
+.welcome {
+  height: calc(100vw * 60 / 144 - 10px);
+  width: 100%;
+
+  background: linear-gradient(
+    180deg,
+    #0c0c0e 0%,
+    #0c0c0e 0.01%,
+    rgba(18, 18, 21, 0.1) 100%
+  );
+  background-image: url(./assets/images/welcome.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* A B O U T */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__subscribe {
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 2;
+}
+
+/* Carousel */
+.carousel-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.about__list {
+  width: calc(166.7% + 50px);
+  display: flex;
+}
+
+.about__item {
+  width: calc((100% + 120px) / 5);
+}
+
+/* Pagination */
+.pagination {
+  position: relative;
+  width: 68px;
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination__item {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: var(--bgColor);
+}
+
+.pagination__item:first-child {
+  background-color: var(--accentColor);
+}
+
+/*  */
+/* F A V O R I T E S */
+.favorites {
+  padding-bottom: 40px;
+}
+
+.seasons-title {
+  font-weight: 700;
+}
+
+.seasons-wrap {
+  display: flex;
+  align-items: center;
+  margin: 35px 0;
+}
+
+.season {
+  padding: 5px 5px 5px 20px;
+  letter-spacing: normal;
+}
+.season:not(:last-child) {
+  margin-right: 85px;
+}
+
+.season-input {
+  padding: 5px 5px 5px 0;
+  width: 17px;
+  height: 17px;
+}
+
+.season-input:checked + .season {
+  font-weight: 700;
+}
+
+/* Articles */
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 260px;
+}
+
+.article {
+  position: relative;
+  width: 550px;
+  height: 555px;
+  padding: 15px 175px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  color: var(--textColor);
+  border: 1px solid var(--textColor);
+}
+
+.article__pick {
+  position: relative;
+  margin-bottom: 20px;
+  font-family: 'Forum';
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.article__pick::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 1px;
+  background-color: var(--accentColor);
+}
+
+.article__title,
+.article__author {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 2.667;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.article__title {
+  text-transform: uppercase;
+}
+.article__author {
+  text-transform: capitalize;
+}
+
+.article__describe {
+  margin: 20px 0 15px;
+  font-size: 15px;
+  line-height: 2.667;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.article__btn {
+  width: 75px;
+  height: 30px;
+  margin-top: auto;
+  color: var(--bgColor);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid var(--bgColor);
+  border-radius: 2px;
+  transition: var(--transitionBgColor);
+}
+.article__btn:not(.disabled):hover,
+.article__btn:not(.disabled):focus {
+  background-color: var(--accentColor);
+}
+
+.disabled {
+  color: var(--accentColor);
+  border-color: var(--accentColor);
+}
+.article__cover {
+  position: absolute;
+  width: 200px;
+  bottom: 0;
+  right: -40px;
+}
+
+/* C O F E  S H O P */
+
+.coffee {
+  padding-bottom: 40px;
+}
+
+.coffee__describe {
+  margin: 40px 0;
+  color: var(--textColor);
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+.coffee__describe .y {
+  text-transform: capitalize;
+}
+.coffee__describe::first-letter {
+  text-transform: capitalize;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu__title {
+  color: var(--accentColor);
+  font-family: 'Forum';
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__right .menu__title {
+  text-align: end;
+}
+
+.menu__left .menu__list {
+  width: 438px;
+}
+.menu__right .menu__list {
+  width: 482px;
+}
+
+.menu__item {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu__name {
+  color: var(--textColor);
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__right .menu__item {
+  justify-content: end;
+  gap: 220px;
+}
+
+.menu__price {
+  position: relative;
+  text-align: end;
+  color: var(--textColor);
+  font-family: 'Forum';
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.menu__price::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 50%;
+  left: -160px;
+  width: 100px;
+  height: 1px;
+  background-color: var(--accentColor);
+}
+
+/* C O N T A C T S */
+.contacts {
+  padding-bottom: 40px;
+}
+.contacts__wrap {
+  display: flex;
+  justify-content: space-between;
+  color: var(--textColor);
+  text-transform: capitalize;
+}
+.contacts__wrap * {
+  line-height: 2;
+  letter-spacing: 2px;
+}
+
+.contacts__title {
+  font-weight: 700;
+}
+.all {
+  margin-bottom: 40px;
+}
+.senior {
+  margin-bottom: 20px;
+}
+
+.contacts__tel {
+  margin-bottom: 40px;
+}
+
+.tel-item:not(:last-child),
+.senior {
+  margin-bottom: 20px;
+}
+
+.map {
+  width: 696px;
+  height: 414px;
+  background-image: url(./assets/images/map.jpg);
+}
+
+/* C A R D */
+.card {
+  padding-bottom: 40px;
+}
+
+.card__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* card__left */
+.card__left {
+  width: 600px;
+}
+
+.card__find {
+  margin-bottom: 22px;
+  text-align: center;
+  color: var(--textColor);
+  font-size: 30px;
+  line-height: 1.667;
+  letter-spacing: 0.6px;
+}
+
+.white-bg {
+  padding: 17px 17px 27px;
+  border: 3px solid var(--accentColor);
+}
+
+.card__inputs-wrap {
+  padding: 20px 20px 25px;
+  background-color: var(--accentColor);
+}
+
+.card__label {
+  color: var(--textColor);
+  font-family: 'Forum';
+  font-size: 30px;
+  line-height: 1.667;
+  letter-spacing: 0.6px;
+}
+
+.card__inputs__list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__input {
+  width: 100%;
+  height: 66px;
+  border-radius: 10px;
+}
+
+.card__input {
+  padding: 8px 20px;
+  color: var(--accentColor);
+  font-size: 30px;
+  line-height: 1.667;
+  letter-spacing: 0.6px;
+}
+.card__input::placeholder {
+  color: var(--placeholderColor);
+  font-family: 'Forum';
+  font-size: 30px;
+  line-height: 1.667; /* 166.667% */
+  letter-spacing: 0.6px;
+}
+
+button[type='submit'] {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 40px;
+  margin-top: 20px;
+  border-radius: 2px;
+  border: 1px solid var(--bgColor);
+  color: var(--bgColor);
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: var(--transitionBgColor);
+}
+
+button[type='submit']:hover,
+button[type='submit']:focus {
+  background-color: var(--accentColor);
+}
+
+/* card__right */
+
+.card__right {
+  width: 456px;
+}
+.card__get {
+  margin-bottom: 35px;
+  color: var(--textColor);
+  font-family: 'Forum';
+  font-size: 30px;
+  letter-spacing: 0.6px;
+  text-align: right;
+}
+
+.card__describe-registration {
+  margin-bottom: 35px;
+  color: var(--textColor);
+  text-align: right;
+  line-height: 2;
+  letter-spacing: 0.4px;
+}
+
+.card__btn__wrap {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.card__btn {
+  width: 75px;
+  padding: 10px 0;
+  border-radius: 2px;
+  border: 1px solid var(--bgColor);
+  color: var(--bgColor);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: var(--transitionBgColor);
+}
+
+.card__btn:hover,
+.card__btn:focus {
+  background-color: var(--accentColor);
+}
+
+/* F O O T E R */
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 44px;
+  background-color: var(--bgColor);
+  color: var(--textColor-invert);
+}
+
+.footer__top,
+.footer__down {
+  display: flex;
+  justify-content: space-between;
+}
+
+.media__links {
+  display: flex;
+  gap: 15px;
+}
+
+.media__item {
+  color: #f5efdb;
+  transition: var(--transitionColor);
+}
+
+.media__item:hover,
+.media__item:active {
+  color: var(--accentColor);
+}
