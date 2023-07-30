@@ -111,7 +111,6 @@ input[type='radio'] + label {
 
 .section {
   background-color: #fff;
-  outline: 1px red solid;
 }
 
 .section:not(.welcome) {
@@ -240,20 +239,28 @@ header {
 
 /* Pagination */
 .pagination {
-  margin: 35px 0;
+  margin: 30px 0;
   display: flex;
-  gap: 10px;
 }
 
 .pagination__btn {
-  width: 16px;
-  height: 16px;
+  position: relative;
+  border: none;
+  width: 26px;
+  height: 26px;
+}
+.pagination__btn:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  bottom: 5px;
   border-radius: 16px;
   background-color: var(--bgColor);
-  border: none;
 }
 
-.pagination__item:first-of-type .pagination__btn {
+.pagination__item:first-of-type .pagination__btn::before {
   background-color: var(--accentColor);
 }
 
@@ -268,7 +275,7 @@ header {
 
 .seasons-wrap {
   display: flex;
-  gap: 81px;
+  gap: 80px;
   align-items: center;
   margin: 35px 0 35px -15px;
 }
@@ -288,7 +295,7 @@ header {
   transform: translateX(-15px);
 }
 
-.season-input:checked + .season {
+.season:has(.season-input:checked) {
   font-weight: 700;
 }
 
