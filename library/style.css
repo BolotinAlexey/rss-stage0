@@ -298,8 +298,12 @@ header {
   box-shadow: inset 0 0 0 3px var(--textColor-invert);
   background-color: var(--textColor);
 }
-/* .season:not(:last-child) {
-  margin-right: 85px;
+
+/* .season:nth-child(1) {
+  width: 117px;
+}
+.season:nth-child(2) {
+  width: 115px;
 } */
 
 .season-input {
@@ -307,7 +311,9 @@ header {
 }
 
 .season-input:checked + .season {
-  font-weight: 700;
+  /* font-weight: 700;
+  letter-spacing: -1px; */
+  text-shadow: 0 0 0.85px var(--textColor), 0 0 0.85px var(--textColor);
 }
 
 /* Articles */
@@ -539,7 +545,7 @@ header {
 }
 
 .card__find {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   text-align: center;
   color: var(--textColor);
   font-size: 30px;
