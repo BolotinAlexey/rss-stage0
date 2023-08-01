@@ -392,16 +392,21 @@ header {
   letter-spacing: 1px;
   border: 1px solid var(--bgColor);
   border-radius: 2px;
-  transition: var(--transitionBgColor);
+  transition: all 0.3s linear;
 }
 .article__btn:not(.disabled):hover,
 .article__btn:not(.disabled):focus {
   background-color: var(--accentColor);
+  border: none;
 }
 
 .disabled {
   color: var(--accentColor);
   border-color: var(--accentColor);
+}
+.disabled:hover,
+.disabled:focus {
+  cursor: default;
 }
 .article__cover {
   position: absolute;
@@ -623,6 +628,7 @@ button[type='submit'] {
 button[type='submit']:hover,
 button[type='submit']:focus {
   background-color: var(--accentColor);
+  border: 1px solid var(--accentColor);
 }
 
 /* card__right */
@@ -669,6 +675,7 @@ button[type='submit']:focus {
 .card__btn:hover,
 .card__btn:focus {
   background-color: var(--accentColor);
+  border: 1px solid var(--accentColor);
 }
 
 /* F O O T E R */
