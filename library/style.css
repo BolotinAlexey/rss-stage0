@@ -284,6 +284,11 @@ header {
   margin-right: 65px;
   padding: 5px 5px 5px 45px;
   cursor: pointer;
+  transition: var(--transitionColor);
+}
+.season:hover,
+.season:focus {
+  color: var(--accentColor);
 }
 .season::before {
   content: '';
@@ -292,11 +297,12 @@ header {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  border: 2px solid var(--textColor);
+  border: 2px solid currentColor;
 }
+
 .season-input:checked + .season::before {
   box-shadow: inset 0 0 0 3px var(--textColor-invert);
-  background-color: var(--textColor);
+  background-color: currentColor;
 }
 
 /* .season:nth-child(1) {
