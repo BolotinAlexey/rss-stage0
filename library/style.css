@@ -6,6 +6,9 @@
   --textColor-invert: #fff;
   --transitionColor: color 0.3s linear;
   --transitionBgColor: background-color 0.3s linear;
+  --breakpoint-tablet: 1024px;
+  --width-desktop: 1440px;
+  --width-tablet: 768px;
 }
 html {
   scroll-behavior: smooth;
@@ -103,7 +106,7 @@ input[type='radio'] + label {
 }
 
 .container {
-  width: 1440px;
+  max-width: var(--width-desktop);
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
@@ -195,10 +198,10 @@ header {
 /* W E L C O M */
 
 .welcome {
-  /* height: calc(100vw * 60 / 144); */
+  height: calc(100vw * 60 / 144);
   position: relative;
-  width: 1440px;
-  height: 600px;
+  /* width: 1440px;
+  height: 600px; */
   margin: 0 auto;
 
   background-image: url(./assets/images/welcome-bg.jpg);
@@ -257,12 +260,15 @@ header {
 }
 
 .about__list {
-  width: calc(166.7% + 40px);
+  position: relative;
+  /* left: calc(-66.66666% - 17px); */
+  width: calc(166.7% + 15px);
   display: flex;
+  gap: 25px;
 }
 
-.about__item {
-  width: calc((100% + 120px) / 5);
+.about__item > img {
+  width: 100%;
 }
 
 /* Pagination */
@@ -287,9 +293,12 @@ header {
   border-radius: 16px;
   background-color: var(--bgColor);
 }
-
 .pagination__item:first-of-type .pagination__btn::before {
   background-color: var(--accentColor);
+}
+.pagination__item:nth-child(4),
+.pagination__item:nth-child(5) {
+  display: none;
 }
 
 /* F A V O R I T E S */
@@ -764,4 +773,55 @@ address {
 
 .school {
   margin-left: 102px;
+}
+
+/* Media query */
+
+@media screen and (max-width: 1420px) {
+  /* .carousel-wrap {
+    position: relative;
+    left: 2%;
+    transform: translateX(calc(25vw - 10% - 12px));
+  } */
+
+  .about__list {
+    width: calc(250% + 50px);
+    display: flex;
+    /* left: calc(-50% - 15px); */
+  }
+
+  .about__item {
+    width: 20%;
+  }
+  .pagination__item:nth-child(4) {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header__wrap {
+    gap: 10px;
+  }
+  .header__list {
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: var(--width-tablet);
+  }
+  .about__list {
+    width: calc(500% + 50px);
+    display: flex;
+    /* left: calc(-50% - 15px); */
+  }
+
+  .about__item {
+    width: 20%;
+  }
+  .pagination__item:nth-child(4),
+  .pagination__item:nth-child(5) {
+    display: block;
+  }
 }
