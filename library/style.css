@@ -360,10 +360,19 @@ header {
 }
 
 /* Articles */
+
 .articles {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px 260px;
+  /* gap: 40px 260px; */
+  justify-content: space-between;
+}
+
+.articles__item {
+  padding-right: 40px;
+}
+.articles__item:not(:last-child) {
+  margin-bottom: 40px;
 }
 
 .article {
@@ -798,12 +807,15 @@ address {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1220px) {
   .header__wrap {
     gap: 10px;
   }
   .header__list {
     gap: 0;
+  }
+  .articles {
+    justify-content: center;
   }
 }
 
