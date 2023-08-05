@@ -223,12 +223,9 @@ header {
 /* W E L C O M */
 
 .welcome {
-  height: calc(100vw * 60 / 144);
+  height: 600px;
   position: relative;
-  /* width: 1440px;
-  height: 600px; */
   margin: 0 auto;
-
   background-image: url(./assets/images/welcome-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
