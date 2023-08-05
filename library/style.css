@@ -840,9 +840,28 @@ address {
   .menu {
     flex-direction: column;
     gap: 40px;
-    /* justify-content: space-between; */
   }
   .menu__right {
     margin-left: auto;
+  }
+
+  .contacts__wrap {
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .card__wrap {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .card__get,
+  .card__describe-registration {
+    text-align: center;
+  }
+
+  .card__btn__wrap {
+    justify-content: center;
   }
 }
