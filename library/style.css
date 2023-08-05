@@ -185,6 +185,7 @@ header {
 
 .logo__btn {
   padding: 0;
+  display: flex;
   color: var(--textColor-invert);
   border: none;
   transition: var(--transitionColor);
@@ -198,7 +199,7 @@ header {
 /* burger */
 .burger-wrap {
   display: none;
-  padding: 10px;
+  padding: 10px 10px 12px 10px;
   cursor: pointer;
   transition: var(--transitionColor);
 }
@@ -846,19 +847,32 @@ address {
   nav {
     display: none;
   }
+  .header__wrap {
+    margin-right: -10px;
+  }
 
   .burger-wrap {
     display: block;
   }
 
+  .welcome {
+    background-image: url(./assets/images/welcome-tablet.jpg);
+  }
+
   .about__list {
     width: calc(500% + 50px);
     display: flex;
+    justify-content: space-around;
+    padding-left: 5px;
     /* left: calc(-50% - 15px); */
   }
 
   .about__item {
-    width: 20%;
+    width: auto;
+  }
+
+  .pagination {
+    margin-top: 15px;
   }
 
   .pagination__item:nth-child(5) {
@@ -896,5 +910,26 @@ address {
 
   .card__btn__wrap {
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .welcome__title {
+    width: auto;
+  }
+  .seasons-wrap {
+    justify-content: space-between;
+  }
+  .season {
+    margin-right: 0;
+  }
+  .map {
+    width: 100%;
+  }
+  .articles__item {
+    transform: scale(0.9);
+  }
+  .card__left {
+    width: 100%;
   }
 }
