@@ -146,6 +146,11 @@ input[type='radio'] + label {
   text-align: center;
 }
 
+.no-wrap {
+  white-space: nowrap;
+  font: inherit;
+}
+
 /* H E A D E R */
 header {
   background-color: var(--bgColor);
@@ -238,7 +243,7 @@ header {
     180deg,
     #0c0c0e 0%,
     #0c0c0e 0.01%,
-    rgba(18, 18, 21, 0.1) 100%
+    rgba(18, 18, 21, 0.1) 50%
   );
   width: 100%;
   height: 300px;
@@ -336,12 +341,13 @@ header {
 .seasons-wrap {
   display: flex;
   align-items: center;
-  margin: 35px 0 35px -20px;
+  margin: 35px 0 35px -21px;
+  /* margin: 35px 0; */
 }
 
 .season {
   position: relative;
-  margin-right: 65px;
+  margin-right: 77px;
   padding: 5px 5px 5px 45px;
   cursor: pointer;
   transition: var(--transitionColor);
@@ -358,6 +364,18 @@ header {
   height: 13px;
   border-radius: 50%;
   border: 2px solid currentColor;
+}
+.season:nth-of-type(1) {
+  width: 104px;
+}
+.season:nth-of-type(2) {
+  width: 99px;
+}
+.season:nth-of-type(3) {
+  width: 116px;
+}
+.season:nth-of-type(4) {
+  width: 111px;
 }
 
 .season-input:checked + .season::before {
@@ -377,9 +395,9 @@ header {
 }
 
 .season-input:checked + .season {
-  /* font-weight: 700;
-  letter-spacing: -1px; */
-  text-shadow: 0 0 0.85px var(--textColor), 0 0 0.85px var(--textColor);
+  font-weight: 700;
+  /* letter-spacing: -1px; */
+  /* text-shadow: 0 0 0.85px var(--textColor), 0 0 0.85px var(--textColor); */
 }
 
 /* Articles */
@@ -394,15 +412,20 @@ header {
 .articles__item {
   padding-right: 40px;
 }
-.articles__item:not(:last-child) {
+
+.articles__item:nth-of-type(1),
+.articles__item:nth-of-type(2) {
   margin-bottom: 40px;
 }
+/* .articles__item:not(:last-child),.articles__item:not() {
+  margin-bottom: 40px;
+} */
 
 .article {
   position: relative;
   width: 550px;
   height: 555px;
-  padding: 15px 175px 15px 20px;
+  padding: 14px 175px 15px 19px;
   display: flex;
   flex-direction: column;
   color: var(--textColor);
@@ -501,6 +524,10 @@ header {
 .coffee__describe .y {
   text-transform: capitalize;
 }
+.y {
+  margin-left: -1px;
+}
+
 .coffee__describe::first-letter {
   text-transform: capitalize;
 }
@@ -607,6 +634,8 @@ header {
   width: 696px;
   height: 414px;
   background-image: url(./assets/images/map.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* C A R D */
@@ -625,17 +654,18 @@ header {
 }
 
 .card__find {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   color: var(--textColor);
   font-size: 30px;
-  line-height: 1.667;
+  line-height: 1.2;
   letter-spacing: 0.6px;
 }
 
 .white-bg {
   padding: 17px 17px 27px;
   border: 3px solid var(--accentColor);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .card__inputs-wrap {
@@ -662,6 +692,7 @@ header {
   width: 100%;
   height: 66px;
   border-radius: 10px;
+  border: none;
 }
 
 .card__input {
@@ -704,9 +735,11 @@ button[type='submit']:focus {
 
 .card__right {
   width: 456px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 .card__get {
-  margin-bottom: 35px;
   color: var(--textColor);
   font-family: 'Forum';
   font-size: 30px;
@@ -715,7 +748,6 @@ button[type='submit']:focus {
 }
 
 .card__describe-registration {
-  margin-bottom: 35px;
   color: var(--textColor);
   text-align: right;
   line-height: 2;
@@ -730,12 +762,13 @@ button[type='submit']:focus {
 
 .card__btn {
   width: 75px;
-  padding: 10px 0;
+  padding: 8px 0;
   border-radius: 2px;
   border: 1px solid var(--bgColor);
   color: var(--bgColor);
   text-align: center;
   font-size: 10px;
+  /* line-height: 1.2; */
   font-weight: 700;
   letter-spacing: 1px;
   transition: var(--transitionBgColor);
@@ -762,7 +795,7 @@ footer {
   justify-content: space-between;
 }
 .footer__top {
-  padding-bottom: 30px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--textColor-invert);
 }
 
@@ -879,6 +912,10 @@ address {
     display: block;
   }
 
+  .articles__item:nth-of-type(3) {
+    margin-bottom: 40px;
+  }
+
   .menu {
     flex-direction: column;
     gap: 40px;
@@ -892,15 +929,24 @@ address {
     gap: 100px;
   }
 
-  /* .map {
-    width: 696px;
-    height: 414px;
-  } */
+  .map {
+    align-self: center;
+  }
 
   .card__wrap {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+  }
+
+  /* Coming for Perfect Pixel */
+  .card > .section__title {
+    padding-left: 4px;
+  }
+
+  .card__right {
+    width: 600px;
+    gap: 40px;
   }
 
   .card__get,
@@ -910,6 +956,10 @@ address {
 
   .card__btn__wrap {
     justify-content: center;
+  }
+
+  .school {
+    margin-left: 50px;
   }
 }
 
@@ -929,6 +979,9 @@ address {
   .articles__item {
     transform: scale(0.9);
   }
+}
+
+@media screen and (max-width: 640px) {
   .card__left {
     width: 100%;
   }
