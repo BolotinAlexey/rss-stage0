@@ -836,4 +836,13 @@ address {
   .pagination__item:nth-child(5) {
     display: block;
   }
+
+  .menu {
+    flex-direction: column;
+    gap: 40px;
+    /* justify-content: space-between; */
+  }
+  .menu__right {
+    margin-left: auto;
+  }
 }
