@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  /* background-color: var(--bgColor); */
+  background-color: var(--bgColor);
 }
 
 * {
@@ -285,6 +285,55 @@ header {
 .carousel-wrap {
   width: 100%;
   overflow: hidden;
+}
+
+/* arrows */
+.arrow {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  top: 52%;
+  z-index: 10;
+  transition: all 0.3s linear;
+}
+.arrow:hover {
+  cursor: pointer;
+  color: var(--accentColor);
+  transform: scale(5);
+}
+
+.arrow:first-of-type {
+  left: 55px;
+}
+.arrow:last-of-type {
+  right: 56px;
+}
+
+.deg45 {
+  transform: rotate(40deg);
+}
+.deg-45 {
+  transform: rotate(-40deg);
+}
+.deg45,
+.deg-45 {
+  width: 8px;
+  height: 1px;
+  border-radius: 1px;
+  background-color: currentColor;
+}
+
+.previous > .deg45,
+.previous > .deg-45 {
+  transform-origin: -1px;
+}
+.next > .deg45,
+.next > .deg-45 {
+  transform-origin: calc(100% - 1px);
+}
+
+.carousel-wrap {
+  position: relative;
 }
 
 .about__list {
@@ -890,6 +939,13 @@ address {
 
   .welcome {
     background-image: url(./assets/images/welcome-tablet.jpg);
+  }
+
+  .carousel-wrap {
+    position: relative;
+  }
+  .arrow {
+    display: block;
   }
 
   .about__list {
