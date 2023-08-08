@@ -196,6 +196,13 @@ header {
   transition: var(--transitionColor);
 }
 
+.logo {
+  position: relative;
+  top: -1px;
+  right: 0;
+  transition: right 0.4s linear;
+}
+
 .logo__btn:hover,
 .logo__btn:focus {
   color: var(--accentColor);
@@ -203,13 +210,14 @@ header {
 
 /* burger */
 .burger-wrap {
+  position: relative;
   display: none;
   padding: 10px 10px 12px 10px;
   cursor: pointer;
-  transition: var(--transitionColor);
+  right: 0;
+  transition: right 0.4s linear;
 }
-.burger-wrap:hover,
-.burger-wrap:focus {
+.burger-wrap:hover {
   color: var(--accentColor);
 }
 
@@ -224,6 +232,7 @@ header {
 .burger__line {
   height: 2px;
   background-color: currentColor;
+  transition: transform 0.7s linear;
 }
 
 /* W E L C O M */
@@ -391,7 +400,6 @@ header {
   display: flex;
   align-items: center;
   margin: 35px 0 35px -21px;
-  /* margin: 35px 0; */
 }
 
 .season {
@@ -1044,19 +1052,54 @@ address {
 }
 
 /* M O B I L E */
+.bg-mobile {
+  position: absolute;
+  top: 0;
+  /* bottom: 0; */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  transition: all 0.4s linear;
+}
 .mobile {
   position: absolute;
   width: 332px;
   height: 570px;
   padding: 31px 20px;
-  z-index: 10;
+
   background-color: var(--textColor);
   outline: red solid 1px;
-  transform: translate(50%, -120%);
-  transition: all 0.3s linear;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  transition: all 0.4s linear;
+}
+
+.bg-mobile.visibleMobile {
+  bottom: 0;
+  /* position: fixed; */
 }
 .mobile.visibleMobile {
-  transform: translate(50%, 0);
+  transform: translateX(-50%);
+}
+.burger-wrap.visibleMobile {
+  right: calc(50% - 168px);
+  z-index: 20;
+}
+.logo.visibleMobile {
+  right: calc(50% - 165px);
+  z-index: 20;
+}
+
+.burger-wrap.visibleMobile .burger__line:nth-of-type(1) {
+  transform: rotate(45deg) translateY(14px);
+}
+.burger-wrap.visibleMobile .burger__line:nth-of-type(2) {
+  visibility: hidden;
+}
+.burger-wrap.visibleMobile .burger__line:nth-of-type(3) {
+  transform: rotate(-45deg) translateY(-14px);
 }
 
 /* .mobile__header {
@@ -1064,3 +1107,6 @@ address {
   justify-content: end;
   gap: 40px;
 } */
+body.visibleMobile {
+  overflow: hidden;
+}

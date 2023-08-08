@@ -1,3 +1,20 @@
 const burger = document.querySelector('.burger-wrap');
 const mobile = document.querySelector('.mobile');
-burger.addEventListener('click', e => mobile.classList.toggle('visibleMobile'));
+const bg = document.querySelector('.bg-mobile');
+const body = document.querySelector('body');
+const logo = document.querySelector('.logo');
+
+function onVisibleMobile(e) {
+  bg.classList.toggle('visibleMobile');
+  mobile.classList.toggle('visibleMobile');
+  body.classList.toggle('visibleMobile');
+  burger.classList.toggle('visibleMobile');
+  logo.classList.toggle('visibleMobile');
+}
+
+burger.addEventListener('click', onVisibleMobile);
+bg.addEventListener('click', e => {
+  if (e.target === bg) {
+    onVisibleMobile(e);
+  }
+});
