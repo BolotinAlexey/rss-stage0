@@ -234,7 +234,8 @@ header {
 .burger__line {
   height: 2px;
   background-color: currentColor;
-  transition: transform 1s linear;
+  opacity: 1;
+  transition: transform 1s linear, opacity 0.5s linear;
 }
 
 /* W E L C O M */
@@ -310,7 +311,7 @@ header {
 .arrow:hover {
   cursor: pointer;
   color: var(--accentColor);
-  transform: scale(5);
+  transform: scale(2);
 }
 
 .arrow:first-of-type {
@@ -1095,7 +1096,7 @@ address {
   transform: rotate(45deg) translateY(14px);
 }
 .burger-wrap.visibleMobile .burger__line:nth-of-type(2) {
-  visibility: hidden;
+  opacity: 0;
 }
 .burger-wrap.visibleMobile .burger__line:nth-of-type(3) {
   transform: rotate(-45deg) translateY(-14px);
