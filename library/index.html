@@ -18,7 +18,7 @@
     <header class="container">
       <div class="header__wrap">
         <h1 class="header__title">Brooklyn Public Library</h1>
-        <nav>
+        <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
               <a href="#about" class="header__link">About</a>
@@ -37,6 +37,7 @@
             </li>
           </ul>
         </nav>
+
         <div class="logo">
           <button class="logo__btn">
             <svg
@@ -54,12 +55,50 @@
             </svg>
           </button>
         </div>
+        <div class="burger-wrap">
+          <ul class="burger">
+            <li class="burger__line"></li>
+            <li class="burger__line"></li>
+            <li class="burger__line"></li>
+          </ul>
+        </div>
+      </div>
+      <!-- M O B I L E -->
+      <div class="bg-mobile">
+        <div class="mobile">
+          <nav class="mobile__nav">
+            <ul class="mobile__nav__list">
+              <li class="mobile__nav__item">
+                <a href="#about" class="mobile__nav__link">About</a>
+              </li>
+              <li class="mobile__nav__item">
+                <a href="#favorites" class="mobile__nav__link">Favorites</a>
+              </li>
+              <li class="mobile__nav__item">
+                <a href="#coffee" class="mobile__nav__link">Coffee shop</a>
+              </li>
+              <li class="mobile__nav__item">
+                <a href="#contacts" class="mobile__nav__link">Contacts</a>
+              </li>
+              <li class="mobile__nav__item">
+                <a href="#card" class="mobile__nav__link">Library Card</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
     <main>
       <!-- W E L C O M -->
       <section class="section welcome">
         <h2 class="visually-hidden">Welcome</h2>
+        <div class="linear-gradient"></div>
+        <div class="welcome__title-wrapper">
+          <h3 class="welcome__title">
+            Welcome&nbsp;<br />
+            to the Brooklyn<br />Library
+          </h3>
+        </div>
       </section>
 
       <!-- A B O U T -->
@@ -70,8 +109,18 @@
           a cozy coffee shop inside
         </h3>
 
-        <!-- Carousel -->
+        <!-- arrows -->
         <div class="carousel-wrap">
+          <div class="arrow previous">
+            <div class="deg45"></div>
+            <div class="deg-45"></div>
+          </div>
+          <div class="arrow next">
+            <div class="deg45"></div>
+            <div class="deg-45"></div>
+          </div>
+
+          <!-- Carousel -->
           <ul class="about__list">
             <li class="about__item">
               <img
@@ -120,6 +169,13 @@
           <li class="pagination__item">
             <button class="pagination__btn"></button>
           </li>
+          <li class="pagination__item">
+            <button class="pagination__btn"></button>
+          </li>
+          <li class="pagination__item">
+            <button class="pagination__btn"></button>
+          </li>
+
           <li class="pagination__item">
             <button class="pagination__btn"></button>
           </li>
@@ -204,10 +260,13 @@
 
               <p class="article__describe">
                 Auerbach's engaging book places the 'Comedy' within the
-                tradition of epic, tragedy, and philosophy in general, arguing
-                for Dante's uniqueness as one who raised the individual and his
-                drama of soul into something of divine significance—an inspired
-                introduction to Dante's main themes.
+                tradition of epic, tragedy, and philosophy in general,
+                <span class="no-wrap"
+                  >arguing for Dante's uniqueness as one</span
+                >
+                who raised the individual and his drama of soul into something
+                of divine significance—an inspired introduction to Dante's main
+                themes.
               </p>
               <button class="article__btn">Buy</button>
               <img
@@ -226,9 +285,12 @@
               <h3 class="article__author">By Clive Irving</h3>
 
               <p class="article__describe">
-                A timely and revelatory new biography of Queen Elizabeth (and
-                her family) exploring how the Windsors have evolved and thrived
-                as the modern world has changed around them.
+                A timely and revelatory new
+                <span class="no-wrap"
+                  >biography of Queen Elizabeth (and her</span
+                >
+                family) exploring how the Windsors have evolved and thrived as
+                the modern world has changed around them.
               </p>
               <button class="article__btn disabled" disabled>Own</button>
               <img
@@ -246,7 +308,7 @@
         <h2 class="section__title">Coffee shop</h2>
         <p class="coffee__describe">
           In our library, we have of cozy coffee shop, welcoming in customers
-          with frothy cappuccinos and friendly conversation.
+          with frothy cappuccinos and friendly conversation.&nbsp;
           <span class="y">y</span>ou can get a favorite book and read in coffee
           shop. Our barista to cook you best coffee, and also you can try
           desserts from bakery.
@@ -337,7 +399,7 @@
             <div class="contacts__title senior">Senior Staff</div>
             <p class="director">
               Library Director:
-              <b><a href="mailto:amanda.gmail.com">Amanda Hirst</a></b>
+              <a href="mailto:amanda.gmail.com"><b>Amanda Hirst</b></a>
             </p>
           </div>
           <div class="map"></div>
@@ -483,5 +545,6 @@
       </div>
     </footer>
     <script src="./index.js"></script>
+    <script src="./mobile.js"></script>
   </body>
 </html>
