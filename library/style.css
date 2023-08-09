@@ -200,6 +200,7 @@ header {
   position: relative;
   top: -1px;
   right: 0;
+  z-index: 20;
   transition: right 0.4s linear;
 }
 
@@ -216,6 +217,7 @@ header {
   cursor: pointer;
   right: 0;
   transition: right 0.4s linear;
+  z-index: 20;
 }
 .burger-wrap:hover {
   color: var(--accentColor);
@@ -1046,7 +1048,8 @@ address {
 }
 
 @media screen and (max-width: 640px) {
-  .card__left {
+  .card__left,
+  .card__right {
     width: 100%;
   }
 }
@@ -1066,9 +1069,8 @@ address {
   position: absolute;
   width: 332px;
   height: 570px;
-  padding: 100px 0;
+  padding: 100px 90px;
   background-color: var(--textColor);
-  outline: red solid 1px;
   left: 50%;
   top: 0;
   transform: translate(-50%, -120%);
@@ -1084,11 +1086,9 @@ address {
 }
 .burger-wrap.visibleMobile {
   right: calc(50% - 168px);
-  z-index: 20;
 }
 .logo.visibleMobile {
   right: calc(50% - 165px);
-  z-index: 20;
 }
 
 .burger-wrap.visibleMobile .burger__line:nth-of-type(1) {
@@ -1101,11 +1101,6 @@ address {
   transform: rotate(-45deg) translateY(-14px);
 }
 
-/* .mobile__header {
-  display: flex;
-  justify-content: end;
-  gap: 40px;
-} */
 body.visibleMobile {
   overflow: hidden;
 }

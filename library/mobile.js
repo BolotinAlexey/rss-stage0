@@ -18,3 +18,6 @@ bg.addEventListener('click', e => {
     onVisibleMobile(e);
   }
 });
+mobile.addEventListener('click', e => {
+  if (e.target.tagName === 'A') onVisibleMobile(e);
+});
