@@ -216,7 +216,7 @@ header {
   display: none;
   padding: 10px;
   cursor: pointer;
-  right: -9px;
+  right: -7px;
   transition: right 0.4s linear;
   z-index: 20;
 }
