@@ -214,9 +214,9 @@ header {
 .burger-wrap {
   position: relative;
   display: none;
-  padding: 10px 10px 12px 10px;
+  padding: 10px;
   cursor: pointer;
-  right: 0;
+  right: -9px;
   transition: right 0.4s linear;
   z-index: 20;
 }
@@ -1074,9 +1074,11 @@ address {
   height: 570px;
   padding: 100px 90px;
   background-color: var(--textColor);
-  left: 50%;
+  /* left: 50%; */
+  right: 0;
   top: 0;
-  transform: translate(-50%, -120%);
+  /* transform: translate(-50%, -120%); */
+  transform: translateY(-120%);
   transition: all 0.4s linear;
 }
 
@@ -1085,14 +1087,15 @@ address {
   /* position: fixed; */
 }
 .mobile.visibleMobile {
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
+  transform: translateY(0);
 }
-.burger-wrap.visibleMobile {
+/* .burger-wrap.visibleMobile {
   right: calc(50% - 168px);
 }
 .logo.visibleMobile {
   right: calc(50% - 165px);
-}
+} */
 
 .burger-wrap.visibleMobile .burger__line:nth-of-type(1) {
   transform: rotate(45deg) translateY(14px);
