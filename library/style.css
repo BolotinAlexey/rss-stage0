@@ -12,6 +12,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -1043,15 +1044,16 @@ address {
   .map {
     width: 100%;
   }
-  .articles__item {
-    transform: scale(0.9);
-  }
+ 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 638px) {
   .card__left,
   .card__right {
     width: 100%;
+  }
+  .articles__item {
+    transform: scale(0.9);
   }
 }
 
