@@ -87,7 +87,7 @@ button:active {
   outline: none;
 }
 
-button:hover,
+button:not([disabled]):hover,
 input[type='radio'],
 input[type='radio'] + label {
   cursor: pointer;
@@ -304,12 +304,13 @@ header {
 .arrow {
   display: none;
   position: absolute;
+  border: none;
   padding: 10px;
   top: 52%;
   z-index: 5;
   transition: all 0.3s linear;
 }
-.arrow:hover {
+.arrow:not([disabled]):hover {
   cursor: pointer;
   color: var(--accentColor);
   transform: scale(2);
@@ -323,9 +324,11 @@ header {
 }
 
 .deg45 {
+  display: block;
   transform: rotate(40deg);
 }
 .deg-45 {
+  display: block;
   transform: rotate(-40deg);
 }
 .deg45,
@@ -351,10 +354,12 @@ header {
 
 .about__list {
   position: relative;
-  /* left: calc(-66.66666% - 17px); */
+  left: 0;
+  /* left: calc(-33.33333% - 17px); */
   width: calc(166.7% + 15px);
   display: flex;
   gap: 25px;
+  transition: left 0.25s linear;
 }
 
 .about__item > img {
@@ -383,7 +388,7 @@ header {
   border-radius: 16px;
   background-color: var(--bgColor);
 }
-.pagination__item:first-of-type .pagination__btn::before {
+.current-slide.pagination__btn::before {
   background-color: var(--accentColor);
 }
 .pagination__item:nth-child(4),
@@ -904,12 +909,6 @@ address {
 /* Media query */
 
 @media screen and (max-width: 1420px) {
-  /* .carousel-wrap {
-    position: relative;
-    left: 2%;
-    transform: translateX(calc(25vw - 10% - 12px));
-  } */
-
   .about__list {
     width: calc(250% + 50px);
     display: flex;
@@ -1044,7 +1043,6 @@ address {
   .map {
     width: 100%;
   }
- 
 }
 
 @media screen and (max-width: 638px) {
