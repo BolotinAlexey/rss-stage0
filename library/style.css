@@ -106,6 +106,15 @@ input[type='radio'] + label {
   margin: -1px;
 }
 
+.show-article {
+  opacity: 1;
+  transition: opacity 1.5s ease-in;
+}
+.hide-article {
+  opacity: 0;
+  transition: opacity 0.7s ease-out;
+}
+
 .container {
   max-width: var(--width-desktop);
   margin: 0 auto;
@@ -467,6 +476,18 @@ header {
 }
 
 /* Articles */
+.favorite__articles-set {
+  position: relative;
+}
+.favorite__articles:not(.favorite__articles:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.favorite__articles:not(.show-article) {
+  opacity: 0;
+}
 
 .articles {
   display: flex;
