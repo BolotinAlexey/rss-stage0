@@ -25,8 +25,7 @@ const onClickSeasonBtn = e => {
 const showArticle = () => {
   // fadein-fadout articles
   const prev = document.querySelector('.show-article');
-  prev.classList.remove('show-article');
-  prev.classList.add('hide-article');
+  prev.classList.replace('show-article', 'hide-article');
   const current = seasonArticles[currentArticle];
   current.classList.contains('hide-article') &&
     current.classList.remove('hide-article');
