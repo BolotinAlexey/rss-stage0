@@ -87,12 +87,6 @@ button:active {
   outline: none;
 }
 
-button:not([disabled]):hover,
-input[type='radio'],
-input[type='radio'] + label {
-  cursor: pointer;
-}
-
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -364,7 +358,6 @@ header {
 .about__list {
   position: relative;
   left: 0;
-  /* left: calc(-33.33333% - 17px); */
   width: calc(166.7% + 15px);
   display: flex;
   gap: 25px;
@@ -386,6 +379,9 @@ header {
   border: none;
   width: 26px;
   height: 26px;
+}
+button:not(.current-slide):hover {
+  cursor: pointer;
 }
 .pagination__btn:before {
   content: '';
@@ -424,12 +420,12 @@ header {
   position: relative;
   margin-right: 77px;
   padding: 5px 5px 5px 45px;
-  cursor: pointer;
   transition: var(--transitionColor);
 }
-.season:hover,
-.season:focus {
+.season-input:enabled + .season:hover,
+.season-input:enabled + .season:focus {
   color: var(--accentColor);
+  cursor: pointer;
 }
 .season::before {
   content: '';
@@ -458,21 +454,12 @@ header {
   background-color: currentColor;
 }
 
-/* .season:nth-child(1) {
-  width: 117px;
-}
-.season:nth-child(2) {
-  width: 115px;
-} */
-
 .season-input {
   visibility: hidden;
 }
 
 .season-input:checked + .season {
   font-weight: 700;
-  /* letter-spacing: -1px; */
-  /* text-shadow: 0 0 0.85px var(--textColor), 0 0 0.85px var(--textColor); */
 }
 
 /* Articles */
@@ -573,11 +560,11 @@ header {
   border-radius: 2px;
   transition: all 0.3s linear;
 }
-.article__btn:not(.disabled):hover,
-.article__btn:not(.disabled):focus {
+/* .article__btn:hover,
+.article__btn:focus {
   background-color: var(--accentColor);
   border: none;
-}
+} */
 
 .disabled {
   color: var(--accentColor);
