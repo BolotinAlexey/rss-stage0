@@ -313,7 +313,7 @@ header {
   z-index: 5;
   transition: all 0.3s linear;
 }
-.arrow:not([disabled]):hover {
+.arrow:enabled:hover {
   cursor: pointer;
   color: var(--accentColor);
   transform: scale(2);
@@ -361,7 +361,7 @@ header {
   width: calc(166.7% + 15px);
   display: flex;
   gap: 25px;
-  transition: left 0.25s linear;
+  transition: left 0.5s linear;
 }
 
 .about__item > img {
@@ -380,7 +380,7 @@ header {
   width: 26px;
   height: 26px;
 }
-button:not(.current-slide):hover {
+.pagination__btn:not(.current-slide):hover {
   cursor: pointer;
 }
 .pagination__btn:before {
@@ -411,6 +411,7 @@ button:not(.current-slide):hover {
 }
 
 .seasons-wrap {
+  z-index: 10;
   display: flex;
   align-items: center;
   margin: 35px 0 35px -21px;
@@ -934,6 +935,10 @@ address {
 @media screen and (max-width: 1244px) {
   .header__list {
     gap: 0;
+  }
+  .seasons-wrap {
+    position: sticky;
+    top: 0;
   }
   .articles {
     justify-content: center;
