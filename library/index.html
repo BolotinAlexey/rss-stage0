@@ -39,8 +39,21 @@
         </nav>
 
         <div class="logo">
+          <div class="logo__profile logIn hide">
+            <h4 class="profile__title">Profile</h4>
+            <div class="profile__line"></div>
+            <button id="loginBtn" class="profile__btn">Log In</button>
+            <button id="registerBtn" class="profile__btn">Register</button>
+          </div>
+          <div class="logo__profile logOut hide">
+            <h4 class="profile__title">Profile</h4>
+            <div class="profile__line"></div>
+            <button id="profileBtn" class="profile__btn">My profile</button>
+            <button id="logoutBtn" class="profile__btn">Log Out</button>
+          </div>
           <button class="logo__btn">
             <svg
+              class="logo__svg"
               xmlns="http://www.w3.org/2000/svg"
               width="28"
               height="28"
@@ -829,8 +842,9 @@
       </div>
     </footer>
     <!-- <script src="./js/index.js"></script> -->
-    <script src="./js/mobile.js"></script>
-    <script src="./js/carousel.js"></script>
-    <script src="./js/slider.js"></script>
+    <script src="./js/mobile.js" type="module"></script>
+    <script src="./js/carousel.js" type="module"></script>
+    <script src="./js/slider.js" type="module"></script>
+    <script src="./js/auth.js" type="module"></script>
   </body>
 </html>
