@@ -33,10 +33,14 @@ const showArticle = () => {
   current.classList.add('show-article');
 
   // change checked season input
-  const prevBtn = [...seasonBtns].find(el => el.checked);
-  prevBtn.checked = prevBtn.disabled = false;
-  seasonBtns[currentArticle].checked = true;
-  seasonBtns[currentArticle].disabled = true;
+  [...seasonBtns].find(el => el.checked).checked = false;
+
+  const btnDisabled = [...seasonBtns].find(el => el.disabled);
+  if (btnDisabled) btnDisabled.disabled = false;
+
+  seasonBtns[currentArticle].checked = seasonBtns[
+    currentArticle
+  ].disabled = true;
 };
 
 // main part
