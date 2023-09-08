@@ -120,6 +120,10 @@ button:active {
   transition: opacity 0.7s ease-out;
 }
 
+.bg-modal.display-block {
+  display: block;
+}
+
 .container {
   max-width: var(--width-desktop);
   margin: 0 auto;
@@ -128,7 +132,7 @@ button:active {
 }
 
 .section {
-  background-color: #fff;
+  background-color: var(--textColor-invert);
 }
 
 .section:not(.welcome) {
@@ -1233,13 +1237,14 @@ body.visibleMobile {
 /* M_O_D_A_L_S */
 
 .bg-modal {
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  z-index: 100;
   transition: all 0.8s linear;
 }
 .modal {

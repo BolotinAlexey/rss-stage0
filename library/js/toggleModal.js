@@ -1,6 +1,8 @@
-import ref from './refs.js';
+// import ref from './refs.js';
 
-const { loginModal } = ref;
+// const { loginModal } = ref;
 export default function toggleModal(el) {
-  el.classList.replace('hide', 'visible');
+  console.log(el);
+  el.classList.toggle('display-block');
 }
+// el.classList = el.classList.contains('visible')?
