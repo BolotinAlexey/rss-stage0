@@ -1,7 +1,7 @@
 import onToggleProfile from './onToggleProfile.js';
 import ref from './refs.js';
 
-const { burger, mobile, bg, body, logo, login, logout } = ref;
+const { burger, mobile, bg, body, logo } = ref;
 
 export default function onToggleMobile() {
   bg.classList.toggle('visibleMobile');
@@ -12,8 +12,8 @@ export default function onToggleMobile() {
 
   // if (mobile.classList.contains('visibleMobile')) {
   //   if (
-  //     login.classList.contains('visible') ||
-  //     logout.classList.contains('visible')
+  //     loginProfile.classList.contains('visible') ||
+  //     logoutProfile.classList.contains('visible')
   //   )
   //     onToggleProfile();
   // }

@@ -4,8 +4,10 @@ const logoutBtn = document.querySelector('#logoutBtn');
 const registerBtn = document.querySelector('#registerBtn');
 const profileBtn = document.querySelector('#profileBtn');
 const logoBtn = document.querySelector('.logo__btn');
-const login = document.querySelector('.logo__profile.logIn');
-const logout = document.querySelector('.logo__profile.logOut');
+const loginProfile = document.querySelector('.login__profile');
+const logoutProfile = document.querySelector('.logout__profile');
+const loginModal = document.querySelector('.login');
+const registerModal = document.querySelector('.register');
 
 // mobile menu
 const burger = document.querySelector('.burger-wrap');
@@ -20,12 +22,14 @@ const ref = {
   logoutBtn,
   registerBtn,
   logoBtn,
-  login,
-  logout,
+  loginProfile,
+  logoutProfile,
   burger,
   mobile,
   bg,
   body,
   logo,
+  loginModal,
+  registerModal,
 };
 export default ref;

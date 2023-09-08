@@ -1,8 +1,8 @@
 import ref from './refs.js';
 
 const {
-  login,
-  logout,
+  loginProfile,
+  logoutProfile,
   body,
   logo,
   loginBtn,
@@ -18,20 +18,20 @@ const onBody = e => {
 
 export default function onToggleProfile() {
   if (isLogin) {
-    logout.classList.replace('hide', 'visible');
-    login.style.zIndex = -10;
-    logout.style.zIndex = 10;
+    logoutProfile.classList.replace('hide', 'visible');
+    loginProfile.style.zIndex = -10;
+    logoutProfile.style.zIndex = 10;
   } else {
-    login.classList.toggle('hide');
-    login.classList.toggle('visible');
-    login.style.zIndex = 10;
-    logout.style.zIndex = -10;
+    loginProfile.classList.toggle('hide');
+    loginProfile.classList.toggle('visible');
+    loginProfile.style.zIndex = 10;
+    logoutProfile.style.zIndex = -10;
   }
 
   // addEventListener body click
   if (
-    login.classList.contains('visible') ||
-    logout.classList.contains('visible')
+    loginProfile.classList.contains('visible') ||
+    logoutProfile.classList.contains('visible')
   )
     body.addEventListener('click', onBody);
   else body.removeEventListener('click', onBody);
