@@ -26,6 +26,7 @@ const showArticle = () => {
   // fadein-fadout articles
   const prev = document.querySelector('.show-article');
   prev.classList.replace('show-article', 'hide-article');
+
   const current = seasonArticles[currentArticle];
   current.classList.contains('hide-article') &&
     current.classList.remove('hide-article');
@@ -50,5 +51,6 @@ seasonBtns.forEach((el, i) => {
 
 seasonArticles.forEach((el, i) => {
   el.setAttribute('data-seasonart', i);
+  // el.style.zIndex = 4 - i;
 });
 handleInterval();

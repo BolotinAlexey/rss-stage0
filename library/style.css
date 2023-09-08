@@ -556,6 +556,18 @@ header {
   color: var(--textColor);
   border: 1px solid var(--textColor);
 }
+.article:nth-of-type(1) {
+  z-index: 4;
+}
+.article:nth-of-type(2) {
+  z-index: 3;
+}
+.article:nth-of-type(3) {
+  z-index: 2;
+}
+.article:nth-of-type(4) {
+  z-index: 1;
+}
 
 .article__pick {
   position: relative;
@@ -611,20 +623,20 @@ header {
   border-radius: 2px;
   transition: all 0.3s linear;
 }
-/* .article__btn:hover,
-.article__btn:focus {
+.article__btn:enabled:hover {
+  cursor: pointer;
   background-color: var(--accentColor);
   border: none;
-} */
+}
 
-.disabled {
+.article__btn:disabled {
   color: var(--accentColor);
   border-color: var(--accentColor);
 }
-.disabled:hover,
-.disabled:focus {
+/* .article__btn:disabled:hover,
+.article__btn:disabled:focus {
   cursor: default;
-}
+} */
 .article__cover {
   position: absolute;
   width: 200px;
