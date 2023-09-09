@@ -5,7 +5,7 @@ import toggleModal from './toggleModal.js';
 const { loginBg, loginSubmit, loginForm } = ref;
 const { elements } = loginForm;
 
-export default function regiserHadler() {
+export default function () {
   const data = formHandler(elements, loginSubmit);
   if (!data) return;
 
@@ -15,13 +15,21 @@ export default function regiserHadler() {
     alert('First register');
     return;
   }
+
   const user = users.find(
     ({ card, email }) => card === data.name || email === data.name
   );
+
   if (!user) {
     alert(`User ${data.name} doesn't exist`);
     return;
   }
+
+  if (data.password.length < 8) {
+    alert('Password has to more 7 charters');
+    return;
+  }
+
   if (user.password !== data.password) {
     alert('Check password');
     return;

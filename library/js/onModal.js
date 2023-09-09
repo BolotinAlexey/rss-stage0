@@ -50,7 +50,4 @@ export default function onModal(e) {
     const user = regiserHadler();
     user && loginUser(user);
   }
-
-  // console.log(e.target);
-  //   if(e.target===)
 }
