@@ -33,6 +33,9 @@ const toRegisterBtn = document.querySelector('.login__question');
 const toLoginBtn = document.querySelector('.register__question');
 const nameProfile = document.querySelector('#name-profile');
 
+// books
+const buyBtns = document.querySelectorAll('.article__btn');
+
 const ref = {
   loginBtn,
   profileBtn,
@@ -63,5 +66,6 @@ const ref = {
   loginBtnCard,
   registerBtnCard,
   nameProfile,
+  buyBtns,
 };
 export default ref;
