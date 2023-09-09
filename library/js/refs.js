@@ -2,6 +2,8 @@
 const loginBtn = document.querySelector('#loginBtn');
 const logoutBtn = document.querySelector('#logoutBtn');
 const registerBtn = document.querySelector('#registerBtn');
+const loginBtnCard = document.querySelector('#card__login');
+const registerBtnCard = document.querySelector('#card__register');
 const profileBtn = document.querySelector('#profileBtn');
 const logoBtn = document.querySelector('.logo__btn');
 const loginProfile = document.querySelector('.login__profile');
@@ -13,6 +15,8 @@ const mobile = document.querySelector('.mobile');
 const bg = document.querySelector('.bg-mobile');
 const body = document.querySelector('body');
 const logo = document.querySelector('.logo');
+const logoInitials = document.querySelector('.logo__initials');
+const logoSvg = document.querySelector('.logo__svg');
 
 // modals
 const loginBg = document.querySelector('.login');
@@ -53,5 +57,9 @@ const ref = {
   toRegisterBtn,
   loginForm,
   registerForm,
+  logoInitials,
+  logoSvg,
+  loginBtnCard,
+  registerBtnCard,
 };
 export default ref;

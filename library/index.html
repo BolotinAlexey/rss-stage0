@@ -52,6 +52,7 @@
             <button id="logoutBtn" class="profile__btn">Log Out</button>
           </div>
           <button class="logo__btn">
+            <span class="logo__initials"></span>
             <svg
               class="logo__svg"
               xmlns="http://www.w3.org/2000/svg"
@@ -747,10 +748,12 @@
             </p>
             <ul class="card__btn__wrap">
               <li class="card__btn__item">
-                <button class="card__btn">Sign Up</button>
+                <button id="card__register" class="card__btn">Sign Up</button>
               </li>
               <li class="card__btn__item">
-                <button class="card__btn">Log in</button>
+                <button id="card__login" class="card__btn card__login">
+                  Log in
+                </button>
               </li>
             </ul>
           </div>
@@ -861,7 +864,7 @@
           <input id="surname" name="surname" type="text" class="modal__input" />
 
           <label for="mail" class="modal__label">E-mail </label>
-          <input id="mail" name="mail" type="email" class="modal__input" />
+          <input id="mail" name="email" type="email" class="modal__input" />
 
           <label for="passwordRegister" class="modal__label">Password </label>
           <input

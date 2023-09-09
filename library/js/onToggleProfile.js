@@ -12,7 +12,7 @@ const {
 } = ref;
 
 const onBody = e => {
-  console.log(e.currentTarget);
+  // console.log(e.currentTarget);
   if (e.currentTarget !== logo) onToggleProfile();
 };
 
