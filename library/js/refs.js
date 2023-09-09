@@ -31,6 +31,7 @@ const loginForm = document.querySelector('.login__form');
 const registerForm = document.querySelector('.register__form');
 const toRegisterBtn = document.querySelector('.login__question');
 const toLoginBtn = document.querySelector('.register__question');
+const nameProfile = document.querySelector('#name-profile');
 
 const ref = {
   loginBtn,
@@ -61,5 +62,6 @@ const ref = {
   logoSvg,
   loginBtnCard,
   registerBtnCard,
+  nameProfile,
 };
 export default ref;

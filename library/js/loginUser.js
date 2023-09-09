@@ -1,6 +1,6 @@
 import ref from './refs.js';
 
-const { logoInitials } = ref;
+const { logoInitials, nameProfile } = ref;
 
 export default function loginUser({ name, surname, card, email }) {
   isLogin = true;
@@ -9,4 +9,5 @@ export default function loginUser({ name, surname, card, email }) {
   logoInitials.innerHTML = avatar;
   logoInitials.classList.add('display-block');
   logoInitials.setAttribute('title', name + ' ' + surname);
+  nameProfile.innerHTML = card;
 }
