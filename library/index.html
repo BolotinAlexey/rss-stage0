@@ -850,16 +850,26 @@
         <h3 class="modal__title">register</h3>
         <form action="" class="register__form modal__form">
           <label for="nameRegister" class="modal__label">First name </label>
-          <input id="nameRegister" type="text" class="modal__input" />
+          <input
+            id="nameRegister"
+            name="name"
+            type="text"
+            class="modal__input"
+          />
 
           <label for="surname" class="modal__label">Last name </label>
-          <input id="surname" type="text" class="modal__input" />
+          <input id="surname" name="surname" type="text" class="modal__input" />
 
           <label for="mail" class="modal__label">E-mail </label>
-          <input id="mail" type="email" class="modal__input" />
+          <input id="mail" name="mail" type="email" class="modal__input" />
 
           <label for="passwordRegister" class="modal__label">Password </label>
-          <input id="passwordRegister" type="password" class="modal__input" />
+          <input
+            id="passwordRegister"
+            name="password"
+            type="password"
+            class="modal__input"
+          />
 
           <button class="register__submit modal__submit" type="submit">
             Sign Up
@@ -868,7 +878,7 @@
 
         <div class="auth-question">
           <p class="auth-question__left">Already have an account?</p>
-          <button class="login-question">Login</button>
+          <button class="login__question">Login</button>
         </div>
 
         <button class="modal__cross">
@@ -895,10 +905,15 @@
           <label for="nameLogin" class="modal__label"
             >E-mail or register card</label
           >
-          <input id="nameLogin" type="text" class="modal__input" />
+          <input id="nameLogin" name="name" type="text" class="modal__input" />
 
           <label for="passwordLogin" class="modal__label">Password </label>
-          <input id="passwordLogin" type="password" class="modal__input" />
+          <input
+            id="passwordLogin"
+            name="password"
+            type="password"
+            class="modal__input"
+          />
 
           <button class="login__submit modal__submit" type="submit">
             Log In
@@ -907,7 +922,7 @@
 
         <div class="auth-question">
           <p class="auth-question__left">Don’t have an account?</p>
-          <button class="register-question">Register</button>
+          <button class="register__question">Register</button>
         </div>
 
         <button class="modal__cross">

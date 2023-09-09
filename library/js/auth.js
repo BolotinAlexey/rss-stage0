@@ -47,16 +47,7 @@ loginCross.addEventListener('click', onModal);
 registerCross.addEventListener('click', onModal);
 
 loginBg.addEventListener('click', onModal);
-registerBg.addEventListener(
-  'click',
-  onModal
-  // toggleModal(registerBg)
-);
+registerBg.addEventListener('click', onModal);
 
 loginModal.addEventListener('click', onModal);
 registerModal.addEventListener('click', onModal);
-
-// loginBtn.addEventListener('click', on);
-// logoutBtn.addEventListener('click', on);
-// registerBtn.addEventListener('click', on);
-// profileBtn.addEventListener('click', on);

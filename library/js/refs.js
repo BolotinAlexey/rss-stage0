@@ -21,6 +21,12 @@ const loginModal = document.querySelector('.login__modal');
 const registerModal = document.querySelector('.register__modal');
 const loginCross = document.querySelector('.login .modal__cross');
 const registerCross = document.querySelector('.register .modal__cross');
+const loginSubmit = document.querySelector('.login__submit');
+const registerSubmit = document.querySelector('.register__submit');
+const loginForm = document.querySelector('.login__form');
+const registerForm = document.querySelector('.register__form');
+const toRegisterBtn = document.querySelector('.login__question');
+const toLoginBtn = document.querySelector('.register__question');
 
 const ref = {
   loginBtn,
@@ -41,5 +47,11 @@ const ref = {
   registerCross,
   loginBg,
   registerBg,
+  loginSubmit,
+  registerSubmit,
+  toLoginBtn,
+  toRegisterBtn,
+  loginForm,
+  registerForm,
 };
 export default ref;

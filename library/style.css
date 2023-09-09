@@ -1314,8 +1314,8 @@ body.visibleMobile {
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
   font-size: 10px;
 }
-.login-question,
-.register-question {
+.login__question,
+.register__question {
   padding: 0;
   border: none;
   color: var(--bgColor);
@@ -1327,10 +1327,10 @@ body.visibleMobile {
   transition: var(--transitionColor);
   /* text-decoration: underline; */
 }
-.login-question:hover,
-.login-question:focus,
-.register-question:hover,
-.register-question:focus {
+.login__question:hover,
+.login__question:focus,
+.register__question:hover,
+.register__question:focus {
   cursor: pointer;
   color: var(--accentColor);
 }
