@@ -8,4 +8,5 @@ export default function loginUser({ name, surname, card, email }) {
     name.slice(0, 1).toUpperCase() + surname.slice(0, 1).toUpperCase();
   logoInitials.innerHTML = avatar;
   logoInitials.classList.add('display-block');
+  logoInitials.setAttribute('title', name + ' ' + surname);
 }

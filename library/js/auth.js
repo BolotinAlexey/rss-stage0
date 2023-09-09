@@ -3,6 +3,7 @@ import onToggleMobile from './onToggleMobile.js';
 import onToggleProfile from './onToggleProfile.js';
 import toggleModal from './toggleModal.js';
 import onModal from './onModal.js';
+import logoutUser from './logoutUser.js';
 
 const {
   loginBtn,
@@ -22,9 +23,11 @@ const {
   registerCross,
   registerBtnCard,
   loginBtnCard,
+  logoInitials,
 } = ref;
 
 window.isLogin = false;
+
 const onProfile = e => {
   e.stopPropagation();
   if (e.target === loginBtn) {
@@ -69,6 +72,8 @@ logo.addEventListener('click', onProfile);
   loginModal,
   registerModal,
 ].forEach(el => el.addEventListener('click', onModal));
+
+logoutBtn.addEventListener('click', () => logoutUser(logoInitials));
 
 // loginCross.addEventListener('click', onModal);
 // registerCross.addEventListener('click', onModal);

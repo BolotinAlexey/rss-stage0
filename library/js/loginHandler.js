@@ -10,17 +10,14 @@ export default function regiserHadler() {
   if (!data) return;
 
   const users = JSON.parse(localStorage.getItem('users'));
-  console.log(data, users);
 
   if (!users) {
     alert('First register');
     return;
   }
-  const user = users.find(({ card, email }) => {
-    console.log(card, email);
-    console.log(card, data.name);
-    return card === data.name || email === data.name;
-  });
+  const user = users.find(
+    ({ card, email }) => card === data.name || email === data.name
+  );
   if (!user) {
     alert(`User ${data.name} doesn't exist`);
     return;

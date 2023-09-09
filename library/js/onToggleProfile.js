@@ -12,13 +12,14 @@ const {
 } = ref;
 
 const onBody = e => {
-  // console.log(e.currentTarget);
+  console.log(e.currentTarget);
   if (e.currentTarget !== logo) onToggleProfile();
 };
 
 export default function onToggleProfile() {
   if (isLogin) {
-    logoutProfile.classList.replace('hide', 'visible');
+    logoutProfile.classList.toggle('hide');
+    logoutProfile.classList.toggle('visible');
     loginProfile.style.zIndex = -10;
     logoutProfile.style.zIndex = 10;
   } else {
