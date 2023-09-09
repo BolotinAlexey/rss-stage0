@@ -13,10 +13,12 @@ export default function regiserHadler() {
     return;
   }
 
-  const card = new Array(16)
-    .fill(null)
-    .reduce((a, b) => a + Math.floor(Math.random() * 10).toString(), '');
+  //   const card = new Array(16)
+  //     .fill(null)
+  //     .reduce((a, b) => a + Math.floor(Math.random() * 10).toString(), '');
 
+  const card = Math.floor(Math.random() * 0xfffffffff).toString(16);
+  console.log(card);
   registerForm.reset();
   toggleModal(registerBg);
   const oldUsers = JSON.parse(localStorage.getItem('users'));
