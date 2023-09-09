@@ -1,3 +1,4 @@
+import formHandler from './formHandler.js';
 import ref from './refs.js';
 import toggleModal from './toggleModal.js';
 
@@ -5,16 +6,8 @@ const { registerBg, registerSubmit, registerForm } = ref;
 const { elements } = registerForm;
 // const { elements } = registerForm;
 export default function regiserHadler() {
-  let data;
-  try {
-    data = [...elements].reduce((a, b) => {
-      if (!b.value && b !== registerSubmit) throw new Error();
-      return b === registerSubmit ? a : { ...a, [b.name]: b.value };
-    }, {});
-  } catch (err) {
-    alert('Fill all fields');
-    return;
-  }
+  const data = formHandler(elements, registerSubmit);
+  if (!data) return;
   if (data.password.length < 8) {
     alert('Password has to more 7 charters');
     return;
