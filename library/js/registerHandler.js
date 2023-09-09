@@ -12,10 +12,17 @@ export default function regiserHadler() {
     alert('Password has to more 7 charters');
     return;
   }
+
+  const card = new Array(16)
+    .fill(null)
+    .reduce((a, b) => a + Math.floor(Math.random() * 10).toString(), '');
+
   registerForm.reset();
   toggleModal(registerBg);
   const oldUsers = JSON.parse(localStorage.getItem('users'));
-  const newUsers = oldUsers ? [...oldUsers, data] : [data];
+  const newUsers = oldUsers
+    ? [...oldUsers, { ...data, card }]
+    : [{ ...data, card }];
 
   localStorage.setItem('users', JSON.stringify(newUsers));
   console.log(JSON.parse(localStorage.getItem('users')));
