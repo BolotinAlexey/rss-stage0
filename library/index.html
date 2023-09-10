@@ -1062,6 +1062,86 @@
         </button>
       </div>
     </div>
+
+    <!-- BUY A LIBRARY CARD modal -->
+    <div class="library bg-modal">
+      <div class="library__modal modal-center">
+        <header class="library__header">
+          <h3 class="library__title">BUY A LIBRARY CARD</h3>
+        </header>
+
+        <div class="library__main">
+          <form action="" class="library__form modal__form">
+            <!-- Card number -->
+            <label for="library__card-number" class="modal__label"
+              >Bank card number</label
+            >
+            <input
+              id="library__card-number"
+              name="number"
+              type="text"
+              class="modal__input"
+            />
+
+            <!-- Code -->
+            <label for="code" class="modal__label">Expiration code</label>
+            <div class="code__wrap">
+              <input id="code" name="code1" type="text" class="modal__input" />
+              <input name="code2" type="text" class="modal__input" />
+            </div>
+
+            <!-- CVC -->
+            <label for="cvc" class="modal__label">CVC</label>
+            <input id="cvc" name="cvc" type="text" class="modal__input" />
+
+            <!-- Cardholder name -->
+            <label for="cardholder" class="modal__label">Cardholder name</label>
+            <input
+              id="cardholder"
+              name="cardholder"
+              type="text"
+              class="modal__input"
+            />
+
+            <!-- Postal code -->
+            <label for="postal" class="modal__label">Postal code</label>
+            <input id="postal" name="postal" type="text" class="modal__input" />
+
+            <!-- City / Town -->
+            <label for="city" class="modal__label">City / Town</label>
+            <input id="city" name="city" type="text" class="modal__input" />
+
+            <!-- Submit button -->
+            <div class="library__btn-wrap">
+              <button class="buy__submit modal__submit" type="submit" disabled>
+                Buy
+              </button>
+              <p class="price">$ 25.00</p>
+            </div>
+          </form>
+          <p class="library__right">
+            If you are live, work, attend school, or pay property taxes in New
+            York State, you can get a $25 digital library card right now using
+            this online form. Visitors to New York State can also use this form
+            to apply for a temporary card.
+          </p>
+        </div>
+
+        <button class="modal__cross">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+          >
+            <path d="M2 16.8507L17 2.00003" stroke-width="3" />
+            <path d="M2 2.14926L17 17" stroke-width="3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
     <!-- <script src="./js/index.js"></script> -->
     <script src="./js/mobile.js" type="module"></script>
     <script src="./js/carousel.js" type="module"></script>

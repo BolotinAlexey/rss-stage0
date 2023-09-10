@@ -1,6 +1,6 @@
 import ref from './refs.js';
 
-const { profileModal, books, visits, bonuses, cardNumber } = ref;
+const { books, visits, bonuses, cardNumber } = ref;
 export default function profile(user) {
   visits.innerHTML = user.loginCount;
   books.innerHTML = user.books;
