@@ -74,12 +74,3 @@ logo.addEventListener('click', onProfile);
 ].forEach(el => el.addEventListener('click', onModal));
 
 logoutBtn.addEventListener('click', () => logoutUser(logoInitials));
-
-// loginCross.addEventListener('click', onModal);
-// registerCross.addEventListener('click', onModal);
-
-// loginBg.addEventListener('click', onModal);
-// registerBg.addEventListener('click', onModal);
-
-// loginModal.addEventListener('click', onModal);
-// registerModal.addEventListener('click', onModal);

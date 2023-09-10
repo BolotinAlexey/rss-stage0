@@ -17,7 +17,8 @@ export default function () {
   }
 
   const user = users.find(
-    ({ card, email }) => card === data.name || email === data.name
+    ({ card, email }) =>
+      card === data.name.replaceAll(' ', '') || email === data.name
   );
 
   if (!user) {
