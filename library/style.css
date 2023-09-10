@@ -1380,7 +1380,8 @@ body.visibleMobile {
   display: flex;
   position: absolute;
   width: 600px;
-  height: 400px;
+  min-height: 400px;
+  max-height: 100vh;
 
   background-color: var(--textColor-invert);
   color: var(--textColor);
@@ -1426,6 +1427,7 @@ body.visibleMobile {
 /* right part */
 .myprofile__right {
   padding: 40px 20px;
+  overflow-y: scroll;
 }
 
 .myprofile__title {
@@ -1468,14 +1470,20 @@ body.visibleMobile {
   line-height: 0.8;
 }
 
-.list__books {
+.myprofile .list__books {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 30px;
+  list-style: disc;
 }
-.list__books > * {
+.list__books p {
   color: var(--textColor);
   line-height: 2;
   letter-spacing: 2px;
   text-transform: capitalize;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
 .cardnumber-wrap {

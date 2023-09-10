@@ -36,6 +36,7 @@ const nameProfile = document.querySelector('#name-profile');
 
 // books
 const buyBtns = document.querySelectorAll('.article__btn');
+const listBooks = document.querySelector('.list__books');
 
 // Profile modal
 const profileModal = document.querySelector('.myprofile__modal');
@@ -47,6 +48,8 @@ const bonuses = document.querySelector('.bonuses .information__count');
 const books = document.querySelector('.books .information__count');
 const cardNumber = document.querySelector('.card-number');
 const copyBtn = document.querySelector('.copy-btn');
+const cardInitials = document.querySelector('.left__initial');
+const cardFullname = document.querySelector('.left__fullname');
 
 // Library card module
 const cardModal = document.querySelector('.library__modal');
@@ -99,5 +102,8 @@ const ref = {
   buyCardSubmit,
   buyForm,
   copyBtn,
+  listBooks,
+  cardInitials,
+  cardFullname,
 };
 export default ref;
