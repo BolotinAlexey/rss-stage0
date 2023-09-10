@@ -27,9 +27,12 @@ const {
   profileModal,
   profileCross,
   profileBg,
+  cardModal,
+  cardBg,
+  cardCross,
 } = ref;
 
-window.isLogin = false;
+window.currentUser = null;
 
 const onProfile = e => {
   e.stopPropagation();
@@ -86,6 +89,9 @@ logo.addEventListener('click', onProfile);
   profileCross,
   profileBg,
   profileModal,
+  cardModal,
+  cardBg,
+  cardCross,
 ].forEach(el => el.addEventListener('click', onModal));
 
 // logoutBtn.addEventListener('click', () => logoutUser(logoInitials));

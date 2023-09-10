@@ -11,6 +11,5 @@ bg.addEventListener('click', e => {
 });
 
 mobile.addEventListener('click', e => {
-  console.log(isLogin);
   if (e.target.tagName === 'A') onToggleMobile();
 });

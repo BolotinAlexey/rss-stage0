@@ -47,6 +47,11 @@ const bonuses = document.querySelector('.bonuses .information__count');
 const books = document.querySelector('.books .information__count');
 const cardNumber = document.querySelector('.card-number');
 
+// Library card module
+const cardModal = document.querySelector('.library__modal');
+const cardBg = document.querySelector('.library');
+const cardCross = document.querySelector('.library .modal__cross');
+
 const ref = {
   loginBtn,
   profileBtn,
@@ -85,5 +90,8 @@ const ref = {
   bonuses,
   books,
   cardNumber,
+  cardModal,
+  cardBg,
+  cardCross,
 };
 export default ref;

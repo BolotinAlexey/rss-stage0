@@ -5,7 +5,7 @@ const { logoInitials, nameProfile } = ref;
 
 export default function loginUser(user) {
   let { name, surname, card, loginCount } = user;
-  isLogin = true;
+  // isLogin = true;
   const avatar =
     name.slice(0, 1).toUpperCase() + surname.slice(0, 1).toUpperCase();
   logoInitials.innerHTML = avatar;
@@ -17,6 +17,9 @@ export default function loginUser(user) {
   const withoutUser = [...oldUsers].filter(el => el.card !== card);
 
   user = { ...user, loginCount: loginCount + 1 };
+
+  currentUser = user;
+
   profile(user);
   const newUsers = [...withoutUser, user];
   localStorage.setItem('users', JSON.stringify(newUsers));

@@ -19,6 +19,9 @@ const {
   registerForm,
   profileBg,
   profileCross,
+  cardModal,
+  cardBg,
+  cardCross,
 } = ref;
 
 export default function onModal(e) {
@@ -40,8 +43,13 @@ export default function onModal(e) {
 
   // close profile modal
   if (e.currentTarget === profileBg || e.currentTarget === profileCross) {
-    console.log(e.currentTarget);
     toggleModal(profileBg);
+    return;
+  }
+
+  // close buy library card modal
+  if (e.currentTarget === cardBg || e.currentTarget === cardCross) {
+    toggleModal(cardBg);
     return;
   }
 
@@ -56,14 +64,12 @@ export default function onModal(e) {
     e.preventDefault();
     const user = loginHadler();
     console.log('res');
-    console.log(user);
     user && loginUser(user);
   }
   if (e.target === registerSubmit) {
     e.preventDefault();
     const user = regiserHadler();
-    console.log('reg');
-    console.log(user);
+
     user && loginUser(user);
   }
 }

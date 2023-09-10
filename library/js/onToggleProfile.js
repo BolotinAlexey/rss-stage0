@@ -17,7 +17,7 @@ const onBody = e => {
 };
 
 export default function onToggleProfile() {
-  if (isLogin) {
+  if (currentUser) {
     logoutProfile.classList.toggle('hide');
     logoutProfile.classList.toggle('visible');
     loginProfile.style.zIndex = -10;
