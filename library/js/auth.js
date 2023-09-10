@@ -24,12 +24,19 @@ const {
   registerBtnCard,
   loginBtnCard,
   logoInitials,
+  profileModal,
+  profileCross,
+  profileBg,
 } = ref;
 
 window.isLogin = false;
 
 const onProfile = e => {
   e.stopPropagation();
+  if (e.target === logoutBtn) {
+    onToggleProfile();
+    logoutUser(logoInitials);
+  }
   if (e.target === loginBtn) {
     onToggleProfile();
     toggleModal(loginBg);
@@ -38,8 +45,13 @@ const onProfile = e => {
     onToggleProfile();
     toggleModal(registerBg);
   }
+  if (e.target === profileBtn) {
+    onToggleProfile();
+    toggleModal(profileBg);
+  }
 };
 
+// handlers botton buttons login & register
 [
   [registerBtnCard, registerBg],
   [loginBtnCard, loginBg],
@@ -71,6 +83,9 @@ logo.addEventListener('click', onProfile);
   registerBg,
   loginModal,
   registerModal,
+  profileCross,
+  profileBg,
+  profileModal,
 ].forEach(el => el.addEventListener('click', onModal));
 
-logoutBtn.addEventListener('click', () => logoutUser(logoInitials));
+// logoutBtn.addEventListener('click', () => logoutUser(logoInitials));

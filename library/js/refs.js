@@ -21,6 +21,7 @@ const logoSvg = document.querySelector('.logo__svg');
 // modals
 const loginBg = document.querySelector('.login');
 const registerBg = document.querySelector('.register');
+
 const loginModal = document.querySelector('.login__modal');
 const registerModal = document.querySelector('.register__modal');
 const loginCross = document.querySelector('.login .modal__cross');
@@ -35,6 +36,16 @@ const nameProfile = document.querySelector('#name-profile');
 
 // books
 const buyBtns = document.querySelectorAll('.article__btn');
+
+// Profile modal
+const profileModal = document.querySelector('.myprofile__modal');
+const profileBg = document.querySelector('.myprofile');
+const profileCross = document.querySelector('.myprofile .modal__cross');
+// ---
+const visits = document.querySelector('.visits .information__count');
+const bonuses = document.querySelector('.bonuses .information__count');
+const books = document.querySelector('.books .information__count');
+const cardNumber = document.querySelector('.card-number');
 
 const ref = {
   loginBtn,
@@ -53,8 +64,10 @@ const ref = {
   registerModal,
   loginCross,
   registerCross,
+  profileCross,
   loginBg,
   registerBg,
+  profileBg,
   loginSubmit,
   registerSubmit,
   toLoginBtn,
@@ -67,5 +80,10 @@ const ref = {
   registerBtnCard,
   nameProfile,
   buyBtns,
+  profileModal,
+  visits,
+  bonuses,
+  books,
+  cardNumber,
 };
 export default ref;

@@ -17,19 +17,31 @@ const {
   toRegisterBtn,
   loginForm,
   registerForm,
+  profileBg,
+  profileCross,
 } = ref;
 
 export default function onModal(e) {
   e.stopPropagation();
 
+  // close register modal
   if (e.currentTarget === registerBg || e.currentTarget === registerCross) {
     toggleModal(registerBg);
     registerForm.reset();
     return;
   }
+
+  // close login modal
   if (e.currentTarget === loginBg || e.currentTarget === loginCross) {
     toggleModal(loginBg);
     loginForm.reset();
+    return;
+  }
+
+  // close profile modal
+  if (e.currentTarget === profileBg || e.currentTarget === profileCross) {
+    console.log(e.currentTarget);
+    toggleModal(profileBg);
     return;
   }
 
@@ -43,11 +55,15 @@ export default function onModal(e) {
   if (e.target === loginSubmit) {
     e.preventDefault();
     const user = loginHadler();
+    console.log('res');
+    console.log(user);
     user && loginUser(user);
   }
   if (e.target === registerSubmit) {
     e.preventDefault();
     const user = regiserHadler();
+    console.log('reg');
+    console.log(user);
     user && loginUser(user);
   }
 }

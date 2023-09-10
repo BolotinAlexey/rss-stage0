@@ -1494,3 +1494,15 @@ body.visibleMobile {
   color: var(--accentColor);
   line-height: 1;
 }
+.copy-btn {
+  border: none;
+  color: var(--textColor);
+}
+.copy-btn:hover {
+  cursor: pointer;
+  color: var(--accentColor);
+  transition: var(--transitionColor);
+}
+.copy-svg {
+  stroke: currentColor;
+}

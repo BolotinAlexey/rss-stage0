@@ -21,7 +21,7 @@ export default function regiserHadler() {
   }
 
   const card = Math.floor(Math.random() * 0xfffffffff).toString(16);
-  data = { ...data, card, loginCount: 0 };
+  data = { ...data, card, loginCount: 0, books: 0, bonuses: 0 };
   registerForm.reset();
   toggleModal(registerBg);
   const oldUsers = JSON.parse(localStorage.getItem('users'));

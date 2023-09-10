@@ -5,7 +5,7 @@ import toggleModal from './toggleModal.js';
 const { loginBg, loginSubmit, loginForm } = ref;
 const { elements } = loginForm;
 
-export default function () {
+export default function loginNandler() {
   const data = formHandler(elements, loginSubmit);
   if (!data) return;
 
