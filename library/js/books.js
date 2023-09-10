@@ -1,3 +1,4 @@
+import buyCardHadler from './buyCardHadler.js';
 import checkCardForm from './checkCardForm.js';
 import ref from './refs.js';
 import toggleModal from './toggleModal.js';
@@ -8,11 +9,6 @@ const isFillForm = () => {
   const notFill = [...buyForm.elements].find(
     el => el !== buyCardSubmit && !el.value
   );
-  // if (notFill) btn.disabled = true;
-  // else {
-  //   btn.disabled = false;
-  //   enableSubmitButton(buyCardSubmit, buyForm.elements);
-  // }
 
   buyCardSubmit.disabled =
     notFill || !checkCardForm(buyCardSubmit, buyForm.elements);
@@ -23,12 +19,16 @@ const onBuyBtn = e => {
     toggleModal(loginBg);
     return;
   }
-  if (!currentUser.books) {
+  currentUser.currentBook = e.currentTarget;
+
+  if (!currentUser.books.length) {
     toggleModal(cardBg);
     [...buyForm.elements].forEach(el =>
       el.addEventListener('input', isFillForm)
     );
+    return;
   }
+  buyCardHadler();
 };
 
 [...buyBtns].forEach(el => el.addEventListener('click', onBuyBtn));

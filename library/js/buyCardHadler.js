@@ -1,9 +1,15 @@
 import ref from './refs.js';
-import formHandler from './formHandler.js';
 
-const { buyForm } = ref;
+import profile from './profile.js';
+import toggleModal from './toggleModal.js';
+
+const { cardBg, buyForm } = ref;
 export default function buyCardHadler() {
-  const { elements } = buyForm;
-  console.log(elements);
-  //   formHandler();
+  if (!currentUser.books.length) {
+    buyForm.reset();
+    toggleModal(cardBg);
+  }
+  currentUser.books.push(currentUser.currentBook);
+  currentUser.currentBook.disabled = true;
+  profile(currentUser);
 }

@@ -16,7 +16,7 @@ export default function loginUser(user) {
   const oldUsers = JSON.parse(localStorage.getItem('users'));
   const withoutUser = [...oldUsers].filter(el => el.card !== card);
 
-  user = { ...user, loginCount: loginCount + 1 };
+  user = { ...user, loginCount: loginCount + 1, books: [] };
 
   currentUser = user;
 
