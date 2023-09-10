@@ -51,6 +51,8 @@ const cardNumber = document.querySelector('.card-number');
 const cardModal = document.querySelector('.library__modal');
 const cardBg = document.querySelector('.library');
 const cardCross = document.querySelector('.library .modal__cross');
+const buyCardSubmit = document.querySelector('.buy__submit');
+const buyForm = document.querySelector('.library__form ');
 
 const ref = {
   loginBtn,
@@ -93,5 +95,7 @@ const ref = {
   cardModal,
   cardBg,
   cardCross,
+  buyCardSubmit,
+  buyForm,
 };
 export default ref;

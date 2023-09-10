@@ -3,6 +3,7 @@ import regiserHadler from './registerHandler.js';
 import loginHadler from './loginHandler.js';
 import toggleModal from './toggleModal.js';
 import loginUser from './loginUser.js';
+import buyCardHadler from './buyCardHadler.js';
 
 const {
   loginModal,
@@ -22,6 +23,7 @@ const {
   cardModal,
   cardBg,
   cardCross,
+  buyCardSubmit,
 } = ref;
 
 export default function onModal(e) {
@@ -63,13 +65,16 @@ export default function onModal(e) {
   if (e.target === loginSubmit) {
     e.preventDefault();
     const user = loginHadler();
-    console.log('res');
     user && loginUser(user);
   }
   if (e.target === registerSubmit) {
     e.preventDefault();
     const user = regiserHadler();
+  }
 
-    user && loginUser(user);
+  if (e.target === buyCardSubmit) {
+    console.log(e.target);
+    e.preventDefault();
+    buyCardHadler();
   }
 }
