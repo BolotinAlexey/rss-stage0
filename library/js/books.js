@@ -1,4 +1,4 @@
-import enableSubmitButton from './enableSubmitButton.js';
+import checkCardForm from './checkCardForm.js';
 import ref from './refs.js';
 import toggleModal from './toggleModal.js';
 
@@ -8,7 +8,14 @@ const isFillForm = () => {
   const notFill = [...buyForm.elements].find(
     el => el !== buyCardSubmit && !el.value
   );
-  !notFill && enableSubmitButton(buyCardSubmit);
+  // if (notFill) btn.disabled = true;
+  // else {
+  //   btn.disabled = false;
+  //   enableSubmitButton(buyCardSubmit, buyForm.elements);
+  // }
+
+  buyCardSubmit.disabled =
+    notFill || !checkCardForm(buyCardSubmit, buyForm.elements);
 };
 
 const onBuyBtn = e => {
