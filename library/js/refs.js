@@ -46,6 +46,7 @@ const visits = document.querySelector('.visits .information__count');
 const bonuses = document.querySelector('.bonuses .information__count');
 const books = document.querySelector('.books .information__count');
 const cardNumber = document.querySelector('.card-number');
+const copyBtn = document.querySelector('.copy-btn');
 
 // Library card module
 const cardModal = document.querySelector('.library__modal');
@@ -97,5 +98,6 @@ const ref = {
   cardCross,
   buyCardSubmit,
   buyForm,
+  copyBtn,
 };
 export default ref;

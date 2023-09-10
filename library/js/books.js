@@ -2,7 +2,7 @@ import enableSubmitButton from './enableSubmitButton.js';
 import ref from './refs.js';
 import toggleModal from './toggleModal.js';
 
-const { buyBtns, loginBg, cardBg, buyForm, buyCardSubmit } = ref;
+const { buyBtns, loginBg, cardBg, buyForm, buyCardSubmit, copyBtn } = ref;
 
 const isFillForm = () => {
   const notFill = [...buyForm.elements].find(
@@ -18,7 +18,6 @@ const onBuyBtn = e => {
   }
   if (!currentUser.books) {
     toggleModal(cardBg);
-    console.log(buyForm.elements);
     [...buyForm.elements].forEach(el =>
       el.addEventListener('input', isFillForm)
     );
@@ -26,3 +25,7 @@ const onBuyBtn = e => {
 };
 
 [...buyBtns].forEach(el => el.addEventListener('click', onBuyBtn));
+
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(currentUser.card);
+});
