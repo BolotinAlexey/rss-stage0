@@ -70,11 +70,11 @@ export default function onModal(e) {
   if (e.target === registerSubmit) {
     e.preventDefault();
     const user = regiserHadler();
+    user && loginUser(user);
   }
 
   if (e.target === buyCardSubmit) {
-    console.log(e.target);
     e.preventDefault();
-    buyCardHadler();
+    buyCardHadler(currentUser.currentBook);
   }
 }
