@@ -126,6 +126,9 @@ button:active {
 span.display-block {
   display: block;
 }
+.myprofile__information.display-block {
+  display: block;
+}
 
 .container {
   max-width: var(--width-desktop);
@@ -1578,4 +1581,13 @@ body.visibleMobile {
 
 .buy__submit {
   margin: 10px 0 0;
+}
+
+/* card profile information*/
+.myprofile__information {
+  display: none;
+  justify-content: center;
+  gap: 35px;
+}
+.card .information__item {
 }

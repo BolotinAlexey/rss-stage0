@@ -43,9 +43,9 @@ const profileModal = document.querySelector('.myprofile__modal');
 const profileBg = document.querySelector('.myprofile');
 const profileCross = document.querySelector('.myprofile .modal__cross');
 // ---
-const visits = document.querySelector('.visits .information__count');
-const bonuses = document.querySelector('.bonuses .information__count');
-const books = document.querySelector('.books .information__count');
+const visits = document.querySelectorAll('.visits .information__count');
+const bonuses = document.querySelectorAll('.bonuses .information__count');
+const books = document.querySelectorAll('.books .information__count');
 const cardNumber = document.querySelector('.card-number');
 const copyBtn = document.querySelector('.copy-btn');
 const cardInitials = document.querySelector('.left__initial');
@@ -56,7 +56,14 @@ const cardModal = document.querySelector('.library__modal');
 const cardBg = document.querySelector('.library');
 const cardCross = document.querySelector('.library .modal__cross');
 const buyCardSubmit = document.querySelector('.buy__submit');
-const buyForm = document.querySelector('.library__form ');
+const buyForm = document.querySelector('.library__form');
+
+// Card
+const cardTitle = document.querySelector('.card__find');
+const cardInputName = document.querySelector('.card__input[name="name"]');
+const cardInputNumber = document.querySelector('.card__input[name="number"]');
+const cardCheckBtn = document.querySelector('.check-card');
+const cardProfileInfo = document.querySelector('.card .myprofile__information');
 
 const ref = {
   loginBtn,
@@ -105,5 +112,10 @@ const ref = {
   listBooks,
   cardInitials,
   cardFullname,
+  cardTitle,
+  cardInputName,
+  cardInputNumber,
+  cardCheckBtn,
+  cardProfileInfo,
 };
 export default ref;
