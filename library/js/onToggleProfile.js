@@ -1,18 +1,8 @@
 import ref from './refs.js';
 
-const {
-  loginProfile,
-  logoutProfile,
-  body,
-  logo,
-  loginBtn,
-  profileBtn,
-  logoutBtn,
-  registerBtn,
-} = ref;
+const { loginProfile, logoutProfile, body, logo } = ref;
 
 const onBody = e => {
-  console.log(e.currentTarget);
   if (e.currentTarget !== logo) onToggleProfile();
 };
 

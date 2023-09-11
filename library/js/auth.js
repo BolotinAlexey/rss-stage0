@@ -4,6 +4,7 @@ import onToggleProfile from './onToggleProfile.js';
 import toggleModal from './toggleModal.js';
 import onModal from './onModal.js';
 import logoutUser from './logoutUser.js';
+import cardShow from './cardShow.js';
 
 const {
   loginBtn,
@@ -30,6 +31,8 @@ const {
   cardModal,
   cardBg,
   cardCross,
+  cardCheckBtn,
+  cardProfileBtn,
 } = ref;
 
 window.currentUser = null;
@@ -92,6 +95,11 @@ logo.addEventListener('click', onProfile);
   cardModal,
   cardBg,
   cardCross,
+  cardCheckBtn,
 ].forEach(el => el.addEventListener('click', onModal));
 
-// logoutBtn.addEventListener('click', () => logoutUser(logoInitials));
+cardCheckBtn.addEventListener('click', cardShow);
+
+cardProfileBtn.addEventListener('click', () => {
+  toggleModal(profileBg);
+});

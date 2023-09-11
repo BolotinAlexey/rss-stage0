@@ -1,11 +1,21 @@
-import profile from './profile.js';
 import ref from './refs.js';
+import profile from './profile.js';
 
-const { logoInitials, nameProfile } = ref;
+const {
+  logoInitials,
+  nameProfile,
+  cardCheckBtn,
+  cardProfileInfo,
+  cardTitle,
+  cardInputName,
+  cardInputNumber,
+  cardRight,
+  cardRightLogin,
+} = ref;
 
 export default function loginUser(user) {
   let { name, surname, card, loginCount } = user;
-  // isLogin = true;
+
   const avatar =
     name.slice(0, 1).toUpperCase() + surname.slice(0, 1).toUpperCase();
   logoInitials.innerHTML = avatar;
@@ -16,11 +26,19 @@ export default function loginUser(user) {
   const oldUsers = JSON.parse(localStorage.getItem('users'));
   const withoutUser = [...oldUsers].filter(el => el.card !== card);
 
-  user = { ...user, loginCount: loginCount + 1 };
+  user = { ...user, loginCount: loginCount + 1, books: [] };
 
   currentUser = user;
 
   profile(user);
   const newUsers = [...withoutUser, user];
   localStorage.setItem('users', JSON.stringify(newUsers));
+
+  // !doit: move own function
+  cardCheckBtn.style.display = cardRight.style.display = 'none';
+  cardTitle.innerHTML = 'Your Library card';
+  cardProfileInfo.style.display = cardRightLogin.style.display = 'flex';
+
+  cardInputName.value = currentUser.name + ' ' + currentUser.surname;
+  cardInputNumber.value = currentUser.card;
 }

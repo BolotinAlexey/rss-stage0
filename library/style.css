@@ -126,6 +126,9 @@ button:active {
 span.display-block {
   display: block;
 }
+.myprofile__information.display-block {
+  display: block;
+}
 
 .container {
   max-width: var(--width-desktop);
@@ -575,7 +578,8 @@ header {
 }
 
 .articles__item:nth-of-type(1),
-.articles__item:nth-of-type(2) {
+.articles__item:nth-of-type(2),
+.articles__item:nth-of-type(3) {
   margin-bottom: 40px;
 }
 /* .articles__item:not(:last-child),.articles__item:not() {
@@ -861,14 +865,15 @@ header {
   gap: 25px;
 }
 
+.card__input[name='number'] {
+  text-transform: uppercase;
+}
+
 .card__input {
   width: 100%;
   height: 66px;
   border-radius: 10px;
   border: none;
-}
-
-.card__input {
   padding: 8px 20px;
   color: var(--accentColor);
   font-size: 30px;
@@ -881,6 +886,9 @@ header {
   font-size: 30px;
   line-height: 1.667; /* 166.667% */
   letter-spacing: 0.6px;
+}
+.card__input[name='number']::placeholder {
+  text-transform: initial;
 }
 
 .check-card {
@@ -898,6 +906,11 @@ header {
   transition: var(--transitionBgColor);
   cursor: pointer;
 }
+.check-card:hover {
+  background-color: var(--accentColor);
+  border: 1px solid var(--accentColor);
+  cursor: pointer;
+}
 
 button[type='submit']:hover:enabled,
 button[type='submit']:focus:enabled {
@@ -908,12 +921,17 @@ button[type='submit']:focus:enabled {
 
 /* card__right */
 
-.card__right {
+.card__right,
+.card__right-login {
   width: 456px;
   display: flex;
   flex-direction: column;
   gap: 35px;
 }
+.card__right-login {
+  display: none;
+}
+
 .card__get {
   color: var(--textColor);
   font-family: 'Forum';
@@ -1125,7 +1143,8 @@ address {
     padding-left: 4px;
   }
 
-  .card__right {
+  .card__right,
+  .card__right-login {
     width: 600px;
     gap: 40px;
   }
@@ -1161,7 +1180,8 @@ address {
 
 @media screen and (max-width: 638px) {
   .card__left,
-  .card__right {
+  .card__right,
+  .card__right-login {
     width: 100%;
   }
   .articles__item {
@@ -1380,7 +1400,8 @@ body.visibleMobile {
   display: flex;
   position: absolute;
   width: 600px;
-  height: 400px;
+  min-height: 400px;
+  max-height: 100vh;
 
   background-color: var(--textColor-invert);
   color: var(--textColor);
@@ -1426,6 +1447,7 @@ body.visibleMobile {
 /* right part */
 .myprofile__right {
   padding: 40px 20px;
+  overflow-y: auto;
 }
 
 .myprofile__title {
@@ -1468,20 +1490,42 @@ body.visibleMobile {
   line-height: 0.8;
 }
 
-.list__books {
-  margin-top: 30px;
+.myprofile .list__books {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+  /* list-style: disc; */
 }
-.list__books > * {
+
+.list__books li {
+  position: relative;
+}
+.list__books li::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.list__books p {
+  margin-left: 30px;
   color: var(--textColor);
-  line-height: 2;
+  line-height: 1;
   letter-spacing: 2px;
   text-transform: capitalize;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .cardnumber-wrap {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-top: 40px;
 }
 .card-word {
   color: var(--bgColor);
@@ -1490,6 +1534,7 @@ body.visibleMobile {
 .card-number {
   color: var(--accentColor);
   line-height: 1;
+  text-transform: uppercase;
 }
 .copy-btn {
   border: none;
@@ -1521,6 +1566,7 @@ body.visibleMobile {
   padding: 20px 0;
   background-color: var(--bgColor);
 }
+
 .library__title {
   color: var(--textColor-invert);
   text-align: center;
@@ -1539,6 +1585,9 @@ body.visibleMobile {
   padding: 30px 40px 40px;
   background-color: var(--textColor-invert);
 }
+.library__form {
+  width: 200px;
+}
 
 .library__right {
   width: 330px;
@@ -1553,8 +1602,23 @@ body.visibleMobile {
   width: 45px;
   text-align: center;
 }
+#cvc {
+  margin-bottom: 10px;
+}
+.price {
+  color: #0c0c0e;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
 .library .modal__cross {
+  top: 23px;
+  right: 17px;
   color: var(--textColor-invert);
 }
 .modal__cross:hover {
@@ -1570,4 +1634,34 @@ body.visibleMobile {
 
 .buy__submit {
   margin: 10px 0 0;
+}
+
+/* card profile information*/
+.card .myprofile__information {
+  display: none;
+  justify-content: center;
+  gap: 35px;
+  margin: 15px 0 0;
+}
+
+.card .information__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin-bottom: -15px;
+}
+.card .information__description {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px; /* 200% */
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.myprofile .modal__cross {
+  top: 23px;
+  right: 24px;
+}
+.card .information__item {
 }
