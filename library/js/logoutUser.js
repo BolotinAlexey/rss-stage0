@@ -1,5 +1,12 @@
 import ref from './refs.js';
-const { cardCheckBtn, cardTitle, cardProfileInfo } = ref;
+const {
+  cardCheckBtn,
+  cardTitle,
+  cardProfileInfo,
+  cardInputName,
+  cardInputNumber,
+} = ref;
+//
 export default function logoutUser(initials) {
   // isLogin = false;
   initials.innerHTML = '';
@@ -10,6 +17,7 @@ export default function logoutUser(initials) {
   cardCheckBtn.style.display = 'block';
   cardTitle.innerHTML = 'Find your Library card';
   cardProfileInfo.style.display = 'none';
+  cardInputName.value = cardInputNumber.value = '';
 
   currentUser = null;
 }

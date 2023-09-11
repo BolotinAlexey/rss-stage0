@@ -60,6 +60,7 @@ const buyForm = document.querySelector('.library__form');
 
 // Card
 const cardTitle = document.querySelector('.card__find');
+const cardForm = document.querySelector('.card__form');
 const cardInputName = document.querySelector('.card__input[name="name"]');
 const cardInputNumber = document.querySelector('.card__input[name="number"]');
 const cardCheckBtn = document.querySelector('.check-card');
@@ -117,5 +118,6 @@ const ref = {
   cardInputNumber,
   cardCheckBtn,
   cardProfileInfo,
+  cardForm,
 };
 export default ref;

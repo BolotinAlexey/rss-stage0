@@ -16,6 +16,7 @@ export default function profile(user) {
   // books.innerHTML = user.books.length;
   bonuses.forEach(el => (el.innerHTML = user.bonuses));
   // bonuses.innerHTML = user.bonuses;
+  if (!currentUser) return;
   cardNumber.innerHTML = user.card;
   cardInitials.innerHTML =
     user.name.slice(0, 1).toUpperCase() +

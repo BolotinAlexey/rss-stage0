@@ -1,8 +1,15 @@
 import ref from './refs.js';
 import profile from './profile.js';
 
-const { logoInitials, nameProfile, cardCheckBtn, cardProfileInfo, cardTitle } =
-  ref;
+const {
+  logoInitials,
+  nameProfile,
+  cardCheckBtn,
+  cardProfileInfo,
+  cardTitle,
+  cardInputName,
+  cardInputNumber,
+} = ref;
 
 export default function loginUser(user) {
   let { name, surname, card, loginCount } = user;
@@ -28,5 +35,8 @@ export default function loginUser(user) {
   // !doit: move own function
   cardCheckBtn.style.display = 'none';
   cardTitle.innerHTML = 'Your Library card';
-  cardProfileInfo.classList.style.display = 'flex';
+  cardProfileInfo.style.display = 'flex';
+
+  cardInputName.value = currentUser.name + ' ' + currentUser.surname;
+  cardInputNumber.value = currentUser.card;
 }

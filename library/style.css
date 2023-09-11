@@ -901,6 +901,11 @@ header {
   transition: var(--transitionBgColor);
   cursor: pointer;
 }
+.check-card:hover {
+  background-color: var(--accentColor);
+  border: 1px solid var(--accentColor);
+  cursor: pointer;
+}
 
 button[type='submit']:hover:enabled,
 button[type='submit']:focus:enabled {
@@ -1430,7 +1435,7 @@ body.visibleMobile {
 /* right part */
 .myprofile__right {
   padding: 40px 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .myprofile__title {
@@ -1485,7 +1490,7 @@ body.visibleMobile {
   line-height: 2;
   letter-spacing: 2px;
   text-transform: capitalize;
-  overflow-x: scroll;
+  overflow-x: auto;
   white-space: nowrap;
 }
 
@@ -1493,6 +1498,7 @@ body.visibleMobile {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-top: 40px;
 }
 .card-word {
   color: var(--bgColor);
@@ -1584,7 +1590,7 @@ body.visibleMobile {
 }
 
 /* card profile information*/
-.myprofile__information {
+.card .myprofile__information {
   display: none;
   justify-content: center;
   gap: 35px;

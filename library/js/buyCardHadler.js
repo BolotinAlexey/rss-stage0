@@ -15,7 +15,7 @@ export default function buyCardHadler() {
   );
 
   currentUser.books.push(currentUser.currentBook);
-  currentUser.currentBook.value = 'Own';
+  currentUser.currentBook.textContent = 'Own';
   currentUser.currentBook.disabled = true;
 
   profile(currentUser);
