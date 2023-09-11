@@ -65,6 +65,9 @@ const cardInputName = document.querySelector('.card__input[name="name"]');
 const cardInputNumber = document.querySelector('.card__input[name="number"]');
 const cardCheckBtn = document.querySelector('.check-card');
 const cardProfileInfo = document.querySelector('.card .myprofile__information');
+const cardRight = document.querySelector('.card__right');
+const cardRightLogin = document.querySelector('.card__right-login');
+const cardProfileBtn = document.querySelector('#card__profile__btn');
 
 const ref = {
   loginBtn,
@@ -119,5 +122,8 @@ const ref = {
   cardCheckBtn,
   cardProfileInfo,
   cardForm,
+  cardRight,
+  cardRightLogin,
+  cardProfileBtn,
 };
 export default ref;

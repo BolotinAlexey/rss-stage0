@@ -5,6 +5,8 @@ const {
   cardProfileInfo,
   cardInputName,
   cardInputNumber,
+  cardRight,
+  cardRightLogin,
 } = ref;
 //
 export default function logoutUser(initials) {
@@ -16,8 +18,9 @@ export default function logoutUser(initials) {
   // !doit: move own function
   cardCheckBtn.style.display = 'block';
   cardTitle.innerHTML = 'Find your Library card';
-  cardProfileInfo.style.display = 'none';
+  cardProfileInfo.style.display = cardRightLogin.style.display = 'none';
   cardInputName.value = cardInputNumber.value = '';
+  cardRight.style.display = 'flex';
 
   currentUser = null;
 }

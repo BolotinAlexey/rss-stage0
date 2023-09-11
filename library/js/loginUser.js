@@ -9,6 +9,8 @@ const {
   cardTitle,
   cardInputName,
   cardInputNumber,
+  cardRight,
+  cardRightLogin,
 } = ref;
 
 export default function loginUser(user) {
@@ -33,9 +35,9 @@ export default function loginUser(user) {
   localStorage.setItem('users', JSON.stringify(newUsers));
 
   // !doit: move own function
-  cardCheckBtn.style.display = 'none';
+  cardCheckBtn.style.display = cardRight.style.display = 'none';
   cardTitle.innerHTML = 'Your Library card';
-  cardProfileInfo.style.display = 'flex';
+  cardProfileInfo.style.display = cardRightLogin.style.display = 'flex';
 
   cardInputName.value = currentUser.name + ' ' + currentUser.surname;
   cardInputNumber.value = currentUser.card;

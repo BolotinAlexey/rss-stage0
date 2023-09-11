@@ -864,14 +864,15 @@ header {
   gap: 25px;
 }
 
+.card__input[name='number'] {
+  text-transform: uppercase;
+}
+
 .card__input {
   width: 100%;
   height: 66px;
   border-radius: 10px;
   border: none;
-}
-
-.card__input {
   padding: 8px 20px;
   color: var(--accentColor);
   font-size: 30px;
@@ -884,6 +885,9 @@ header {
   font-size: 30px;
   line-height: 1.667; /* 166.667% */
   letter-spacing: 0.6px;
+}
+.card__input[name='number']::placeholder {
+  text-transform: initial;
 }
 
 .check-card {
@@ -916,12 +920,17 @@ button[type='submit']:focus:enabled {
 
 /* card__right */
 
-.card__right {
+.card__right,
+.card__right-login {
   width: 456px;
   display: flex;
   flex-direction: column;
   gap: 35px;
 }
+.card__right-login {
+  display: none;
+}
+
 .card__get {
   color: var(--textColor);
   font-family: 'Forum';
@@ -1133,7 +1142,8 @@ address {
     padding-left: 4px;
   }
 
-  .card__right {
+  .card__right,
+  .card__right-login {
     width: 600px;
     gap: 40px;
   }
@@ -1169,7 +1179,8 @@ address {
 
 @media screen and (max-width: 638px) {
   .card__left,
-  .card__right {
+  .card__right,
+  .card__right-login {
     width: 100%;
   }
   .articles__item {
@@ -1482,12 +1493,27 @@ body.visibleMobile {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 30px;
-  list-style: disc;
+  margin-top: 25px;
+  /* list-style: disc; */
+}
+
+.list__books li {
+  position: relative;
+}
+.list__books li::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
 }
 .list__books p {
+  margin-left: 30px;
   color: var(--textColor);
-  line-height: 2;
+  line-height: 1;
   letter-spacing: 2px;
   text-transform: capitalize;
   overflow-x: auto;
@@ -1507,6 +1533,7 @@ body.visibleMobile {
 .card-number {
   color: var(--accentColor);
   line-height: 1;
+  text-transform: uppercase;
 }
 .copy-btn {
   border: none;
@@ -1538,6 +1565,7 @@ body.visibleMobile {
   padding: 20px 0;
   background-color: var(--bgColor);
 }
+
 .library__title {
   color: var(--textColor-invert);
   text-align: center;
@@ -1556,6 +1584,9 @@ body.visibleMobile {
   padding: 30px 40px 40px;
   background-color: var(--textColor-invert);
 }
+.library__form {
+  width: 200px;
+}
 
 .library__right {
   width: 330px;
@@ -1570,8 +1601,23 @@ body.visibleMobile {
   width: 45px;
   text-align: center;
 }
+#cvc {
+  margin-bottom: 10px;
+}
+.price {
+  color: #0c0c0e;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 100% */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
 .library .modal__cross {
+  top: 23px;
+  right: 17px;
   color: var(--textColor-invert);
 }
 .modal__cross:hover {
@@ -1594,6 +1640,27 @@ body.visibleMobile {
   display: none;
   justify-content: center;
   gap: 35px;
+  margin: 15px 0 0;
+}
+
+.card .information__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin-bottom: -15px;
+}
+.card .information__description {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px; /* 200% */
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+}
+
+.myprofile .modal__cross {
+  top: 23px;
+  right: 24px;
 }
 .card .information__item {
 }

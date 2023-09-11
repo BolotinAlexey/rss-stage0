@@ -15,8 +15,10 @@ export default function cardShow() {
     ({ card, name, surname }) =>
       name.toLowerCase() + surname.toLowerCase() ===
         cardInputName.value.replaceAll(' ', '').toLowerCase() &&
-      card === cardInputNumber.value.replaceAll(' ', '')
+      card.toLowerCase() ===
+        cardInputNumber.value.replaceAll(' ', '').toLowerCase()
   );
+
   if (!findUser) return;
 
   cardCheckBtn.style.display = 'none';

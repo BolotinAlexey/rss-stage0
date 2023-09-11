@@ -32,6 +32,7 @@ const {
   cardBg,
   cardCross,
   cardCheckBtn,
+  cardProfileBtn,
 } = ref;
 
 window.currentUser = null;
@@ -98,3 +99,7 @@ logo.addEventListener('click', onProfile);
 ].forEach(el => el.addEventListener('click', onModal));
 
 cardCheckBtn.addEventListener('click', cardShow);
+
+cardProfileBtn.addEventListener('click', () => {
+  toggleModal(profileBg);
+});
