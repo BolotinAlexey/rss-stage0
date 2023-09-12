@@ -1513,6 +1513,7 @@ body.visibleMobile {
   border-radius: 50%;
   background-color: currentColor;
 }
+
 .list__books p {
   margin-left: 30px;
   color: var(--textColor);
@@ -1520,6 +1521,7 @@ body.visibleMobile {
   letter-spacing: 2px;
   text-transform: capitalize;
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
 }
 
