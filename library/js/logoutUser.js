@@ -24,9 +24,7 @@ export default function logoutUser(initials) {
   cardProfileInfo.style.display = cardRightLogin.style.display = 'none';
   cardInputName.value = cardInputNumber.value = '';
   cardRight.style.display = 'flex';
-  currentUser.books = [];
-  currentUser.bonuses = 0;
-  profile(currentUser);
+
   listBooks.innerHTML = '';
   buyBtns.forEach(el => {
     el.innerHTML = 'Buy';
