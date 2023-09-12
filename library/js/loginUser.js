@@ -11,6 +11,8 @@ const {
   cardInputNumber,
   cardRight,
   cardRightLogin,
+  listBooks,
+  buyBtns,
 } = ref;
 
 export default function loginUser(user) {
@@ -26,13 +28,12 @@ export default function loginUser(user) {
   const oldUsers = JSON.parse(localStorage.getItem('users'));
   const withoutUser = [...oldUsers].filter(el => el.card !== card);
 
-  user = { ...user, loginCount: loginCount + 1, books: [] };
+  user.loginCount++;
 
   currentUser = user;
 
   profile(user);
-  const newUsers = [...withoutUser, user];
-  localStorage.setItem('users', JSON.stringify(newUsers));
+  localStorage.setItem('users', JSON.stringify([...withoutUser, user]));
 
   // !doit: move own function
   cardCheckBtn.style.display = cardRight.style.display = 'none';
@@ -41,4 +42,19 @@ export default function loginUser(user) {
 
   cardInputName.value = currentUser.name + ' ' + currentUser.surname;
   cardInputNumber.value = currentUser.card;
+
+  //
+  listBooks.innerHTML = '';
+  user.books.forEach(el => {
+    const findBook = [...buyBtns].find(btn => btn.dataset.title === el);
+    console.log(findBook);
+    if (findBook) {
+      listBooks.insertAdjacentHTML(
+        'beforeend',
+        `<li><p>${findBook.dataset.title}</p></li>`
+      );
+      findBook.innerHTML = 'Own';
+      findBook.disabled = true;
+    }
+  });
 }
