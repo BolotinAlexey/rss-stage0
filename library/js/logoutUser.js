@@ -1,3 +1,4 @@
+import profile from './profile.js';
 import ref from './refs.js';
 const {
   cardCheckBtn,
@@ -7,6 +8,8 @@ const {
   cardInputNumber,
   cardRight,
   cardRightLogin,
+  listBooks,
+  buyBtns,
 } = ref;
 //
 export default function logoutUser(initials) {
@@ -22,6 +25,13 @@ export default function logoutUser(initials) {
   cardInputName.value = cardInputNumber.value = '';
   cardRight.style.display = 'flex';
   currentUser.books = [];
+  currentUser.bonuses = 0;
+  profile(currentUser);
+  listBooks.innerHTML = '';
+  buyBtns.forEach(el => {
+    el.innerHTML = 'Buy';
+    el.disabled = false;
+  });
 
   currentUser = null;
 }
