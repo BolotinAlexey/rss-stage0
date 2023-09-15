@@ -10,6 +10,7 @@ const {
 } = ref;
 export default function cardShow() {
   const users = JSON.parse(localStorage.getItem('users'));
+  if (!users) return;
 
   const findUser = [...users].find(
     ({ card, name, surname }) =>
