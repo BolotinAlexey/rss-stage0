@@ -12,7 +12,9 @@ const {
 export default function profile(user) {
   visits.forEach(el => (el.innerHTML = user.loginCount));
   // visits.innerHTML = user.loginCount;
-  books.forEach(el => (el.innerHTML = user.books.length));
+  books.forEach(el => {
+    el.innerHTML = user.books.length;
+  });
   // books.innerHTML = user.books.length;
   bonuses.forEach(el => (el.innerHTML = user.bonuses));
   // bonuses.innerHTML = user.bonuses;

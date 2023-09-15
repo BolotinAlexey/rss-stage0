@@ -1402,8 +1402,8 @@ body.visibleMobile {
   display: flex;
   position: absolute;
   width: 600px;
-  min-height: 400px;
-  max-height: 100vh;
+  height: 400px;
+  /* max-height: 100vh; */
 
   background-color: var(--textColor-invert);
   color: var(--textColor);
@@ -1449,7 +1449,6 @@ body.visibleMobile {
 /* right part */
 .myprofile__right {
   padding: 40px 20px;
-  overflow-y: auto;
 }
 
 .myprofile__title {
@@ -1493,15 +1492,19 @@ body.visibleMobile {
 }
 
 .myprofile .list__books {
+  height: 80px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 30px;
+  overflow-y: auto;
+
   /* list-style: disc; */
 }
 
 .list__books li {
   position: relative;
+  width: 370px;
 }
 .list__books li::after {
   content: '';
@@ -1513,21 +1516,23 @@ body.visibleMobile {
   border-radius: 50%;
   background-color: currentColor;
 }
+
 .list__books p {
   margin-left: 30px;
   color: var(--textColor);
   line-height: 1;
   letter-spacing: 2px;
   text-transform: capitalize;
-  overflow-x: auto;
   white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .cardnumber-wrap {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-top: 40px;
+  margin-top: 8px;
 }
 .card-word {
   color: var(--bgColor);
