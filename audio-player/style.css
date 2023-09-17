@@ -1,5 +1,5 @@
 :root {
-  --div: 2;
+  --div: 50;
 }
 
 * {
@@ -16,10 +16,51 @@ main {
   align-items: center;
   justify-content: center;
 }
-.start {
-  padding: 10px;
+
+.magnitofon {
+  width: 50vw;
+  height: 50vw;
+  border-top-left-radius: 3vw;
+  border-top-right-radius: 3vw;
+  background-color: #15b3de;
 }
-.start:hover {
+.view {
+  background-image: url('./assets/images/magnitofon.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: calc(50vw * 900 / 1085);
+}
+.control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* .bobbins {
+  padding-top: 1vw;
+  display: flex;
+  justify-content: space-around;
+}
+.bobbins__item {
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  background-color: #277193;
+}
+.bobbins__item:nth-of-type(1) {
+  transform: translateX(0.8vw);
+}
+.bobbins__item:nth-of-type(2) {
+  padding-right: 2vw;
+} */
+
+/* Button start/stop */
+
+.start__label {
+  padding: calc(20vw / var(--div));
+}
+.start__label:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
@@ -29,43 +70,47 @@ main {
 }
 .btn {
   display: inline-block;
-  background-color: #15b3de;
+  background-color: #82f524;
   position: relative;
-  width: calc(200px / var(--div));
-  height: calc(200px / var(--div));
+  width: calc(200vw / var(--div));
+  height: calc(200vw / var(--div));
   border-radius: 50%;
   transition: background-color 0.4s linear;
 }
 
 .btn__item {
   position: absolute;
-  width: calc(25px / var(--div));
-  height: calc(125px / var(--div));
+  width: calc(25vw / var(--div));
+  height: calc(125vw / var(--div));
   background-color: #fff;
-  border-radius: calc(12px / var(--div));
+  border-radius: calc(12vw / var(--div));
   transform: scale(1.15);
   transition: all 0.4s linear;
 }
 .btn__item:nth-of-type(1) {
-  left: calc(50px / var(--div));
-  top: calc(35px / var(--div));
+  left: calc(50vw / var(--div));
+  top: calc(35vw / var(--div));
 }
 .btn__item:nth-of-type(2),
 .btn__item:nth-of-type(3) {
-  left: calc(125px / var(--div));
-  top: calc(35px / var(--div));
+  left: calc(125vw / var(--div));
+  top: calc(35vw / var(--div));
 }
 #checkbox:checked ~ label .btn {
-  background-color: #91f73e;
+  background-color: #ea7e69;
 }
 #checkbox:checked ~ label .btn__item:nth-of-type(2) {
-  /* height: 200px; */
+  /* height: 200vw; */
   transform: rotate(-62deg) scale(1.15);
   transform-origin: top;
-  left: calc(42px / var(--div));
+  left: calc(42vw / var(--div));
 }
 #checkbox:checked ~ label .btn__item:nth-of-type(3) {
   transform: rotate(62deg) scale(1.15);
   transform-origin: bottom;
-  left: calc(42px / var(--div));
+  left: calc(42vw / var(--div));
+}
+/* range */
+#range {
+  width: 40vw;
 }
