@@ -1,10 +1,22 @@
 import def from './ref.js';
+import { volumes } from './volumes.js';
 
 const { range, startBtn } = def;
 
-let intervalId, rangeValue, current;
+let intervalId,
+  current = 0;
 const audio = new Audio('./assets/songs/EdSheeran–Shape_of_You.mp3');
 const checkRange = () => {
+  if (audio.duration === audio.currentTime) {
+    audio.pause();
+    clearInterval(intervalId);
+    intervalId = null;
+    range.value = 0;
+    current = ++current % 3;
+    audio.src = './assets/songs/' + volumes[current].path;
+    startStop();
+    return;
+  }
   range.value = (100 * audio.currentTime) / audio.duration;
 };
 
@@ -24,3 +36,4 @@ const startStop = () => {
 
 startBtn.addEventListener('input', startStop);
 range.addEventListener('input', onRange);
+// debugger;
