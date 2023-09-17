@@ -10,11 +10,27 @@ ul {
   padding: 0;
   margin: 0;
 }
-
-main {
+#description.visible {
+  opacity: 1;
+  /* animation: shift 10s linear infinite; */
+}
+.bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(50%);
+}
+.container {
+  height: 98vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover;
 }
 
 .magnitofon {
@@ -25,11 +41,25 @@ main {
   background-color: #15b3de;
 }
 .view {
+  padding-left: 3vw;
+  padding-right: 3vw;
   background-image: url('./assets/images/magnitofon.jpeg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   height: calc(50vw * 900 / 1085);
+  overflow: hidden;
 }
+#description {
+  opacity: 0;
+  margin: 0;
+  padding-top: 23vw;
+  white-space: nowrap;
+  font-size: 5vw;
+  color: bisque;
+  text-shadow: 0.3vw 0.3vw #15b3de;
+  transition: all 1s linear;
+}
+
 .control {
   display: flex;
   flex-direction: column;
@@ -113,4 +143,16 @@ main {
 /* range */
 #range {
   width: 40vw;
+}
+
+@keyframes shift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
