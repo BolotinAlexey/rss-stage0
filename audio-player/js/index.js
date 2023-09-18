@@ -39,6 +39,17 @@ const onMute = () => {
   }
 };
 
+const onVolume = () => {
+  if (!+volume.value) {
+    mute.checked = true;
+    onMute();
+    return;
+  }
+  audio.volume = volume.value / 100;
+  mute.checked = false;
+  onMute();
+};
+
 const changeTrack = current => {
   audio.pause();
   clearInterval(intervalId);
@@ -109,3 +120,4 @@ range.addEventListener('input', onRange);
 prev.addEventListener('click', onPrev);
 next.addEventListener('click', onNext);
 mute.addEventListener('change', onMute);
+volume.addEventListener('input', onVolume);
