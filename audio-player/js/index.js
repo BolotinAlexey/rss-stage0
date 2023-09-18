@@ -12,12 +12,32 @@ const {
   next,
   prevSvg,
   nextSvg,
+  mute,
+  volume,
+  svgOff,
+  svgOn,
 } = def;
 
 let intervalId,
   current = 0,
   shift = 0;
 const audio = new Audio('./assets/songs/EdSheeran–Shape_of_You.mp3');
+
+const onMute = () => {
+  {
+    audio.muted = mute.checked;
+
+    mute.checked &&
+      svgOn.classList.contains('hidden') &&
+      svgOn.classList.remove('hidden');
+    mute.checked && svgOff.classList.add('hidden');
+
+    !mute.checked &&
+      svgOff.classList.contains('hidden') &&
+      svgOff.classList.remove('hidden');
+    !mute.checked && svgOn.classList.add('hidden');
+  }
+};
 
 const changeTrack = current => {
   audio.pause();
@@ -88,3 +108,4 @@ startBtn.addEventListener('input', startStop);
 range.addEventListener('input', onRange);
 prev.addEventListener('click', onPrev);
 next.addEventListener('click', onNext);
+mute.addEventListener('change', onMute);

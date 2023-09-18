@@ -8,6 +8,10 @@ const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const prevSvg = document.querySelector('.prev__svg');
 const nextSvg = document.querySelector('.next__svg');
+const svgOn = document.querySelector('.on');
+const svgOff = document.querySelector('.off');
+const mute = document.querySelector('#mute');
+const volume = document.querySelector('#volume');
 
 const ref = {
   range,
@@ -20,5 +24,9 @@ const ref = {
   next,
   prevSvg,
   nextSvg,
+  mute,
+  volume,
+  svgOff,
+  svgOn,
 };
 export default ref;
