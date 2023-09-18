@@ -1,19 +1,36 @@
 :root {
   --div: 50;
 }
+div,
+p,
+ul,
+li,
+h1 {
+  padding: 0;
+  margin: 0;
+}
 
 * {
   box-sizing: border-box;
 }
+p {
+  font-family: 'Cormorant Garamond', serif;
+}
+span {
+  font-family: 'Dancing Script', cursive;
+}
 ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 #description.visible {
   opacity: 1;
   /* animation: shift 10s linear infinite; */
 }
+h1 {
+  font-size: 5vw;
+  font-family: 'Cormorant Garamond', serif;
+}
+
 .bg {
   position: absolute;
   top: 0;
@@ -23,12 +40,14 @@ ul {
   z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: grayscale(50%) blur(2vw);
+  filter: grayscale(50%) blur(2vw) saturate(2.2);
   transition: all 1s linear;
 }
 .container {
   height: 98vh;
   display: flex;
+  gap: 5vh;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-size: cover;

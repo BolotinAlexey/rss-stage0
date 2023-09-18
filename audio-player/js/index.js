@@ -45,7 +45,9 @@ const onNext = () => {
 };
 const formDescription = ({ singer, name, genre, year }) => {
   return new Array(30)
-    .fill(`${singer} "${name}" &nbsp; &nbsp; &nbsp; &nbsp;`)
+    .fill(
+      `${singer}&nbsp; &nbsp; <span>${name}</span> &nbsp; &nbsp; &nbsp; &nbsp;`
+    )
     .join('');
 };
 
