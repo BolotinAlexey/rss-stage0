@@ -16,6 +16,8 @@ const {
   volume,
   svgOff,
   svgOn,
+  currentTime,
+  duration,
 } = def;
 
 let intervalId,
@@ -50,6 +52,14 @@ const onVolume = () => {
   onMute();
 };
 
+const changeToMinute = time => {
+  let min = Math.floor(time / 60);
+  min = min < 10 ? `0${min}` : min;
+  let sec = Math.floor(time % 60);
+  sec = sec < 10 ? `0${sec}` : sec;
+  return min + ':' + sec;
+};
+
 const changeTrack = current => {
   audio.pause();
   clearInterval(intervalId);
@@ -57,6 +67,9 @@ const changeTrack = current => {
   range.value = 0;
   shift = shift % 50;
   audio.src = './assets/songs/' + volumes[current].path;
+  audio.addEventListener('canplay', () => {
+    duration.innerText = changeToMinute(audio.duration);
+  });
   descLink.innerHTML = formDescription(volumes[current]);
   bg.style.backgroundImage =
     view.style.backgroundImage = `url(./assets/images/${volumes[current].cover})`;
@@ -86,19 +99,23 @@ const checkRange = () => {
   if (audio.duration === audio.currentTime) {
     current = ++current % 3;
     changeTrack(current);
+    currentTime.innerText = '00:00';
     return;
   }
   range.value = (100 * audio.currentTime) / audio.duration;
+  currentTime.innerText = changeToMinute(audio.currentTime);
   descLink.style.transform = `translateX(-${++shift}vw)`;
 };
 
-const onRange = e => {
+const onRange = () => {
   clearInterval(intervalId);
   intervalId = null;
-
-  audio.currentTime = (range.value * audio.duration) / 100;
+  const value = (range.value * audio.duration) / 100;
+  audio.currentTime = value;
+  currentTime.innerText = changeToMinute(value);
   startStop();
 };
+
 const startStop = () => {
   if (intervalId) clearInterval(intervalId);
 
@@ -115,6 +132,9 @@ const startStop = () => {
 descLink.innerHTML = formDescription(volumes[0]);
 bg.style.backgroundImage =
   view.style.backgroundImage = `url(./assets/images/${volumes[0].cover})`;
+audio.addEventListener('canplay', () => {
+  duration.innerText = changeToMinute(audio.duration);
+});
 startBtn.addEventListener('input', startStop);
 range.addEventListener('input', onRange);
 prev.addEventListener('click', onPrev);

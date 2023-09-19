@@ -1,4 +1,6 @@
 const range = document.querySelector('#range');
+const currentTime = document.querySelector('.current-time');
+const duration = document.querySelector('.duration');
 const startBtn = document.querySelector('#checkbox');
 const descLink = document.querySelector('#description');
 const container = document.querySelector('.container');
@@ -28,5 +30,7 @@ const ref = {
   volume,
   svgOff,
   svgOn,
+  currentTime,
+  duration,
 };
 export default ref;

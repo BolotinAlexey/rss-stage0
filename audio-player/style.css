@@ -1,6 +1,6 @@
 :root {
   --div: 50;
-  --bg: #15b3de;
+  --bg: #2b2d2e;
   --start: #ec310c;
   --stop: #82f524;
   --text: #fbd9b0;
@@ -49,14 +49,15 @@ h1 {
   left: 0;
   z-index: -1;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   filter: grayscale(50%) blur(2vw) saturate(2.2);
   transition: all 1s linear;
 }
 .container {
-  height: 98vh;
+  height: 95vh;
   display: flex;
-  gap: 5vh;
+  gap: 2vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -65,14 +66,15 @@ h1 {
 
 .magnitofon {
   width: 50vw;
-  height: 50vw;
-  border-top-left-radius: 3vw;
-  border-top-right-radius: 3vw;
+  /* height: 50vw; */
+
+  border-radius: 3vw;
   background-color: var(--bg);
 }
 .view {
   padding-left: 3vw;
   padding-right: 3vw;
+  border-radius: 3vw;
   background-image: url('./assets/images/magnitofon.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -95,9 +97,10 @@ h1 {
 
 .control {
   padding: 1vw;
+  height: 12vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   /* background-color: var(--bg); */
 }
@@ -111,11 +114,7 @@ h1 {
 }
 /* left/right */
 
-#volume {
-  position: relative;
-  width: 10vw;
-}
-#volume:before {
+/* #volume:before {
   position: absolute;
   content: url(./assets/images/sound-down.svg);
   top: -2vw;
@@ -126,7 +125,7 @@ h1 {
   content: url(./assets/images/sound-up.svg);
   top: -2vw;
   right: 0;
-}
+} */
 
 .prev,
 .next {
@@ -257,8 +256,31 @@ label[for='mute']:hover {
   left: calc(42vw / var(--div));
 }
 /* range */
+
+.range-wrap {
+  position: relative;
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.current-time,
+.duration {
+  position: absolute;
+  color: var(--text);
+  font-size: 2vw;
+  line-height: 1;
+}
+.duration {
+  right: 0;
+}
+.current-time {
+  left: 0;
+}
+
 #range {
-  width: 40vw;
+  width: 35vw;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -267,12 +289,12 @@ label[for='mute']:hover {
 #range::-webkit-slider-runnable-track {
   border-radius: 0.5vw;
   height: 1vw;
-  border: 1px solid var(--stop);
+  /* border: 1px solid var(--stop); */
   background-color: var(--text);
 }
 #range::-webkit-slider-thumb {
-  background: var(--start);
-  border: 2px solid var(--stop);
+  background: var(--bg);
+  border: 1px solid var(--start);
   border-radius: 0.5vw;
   cursor: pointer;
   width: 1vw;
@@ -288,13 +310,55 @@ label[for='mute']:hover {
   background-color: var(--text);
 }
 #range::-moz-range-thumb {
-  background: var(--start);
+  background: var(--bg);
   border: 2px solid var(--stop);
   border-radius: 0.5vw;
   cursor: pointer;
   width: 1vw;
   height: 2vw;
   margin-top: -0.5vw;
+}
+
+/* volume */
+#volume {
+  /* position: relative; */
+  width: 10vw;
+  border-radius: 0.5vw;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  clip-path: polygon(0% 75%, 0% 100%, 100% 100%, 100% 0%);
+}
+
+#volume::-webkit-slider-runnable-track {
+  border-radius: 0.5vw;
+  height: 3.5vw;
+  background: linear-gradient(to right, var(--stop), var(--start) 150%);
+}
+#volume::-webkit-slider-thumb {
+  background: var(--bg);
+  border: 1px solid var(--start);
+  cursor: pointer;
+  width: 1vw;
+  height: 4vw;
+  -webkit-appearance: none;
+  /* margin-top: 1.5vw; */
+}
+
+#volume::-moz-range-track {
+  border-radius: 0.5vw;
+  height: 1vw;
+  border: 1px solid var(--stop);
+  background-color: var(--text);
+}
+#volume::-moz-range-thumb {
+  background: var(--start);
+  border: 2px solid var(--stop);
+  border-radius: 0.5vw;
+  cursor: pointer;
+  width: 1vw;
+  height: 2vw;
+  margin-top: 1.5vw;
 }
 
 @keyframes shift {
@@ -319,7 +383,7 @@ label[for='mute']:hover {
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   #volume:after,
   #volume:before {
     transform: scale(0.8);
@@ -337,4 +401,4 @@ label[for='mute']:hover {
   #volume:before {
     transform: scale(0.4);
   }
-}
+} */
