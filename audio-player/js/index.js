@@ -62,6 +62,7 @@ const changeToMinute = time => {
 
 const changeTrack = current => {
   audio.pause();
+  descLink.classList.add('none-transition');
   clearInterval(intervalId);
   intervalId = null;
   range.value = 0;
@@ -73,6 +74,7 @@ const changeTrack = current => {
   descLink.innerHTML = formDescription(volumes[current]);
   bg.style.backgroundImage =
     view.style.backgroundImage = `url(./assets/images/${volumes[current].cover})`;
+  descLink.classList.remove('none-transition');
   startStop();
 };
 const onPrev = () => {
@@ -132,6 +134,7 @@ const startStop = () => {
 descLink.innerHTML = formDescription(volumes[0]);
 bg.style.backgroundImage =
   view.style.backgroundImage = `url(./assets/images/${volumes[0].cover})`;
+audio.volume = 0.5;
 audio.addEventListener('canplay', () => {
   duration.innerText = changeToMinute(audio.duration);
 });
