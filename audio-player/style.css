@@ -4,6 +4,7 @@
   --start: #ec310c;
   --stop: #82f524;
   --text: #fbd9b0;
+  --logoJS: #ec310c;
 }
 body,
 div,
@@ -112,6 +113,8 @@ h1 {
 .control {
   padding: 1vw;
   height: 12vw;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -388,6 +391,7 @@ footer {
 }
 .contacts__link {
   color: var(--text);
+  transition: color 0.3s linear;
 }
 .contacts__link:hover,
 .contacts__link:active {
@@ -398,11 +402,26 @@ footer {
 }
 
 /* logo */
-.logo__img {
+.logo {
   width: 100px;
+  color: var(--text);
+  transition: color 1s linear;
 }
+.st0,
+.st5,
+.st7,
+.st9 {
+  fill: currentColor;
+  stroke: currentColor;
+}
+.logo__svg {
+  width: 100px;
+  padding-right: 10px;
+}
+
 .logo:hover {
   animation: shake-rotate 1s linear;
+  color: var(--stop);
 }
 
 .logo > a,
