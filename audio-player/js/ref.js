@@ -14,6 +14,7 @@ const svgOn = document.querySelector('.on');
 const svgOff = document.querySelector('.off');
 const mute = document.querySelector('#mute');
 const volume = document.querySelector('#volume');
+const control = document.querySelector('.control');
 
 const ref = {
   range,
@@ -32,5 +33,6 @@ const ref = {
   svgOn,
   currentTime,
   duration,
+  control,
 };
 export default ref;
