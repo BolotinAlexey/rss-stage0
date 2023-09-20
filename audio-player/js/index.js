@@ -1,5 +1,6 @@
 import def from './ref.js';
 import { volumes } from './volumes.js';
+const DELAY_SLIDE = 10000;
 
 const {
   range,
@@ -18,11 +19,17 @@ const {
   svgOn,
   currentTime,
   duration,
+  control,
 } = def;
 
 let intervalId,
+  delayId,
+  isShow,
   current = 0,
-  shift = 0;
+  shift = 0,
+  x = 0,
+  y = 0;
+
 const audio = new Audio('./assets/songs/EdSheeran–Shape_of_You.mp3');
 
 const onMute = () => {
@@ -104,6 +111,7 @@ const checkRange = () => {
     currentTime.innerText = '00:00';
     return;
   }
+
   range.value = (100 * audio.currentTime) / audio.duration;
   currentTime.innerText = changeToMinute(audio.currentTime);
   descLink.style.transform = `translateX(-${++shift}vw)`;
@@ -144,3 +152,19 @@ prev.addEventListener('click', onPrev);
 next.addEventListener('click', onNext);
 mute.addEventListener('change', onMute);
 volume.addEventListener('input', onVolume);
+
+document.querySelector('body').addEventListener('mousemove', () => {
+  clearTimeout(delayId);
+  !control.classList.contains('translateY') &&
+    control.classList.add('translateY');
+  delayId = setTimeout(
+    () => control.classList.remove('translateY'),
+    DELAY_SLIDE
+  );
+});
+delayId = setTimeout(() => control.classList.remove('translateY'), DELAY_SLIDE);
+
+window.addEventListener('load', () => {
+  isShow = true;
+  control.classList.add('translateY');
+});
