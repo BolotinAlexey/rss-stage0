@@ -50,6 +50,7 @@ a {
 }
 .control.translateY {
   transform: translateY(0);
+  /* z-index: 0; */
 }
 
 h1 {
@@ -91,6 +92,8 @@ h1 {
   /* background-color: var(--bg); */
 }
 .view {
+  position: relative;
+  z-index: 1;
   border-radius: 2rem;
   background-image: url('./assets/images/magnitofon.jpeg');
   background-position: center;
@@ -114,7 +117,6 @@ h1 {
 /* CONTROLS */
 
 .control {
-  position: relative;
   padding: 1vw;
   height: 12vw;
   border-bottom-left-radius: 2rem;
