@@ -54,11 +54,14 @@ a {
 }
 
 h1 {
-  padding: 2vh 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  /* padding: 2vh 0;
   font-size: 5vw;
   font-family: 'Cormorant Garamond', serif;
   color: var(--text);
-  text-shadow: 0.4vw 0.4vw var(--bg);
+  text-shadow: 0.4vw 0.4vw var(--bg); */
 }
 
 .bg {
@@ -489,6 +492,13 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  .duration {
+    right: 2vw;
+  }
+  .current-time {
+    left: 2vw;
+  }
+
   .magnitofon {
     width: 80%;
   }
@@ -510,9 +520,9 @@ footer {
   }
 
   h1 {
-    font-size: calc(1024px * 0.05);
+    /* font-size: calc(1024px * 0.05);
     padding: calc(1024px * 0.03) 0;
-    text-shadow: 3px 3px var(--bg);
+    text-shadow: 3px 3px var(--bg); */
   }
 
   #description {
