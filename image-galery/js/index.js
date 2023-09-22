@@ -9,11 +9,10 @@ refs.form.addEventListener('submit', onSubmit);
 
 // Main script
 async function runScript(word, page) {
-  api.q = word;
+  api.query = word;
   api.page = page;
-  console.log(word, page);
   try {
-    const { total, totalHits, hits } = await api.fetchApi();
+    const { total, total_pages, results } = await api.fetchApi();
     if (total === 0) {
       alert(
         'Sorry, there are no images matching your search query. Please try again.'
@@ -21,8 +20,7 @@ async function runScript(word, page) {
       clear();
       return;
     }
-    refs.gallery.insertAdjacentHTML('beforeend', createGallery(hits));
-    // lightbox.refresh();
+    refs.gallery.insertAdjacentHTML('beforeend', createGallery(results));
 
     if (api.page === 1) alert(` Hooray! We found ${totalHits} images.`);
     else shiftGallery();
@@ -51,7 +49,7 @@ function onSubmit(e) {
 // Leads the contents of the gallery to the initial state
 function clear() {
   refs.input.value = '';
-  api.q = '';
+  api.query = '';
   refs.button.classList.add('invisible');
   resetGallery();
 }
@@ -65,7 +63,7 @@ function resetGallery() {
 function nextPage() {
   api.incrementPage();
   refs.button.removeEventListener('click', nextPage);
-  runScript(api.q, api.page);
+  runScript(api.query, api.page);
 }
 
 // Shifts the gallery by 2 cards up

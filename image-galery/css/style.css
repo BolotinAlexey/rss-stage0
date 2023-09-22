@@ -6,7 +6,7 @@
   --logoJS: #ec310c;
   --width-desktop: 1440px;
 
-  --bgColor: #0c0c0e;
+  --bgColor: #fff;
   --accentColor: #bb945f;
   --placeholderColor: #8e8e8e;
   --textColor: #000;
@@ -983,66 +983,6 @@ button[type='submit']:focus:enabled {
   border: 1px solid var(--accentColor);
 }
 
-/* F O O T E R */
-
-footer {
-  padding-top: 20px;
-  padding-bottom: 44px;
-  background-color: var(--bgColor);
-  color: var(--textColor-invert);
-}
-
-.footer__top,
-.footer__down {
-  display: flex;
-  justify-content: space-between;
-}
-.footer__top {
-  padding-bottom: 28px;
-  border-bottom: 1px solid var(--textColor-invert);
-}
-
-address {
-  font-size: 15px;
-  line-height: 1.3333;
-}
-
-.media__links {
-  margin-top: 18px;
-  display: flex;
-  gap: 15px;
-}
-
-.media__item {
-  color: #f5efdb;
-  transition: var(--transitionColor);
-}
-
-.media__item:hover,
-.media__item:active {
-  color: var(--accentColor);
-}
-
-.scheduie__item {
-  text-align: end;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.33333;
-}
-.scheduie__item:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.footer__down {
-  padding-top: 44px;
-  line-height: 1;
-  letter-spacing: 2px;
-}
-
-.school {
-  margin-left: 102px;
-}
-
 /* Media query */
 
 @media screen and (max-width: 1420px) {
@@ -1678,7 +1618,7 @@ footer {
   align-items: center;
   color: var(--text);
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 20px;
   background-color: var(--bg);
 }
 /* .footer__wrapper {

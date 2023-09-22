@@ -1,23 +1,21 @@
-const KEY = '33299161-c9719a65dfe469cb85eb97047';
-const URL_BASE = `https://pixabay.com/api/?key=${KEY}`;
+const ACCESS_KEY = 'AG5ZvuxXoUAGyujohtlyMbsrnfNeLFsrQWCXyyYu0_Y';
+
+const URL_BASE = `https://api.unsplash.com/search/photos/?`;
 export default class Api {
-  constructor(q = '') {
+  constructor(query = '') {
     // this.q = q;
     this.require = {
-      q,
-      image_type: 'photo',
-      orientation: 'horizontal',
-      safesearch: 'true',
+      query,
       per_page: 40,
       page: 1,
     };
     this.arrayImages = [];
   }
-  set q(q) {
-    this.require.q = q;
+  set query(query) {
+    this.require.query = query;
   }
-  get q() {
-    return this.require.q;
+  get query() {
+    return this.require.query;
   }
   set page(page) {
     this.require.page = page;
@@ -36,7 +34,10 @@ export default class Api {
           .map(key => `&${key}=${this.require[key]}`)
           .join('');
       // const resultFetch = await axios.get(urlToFetch);
-      const resultFetch = await fetch(urlToFetch);
+      console.log(urlToFetch);
+      const resultFetch = await fetch(urlToFetch, {
+        headers: { Authorization: `Client-ID ${ACCESS_KEY}` },
+      });
       const result = await resultFetch.json();
       console.log(result);
       return result;
