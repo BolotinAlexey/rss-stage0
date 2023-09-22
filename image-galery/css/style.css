@@ -1,4 +1,11 @@
 :root {
+  --bg: #2b2d2e;
+  --logoJS: #ec310c;
+  --logoJS-accent: #82f524;
+  --text: #fbd9b0;
+  --logoJS: #ec310c;
+  --width-desktop: 1440px;
+
   --bgColor: #0c0c0e;
   --accentColor: #bb945f;
   --placeholderColor: #8e8e8e;
@@ -11,8 +18,8 @@
   --width-tablet: 768px;
 }
 html {
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable;
+  /* scroll-behavior: smooth;
+  scrollbar-gutter: stable; */
 }
 
 body {
@@ -1208,28 +1215,18 @@ address {
   height: 570px;
   padding: 100px 90px;
   background-color: var(--textColor);
-  /* left: 50%; */
   right: 0;
   top: 0;
-  /* transform: translate(-50%, -120%); */
   transform: translateY(-120%);
   transition: all 0.4s linear;
 }
 
 .bg-mobile.visibleMobile {
   bottom: 0;
-  /* position: fixed; */
 }
 .mobile.visibleMobile {
-  /* transform: translateX(-50%); */
   transform: translateY(0);
 }
-/* .burger-wrap.visibleMobile {
-  right: calc(50% - 168px);
-}
-.logo.visibleMobile {
-  right: calc(50% - 165px);
-} */
 
 .burger-wrap.visibleMobile .burger__line:nth-of-type(1) {
   transform: rotate(45deg) translateY(14px);
@@ -1257,7 +1254,6 @@ body.visibleMobile {
   text-align: center;
   line-height: 2.5;
   transform: rotateX(180deg);
-  /* transition: transform 1.5s cubic-bezier(0.48, -0.05, 0.78, 0.85); */
 }
 .mobile__nav__item:nth-of-type(1) {
   transition: transform 0.8s cubic-bezier(0.48, -0.05, 0.78, 0.85);
@@ -1671,4 +1667,65 @@ body.visibleMobile {
   right: 24px;
 }
 .card .information__item {
+}
+
+/* FOOTER */
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text);
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--bg);
+}
+/* .footer__wrapper {
+ 
+} */
+
+.footer__list {
+  display: flex;
+  gap: 0.5rem;
+}
+.contacts__link {
+  color: var(--text);
+  transition: color 0.3s linear;
+}
+.contacts__link:hover,
+.contacts__link:active {
+  color: var(--stop);
+}
+.contacts__icon-invert {
+  fill: currentColor;
+}
+
+/* logo */
+.logo {
+  width: 100px;
+  color: var(--text);
+  transition: color 1s linear;
+}
+.st0,
+.st5,
+.st7,
+.st9 {
+  fill: currentColor;
+  stroke: currentColor;
+}
+.logo__svg {
+  width: 100px;
+  padding-right: 10px;
+}
+
+.logo:hover {
+  animation: shake-rotate 1s linear;
+  color: var(--stop);
+}
+
+.logo > a,
+.year,
+.footer__list {
+  font-size: 1.5rem;
 }
