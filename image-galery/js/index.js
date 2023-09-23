@@ -3,7 +3,7 @@ import createGallery from './gallery.js';
 import getRefs from './getRefs.js';
 
 const refs = getRefs();
-// const lightbox = new SimpleLightbox('.gallery a');
+
 const api = new Api();
 refs.form.addEventListener('submit', onSubmit);
 
@@ -22,10 +22,12 @@ async function runScript(word, page) {
     }
     refs.gallery.insertAdjacentHTML('beforeend', createGallery(results));
 
-    if (api.page === 1) alert(` Hooray! We found ${totalHits} images.`);
-    else shiftGallery();
+    // if (api.page === 1) alert(` Hooray! We found ${total} images.`);
+    // else shiftGallery();
+    shiftGallery();
 
-    if (api.page * 40 > totalHits) {
+    if (api.page > total_pages) {
+      console.log(api.page, total_pages);
       refs.button.classList.add('invisible');
       alert("We're sorry, but you've reached the end of search results.");
       return;
@@ -75,3 +77,10 @@ function shiftGallery() {
     behavior: 'smooth',
   });
 }
+
+// add like choosen user
+// const onGalery = e => {
+//   e.preventDefault();
+//   console.log(e.target.dataset.id);
+//   api.fetchLike(e.target.dataset.id);
+// };

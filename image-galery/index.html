@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/gallery.css" />
-    <link rel="stylesheet" href="./css/style.css" />
     <title>image-galery</title>
   </head>
   <body>
@@ -15,25 +14,26 @@
       <section class="section-form">
         <form class="search-form" id="search-form">
           <input
-            type="text"
+            autofocus
+            type="search"
             name="searchQuery"
             autocomplete="off"
             placeholder="Search images..."
           />
-          <button type="submit">Search</button>
+          <button class="search-btn" type="submit">Search</button>
         </form>
       </section>
 
       <!----------- Section GALLERY ---------->
       <secion class="section-gallery">
-        <div class="gallery">
+        <ul class="gallery container">
           <!-- Карточки изображений -->
-        </div>
+        </ul>
       </secion>
       <button type="button" class="load-more invisible">Load more</button>
     </main>
     <!---FOOTER -->
-    <footer class="">
+    <footer>
       <ul class="footer__list">
         <!-- LinkedIn -->
         <li>

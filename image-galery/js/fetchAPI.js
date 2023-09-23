@@ -1,4 +1,7 @@
 const ACCESS_KEY = 'AG5ZvuxXoUAGyujohtlyMbsrnfNeLFsrQWCXyyYu0_Y';
+const HEADER = {
+  headers: { Authorization: `Client-ID ${ACCESS_KEY}` },
+};
 
 const URL_BASE = `https://api.unsplash.com/search/photos/?`;
 export default class Api {
@@ -34,10 +37,7 @@ export default class Api {
           .map(key => `&${key}=${this.require[key]}`)
           .join('');
       // const resultFetch = await axios.get(urlToFetch);
-      console.log(urlToFetch);
-      const resultFetch = await fetch(urlToFetch, {
-        headers: { Authorization: `Client-ID ${ACCESS_KEY}` },
-      });
+      const resultFetch = await fetch(urlToFetch, HEADER);
       const result = await resultFetch.json();
       console.log(result);
       return result;
@@ -45,4 +45,12 @@ export default class Api {
       console.log('error', error);
     }
   }
+
+  // async fetchLike(id) {
+  //   const res = await fetch(`https://api.unsplash.com/photos/${id}/like`, {
+  //     ...HEADER,
+  //     method: 'POST',
+  //   });
+  //   console.log(res);
+  // }
 }
