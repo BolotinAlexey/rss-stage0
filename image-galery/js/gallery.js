@@ -9,12 +9,13 @@ function createCard({
   alt_description,
   user: { first_name, last_name, links },
 }) {
+  const f = first_name ? first_name : '';
+  const l = last_name ? ' ' + last_name : '';
+  const fl = f + l;
   return `
   <li class="gallery__item">
    <div class="gallery__link-image">
-  <img data-url="${urls.regular}" src="${
-    urls.small
-  }" alt="${alt_description}"  class="gallery__image" loading="lazy" />
+  <img data-url="${urls.regular}" src="${urls.small}" alt="${alt_description}"  class="gallery__image" loading="lazy" />
   </div>
   
   <div class="info">
@@ -25,9 +26,7 @@ function createCard({
     </p>
     <p class="info-item">
       <b>User</b>
-      <span class="info-item__value">${first_name ? first_name : ''}
-      <span class="info-item__value">${' ' + last_name ? last_name : ''}
-    
+      <span class="info-item__value">${fl}
     </span>
   
   </div>

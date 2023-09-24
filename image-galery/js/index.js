@@ -27,7 +27,7 @@ async function runScript(word, page) {
     // else shiftGallery();
     shiftGallery();
 
-    if (api.page > total_pages) {
+    if (api.page >= total_pages) {
       console.log(api.page, total_pages);
       refs.button.classList.add('invisible');
       alert("We're sorry, but you've reached the end of search results.");
@@ -45,7 +45,7 @@ function onSubmit(e) {
   e.preventDefault();
   const inputWord = e.target.elements.searchQuery.value.trim();
   resetGallery();
-  if (!inputWord) return;
+  // if (!inputWord) return;
   runScript(inputWord, 1);
 }
 
@@ -83,6 +83,7 @@ function onBgModal(img, e) {
   if (e.target.tagName === 'IMG') return;
   img.remove();
   refs.bgModal.classList.remove('block');
+  refs.bgModal.removeEventListener('click', onBgModal);
 }
 
 // create modal

@@ -36,7 +36,7 @@ export default class Api {
         Object.keys(this.require)
           .map(key => `&${key}=${this.require[key]}`)
           .join('');
-      // const resultFetch = await axios.get(urlToFetch);
+
       const resultFetch = await fetch(urlToFetch, HEADER);
       const result = await resultFetch.json();
       console.log(result);
