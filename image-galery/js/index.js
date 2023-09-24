@@ -22,6 +22,7 @@ async function runScript(word, page) {
       clear();
       return;
     }
+    refs.anchor.classList.add('block');
     refs.gallery.insertAdjacentHTML('beforeend', createGallery(results));
 
     if (api.page === 1)
@@ -58,6 +59,8 @@ function clear() {
   api.query = '';
   refs.button.classList.add('invisible');
   resetGallery();
+  if (refs.anchor.classList.contains('block'))
+    refs.anchor.classList.remove('block');
 }
 
 // Cleans the contents of the gallery
