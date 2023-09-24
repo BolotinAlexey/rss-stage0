@@ -1,3 +1,5 @@
+import onMessage from './onMessage.js';
+
 const ACCESS_KEY = 'AG5ZvuxXoUAGyujohtlyMbsrnfNeLFsrQWCXyyYu0_Y';
 const HEADER = {
   headers: { Authorization: `Client-ID ${ACCESS_KEY}` },
@@ -29,6 +31,7 @@ export default class Api {
   incrementPage() {
     this.require.page++;
   }
+
   async fetchApi() {
     try {
       const urlToFetch =
@@ -38,11 +41,42 @@ export default class Api {
           .join('');
 
       const resultFetch = await fetch(urlToFetch, HEADER);
+      if (!resultFetch.ok) {
+        onMessage(`Status: ${resultFetch.status}`, [255, 0, 0]);
+        throw new Error(resultFetch.status);
+      }
       const result = await resultFetch.json();
-      console.log(result);
       return result;
     } catch (error) {
-      console.log('error', error);
+      console.error('Error: ', error);
+      return null;
+    }
+  }
+
+  //  if word=''
+  async randomApi() {
+    try {
+      const urlToFetch =
+        'https://api.unsplash.com/photos?' +
+        Object.keys({
+          page: this.require.page,
+          per_page: this.require.per_page,
+        })
+          .map(key => `&${key}=${this.require[key]}`)
+          .join('');
+
+      const resultFetch = await fetch(urlToFetch, HEADER);
+      if (!resultFetch.ok) {
+        onMessage(`Status: ${resultFetch.status}`, [255, 0, 0]);
+        throw new Error(resultFetch.status);
+      }
+      const result = await resultFetch.json();
+      console.log(result);
+
+      return result;
+    } catch (error) {
+      console.error('Error: ', error);
+      return null;
     }
   }
 

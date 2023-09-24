@@ -1,6 +1,7 @@
 import Api from './fetchAPI.js';
 import createGallery from './gallery.js';
 import getRefs from './getRefs.js';
+import onMessage from './onMessage.js';
 
 const refs = getRefs();
 
@@ -9,11 +10,23 @@ refs.form.addEventListener('submit', onSubmit);
 
 // Main script
 async function runScript(word, page) {
-  refs.gallery.addEventListener('click', onGalery);
   api.query = word;
   api.page = page;
   try {
-    const { total, total_pages, results } = await api.fetchApi();
+    const resp = word ? await api.fetchApi() : await api.randomApi();
+    if (!resp) return;
+    let total, total_pages, results, totalMsg;
+    if (word) {
+      total = resp.total;
+      total_pages = resp.total_pages;
+      results = resp.results;
+      totalMsg = total;
+    } else {
+      results = resp;
+      total = Infinity;
+      totalMsg = 'infiniti random';
+    }
+    // const { total, total_pages, results } = resp;
     if (total === 0) {
       onMessage(
         'Sorry, there are no images matching your search query. Please try again.',
@@ -22,11 +35,12 @@ async function runScript(word, page) {
       clear();
       return;
     }
+    refs.gallery.addEventListener('click', onGalery);
     refs.anchor.classList.add('block');
     refs.gallery.insertAdjacentHTML('beforeend', createGallery(results));
 
     if (api.page === 1)
-      onMessage(` Hooray! We found ${total} images.`, [0, 255, 0]);
+      onMessage(` Hooray! We found ${totalMsg} images.`, [0, 255, 0]);
     else shiftGallery();
 
     if (api.page >= total_pages) {
@@ -104,12 +118,3 @@ const onGalery = e => {
 
   refs.bgModal.addEventListener('click', onBgModal.bind(null, img));
 };
-
-// @param message - shown message
-// @param colors - array colors [red,green,blue]
-function onMessage(message, c) {
-  refs.modalMessage.innerText = message;
-  refs.modalMessage.style.backgroundColor = `rgba(${c[0]}, ${c[1]}, ${c[2]},0.5)`;
-  refs.modalMessage.classList.add('visible');
-  setTimeout(() => refs.modalMessage.classList.remove('visible'), 3000);
-}
