@@ -94,6 +94,7 @@ function onBgModal(img, e) {
 
 // create modal
 const onGalery = e => {
+  if (e.target.tagName !== 'IMG') return;
   console.log(e.target.dataset.url);
   refs.bgModal.classList.toggle('block');
   const img = document.createElement('img');
