@@ -11,13 +11,11 @@ function createCard({
 }) {
   return `
   <li class="gallery__item">
-   <a href="${urls.regular}" class="gallery__link-image">
-   <div class="photo-card">
-  <img src="${
+   <div class="gallery__link-image">
+  <img data-url="${urls.regular}" src="${
     urls.small
   }" alt="${alt_description}"  class="gallery__image" loading="lazy" />
   </div>
-  </a>
   
   <div class="info">
     <p class="info-item like" data-id="${id}">

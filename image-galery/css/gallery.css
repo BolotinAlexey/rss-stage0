@@ -12,14 +12,9 @@
 }
 
 .gallery__item {
-  /* position: relative; */
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.photo-card {
-  height: 100%;
 }
 
 .gallery__link-image {
@@ -29,7 +24,7 @@
   cursor: zoom-in;
 }
 
-.gallery__image:hover {
+.gallery__item .gallery__image:hover {
   transform: scale(1.03);
   filter: brightness(1.05) saturate(2);
 }
@@ -66,9 +61,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.info-item:hover {
-  /* cursor: pointer; */
 }
 
 .info-item__value {

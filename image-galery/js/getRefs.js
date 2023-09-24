@@ -4,5 +4,8 @@ export default function getRefs() {
     form: document.querySelector('#search-form'),
     input: document.querySelector('[name="searchQuery"]'),
     button: document.querySelector('.load-more'),
+    modal: document.querySelector('.modal'),
+    cross: document.querySelector('.cross'),
+    bgModal: document.querySelector('.bg-modal'),
   };
 }

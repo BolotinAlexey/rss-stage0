@@ -9,6 +9,7 @@ refs.form.addEventListener('submit', onSubmit);
 
 // Main script
 async function runScript(word, page) {
+  refs.gallery.addEventListener('click', onGalery);
   api.query = word;
   api.page = page;
   try {
@@ -78,9 +79,20 @@ function shiftGallery() {
   });
 }
 
-// add like choosen user
-// const onGalery = e => {
-//   e.preventDefault();
-//   console.log(e.target.dataset.id);
-//   api.fetchLike(e.target.dataset.id);
-// };
+function onBgModal(img, e) {
+  if (e.target.tagName === 'IMG') return;
+  img.remove();
+  refs.bgModal.classList.remove('block');
+}
+
+// create modal
+const onGalery = e => {
+  console.log(e.target.dataset.url);
+  refs.bgModal.classList.toggle('block');
+  const img = document.createElement('img');
+  refs.modal.appendChild(img);
+  img.setAttribute('src', e.target.dataset.url);
+  img.classList.add('gallery__image');
+
+  refs.bgModal.addEventListener('click', onBgModal.bind(null, img));
+};
