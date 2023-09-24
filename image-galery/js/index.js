@@ -15,22 +15,25 @@ async function runScript(word, page) {
   try {
     const { total, total_pages, results } = await api.fetchApi();
     if (total === 0) {
-      alert(
-        'Sorry, there are no images matching your search query. Please try again.'
+      onMessage(
+        'Sorry, there are no images matching your search query. Please try again.',
+        [255, 0, 0]
       );
       clear();
       return;
     }
     refs.gallery.insertAdjacentHTML('beforeend', createGallery(results));
 
-    // if (api.page === 1) alert(` Hooray! We found ${total} images.`);
-    // else shiftGallery();
-    shiftGallery();
+    if (api.page === 1)
+      onMessage(` Hooray! We found ${total} images.`, [0, 255, 0]);
+    else shiftGallery();
 
     if (api.page >= total_pages) {
-      console.log(api.page, total_pages);
       refs.button.classList.add('invisible');
-      alert("We're sorry, but you've reached the end of search results.");
+      onMessage(
+        "We're sorry, but you've reached the end of search results.",
+        [120, 120, 0]
+      );
       return;
     }
     refs.button.classList.remove('invisible');
@@ -97,3 +100,12 @@ const onGalery = e => {
 
   refs.bgModal.addEventListener('click', onBgModal.bind(null, img));
 };
+
+// @param message - shown message
+// @param colors - array colors [red,green,blue]
+function onMessage(message, c) {
+  refs.modalMessage.innerText = message;
+  refs.modalMessage.style.backgroundColor = `rgba(${c[0]}, ${c[1]}, ${c[2]},0.5)`;
+  refs.modalMessage.classList.add('visible');
+  setTimeout(() => refs.modalMessage.classList.remove('visible'), 3000);
+}

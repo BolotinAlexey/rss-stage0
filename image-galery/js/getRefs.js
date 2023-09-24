@@ -7,5 +7,6 @@ export default function getRefs() {
     modal: document.querySelector('.modal'),
     cross: document.querySelector('.cross'),
     bgModal: document.querySelector('.bg-modal'),
+    modalMessage: document.querySelector('.modal-message'),
   };
 }

@@ -113,6 +113,11 @@ button:active {
   visibility: hidden;
 }
 
+.modal-message.visible {
+  opacity: 1;
+  z-index: 30;
+}
+
 .container {
   max-width: var(--width-desktop);
   margin: 0 auto;
