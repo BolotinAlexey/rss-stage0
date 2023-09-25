@@ -71,7 +71,6 @@ export default class Api {
         throw new Error(resultFetch.status);
       }
       const result = await resultFetch.json();
-      console.log(result);
 
       return result;
     } catch (error) {
