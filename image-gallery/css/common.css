@@ -2,7 +2,9 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --animation-duration: 250ms;
   --div: 50;
+  --bgBody: #fafafa;
   --bg: #2b2d2e;
+  --secondText: #2b2d2e;
   --start: #ec310c;
   --stop: #82f524;
   --text: #fbd9b0;
@@ -45,7 +47,7 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: var(--bgBody);
   color: var(--text);
   line-height: 1.5;
   margin: 0;
