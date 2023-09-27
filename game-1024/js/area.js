@@ -19,9 +19,19 @@ export default class Area {
     });
   }
 
+  top() {
+    for (let j = 0; j < this.div; j++) {
+      for (let i = 0; i < this.div; i++) {
+        if (this.area[i][j]) continue;
+
+        row.length = len;
+        changeRow(row);
+        i++;
+      }
+    }
+  }
+
   newRandomItem() {
-    // const rndIndex = Math.floor(Math.random() * this.emptyArr.length);
-    // emptyArr = emptyArr.filter((el, i) => i !== rndIndex)
     const rndIndex = Math.floor(Math.random() * this.empty--);
     console.log(rndIndex);
     let isBreak,

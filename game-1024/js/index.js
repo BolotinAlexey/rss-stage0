@@ -4,5 +4,5 @@ area.show();
 console.log(area.emptyArr);
 area.newRandomItem();
 area.show();
-console.log(area.emptyArr);
+console.log(area.empty);
 console.log(area);
