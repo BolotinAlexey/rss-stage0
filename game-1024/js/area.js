@@ -19,7 +19,7 @@ export default class Area {
     });
   }
 
-  // shift matrix area to the top
+  // shift matrix area to the bottom
   top() {
     let isHas;
     for (let j = 0; j < this.div; j++) {
@@ -37,6 +37,26 @@ export default class Area {
 
         // return previous point
         i--;
+      }
+    }
+  }
+  bottom() {
+    let isHas;
+    for (let j = 0; j < this.div; j++) {
+      for (let i = this.div - 1; i >= 0; i--) {
+        if (this.area[i][j]) continue;
+        isHas = false;
+
+        //shift column to the bottom
+        for (let k = i; k > 0; k--) {
+          this.area[k][j] = this.area[k - 1][j];
+          isHas = isHas || !!this.area[k][j];
+        }
+        this.area[0][j] = null;
+        if (!isHas) break;
+
+        // return previous point
+        i++;
       }
     }
   }

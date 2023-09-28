@@ -23,14 +23,21 @@ area.show();
 area.newRandomItem();
 console.log('--new');
 area.show();
-area.top();
-console.log('--top');
+area.bottom();
+console.log('--bottom');
 area.show();
 area.newRandomItem();
 console.log('--new');
 area.show();
 area.top();
 console.log('--top');
+area.show();
+
+area.newRandomItem();
+console.log('--new');
+area.show();
+area.bottom();
+console.log('--bottom');
 area.show();
 
 // console.log(area.empty);
