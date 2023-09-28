@@ -15,11 +15,13 @@ export default class Area {
   show() {
     this.area.forEach((row, i) => {
       console.log('-------');
-      row.forEach((el, j) => console.log('[' + i + ',' + j + ']=' + el));
+      row.forEach((el, j) =>
+        console.log('[' + i + ',' + j + ']=' + el?.y, el?.x)
+      );
     });
   }
 
-  // shift matrix area to the bottom
+  // shift matrix area to the top
   top() {
     let isHas;
     for (let j = 0; j < this.div; j++) {
@@ -30,16 +32,20 @@ export default class Area {
         //shift column to top
         for (let k = i; k < this.div - 1; k++) {
           this.area[k][j] = this.area[k + 1][j];
+          // console.log(this.area[k][j]);
+          if (this.area[k][j]) this.area[k][j].y = k;
           isHas = isHas || !!this.area[k][j];
         }
         this.area[this.div - 1][j] = null;
         if (!isHas) break;
 
-        // return previous point
+        // return to the previous point
         i--;
       }
     }
   }
+
+  // shift matrix area to the bottom
   bottom() {
     let isHas;
     for (let j = 0; j < this.div; j++) {
@@ -50,12 +56,13 @@ export default class Area {
         //shift column to the bottom
         for (let k = i; k > 0; k--) {
           this.area[k][j] = this.area[k - 1][j];
+          if (this.area[k][j]) this.area[k][j].y = k;
           isHas = isHas || !!this.area[k][j];
         }
         this.area[0][j] = null;
         if (!isHas) break;
 
-        // return previous point
+        // return to the previous point
         i++;
       }
     }
@@ -69,7 +76,7 @@ export default class Area {
       for (let j = 0; j < this.div; j++) {
         // console.log(count);
         if (count === rndIndex && !this.area[i][j]) {
-          this.area[i][j] = new Item(i, j, 2);
+          this.area[i][j] = new Item(j, i, 2);
           console.log('[' + i + ',' + j + ']=');
           isBreak = true;
           break;
