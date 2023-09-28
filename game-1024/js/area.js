@@ -19,26 +19,35 @@ export default class Area {
     });
   }
 
+  // shift matrix area to the top
   top() {
+    let isHas;
     for (let j = 0; j < this.div; j++) {
       for (let i = 0; i < this.div; i++) {
         if (this.area[i][j]) continue;
+        isHas = false;
 
-        row.length = len;
-        changeRow(row);
-        i++;
+        //shift column to top
+        for (let k = i; k < this.div - 1; k++) {
+          this.area[k][j] = this.area[k + 1][j];
+          isHas = isHas || !!this.area[k][j];
+        }
+        this.area[this.div - 1][j] = null;
+        if (!isHas) break;
+
+        // return previous point
+        i--;
       }
     }
   }
 
   newRandomItem() {
     const rndIndex = Math.floor(Math.random() * this.empty--);
-    console.log(rndIndex);
     let isBreak,
       count = 0;
     for (let i = 0; i < this.div; i++) {
       for (let j = 0; j < this.div; j++) {
-        console.log(count);
+        // console.log(count);
         if (count === rndIndex && !this.area[i][j]) {
           this.area[i][j] = new Item(i, j, 2);
           console.log('[' + i + ',' + j + ']=');
