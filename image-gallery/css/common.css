@@ -118,6 +118,7 @@ button:active {
 }
 
 .modal-message.visible {
+  transform: translateX(0);
   opacity: 1;
   z-index: 30;
 }
