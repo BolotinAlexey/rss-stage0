@@ -7,38 +7,47 @@ area.show();
 area.top();
 console.log('--top');
 area.show();
+area.render();
 
-area.newRandomItem();
-console.log('--new');
-area.show();
-area.top();
-console.log('--top');
-area.show();
-area.newRandomItem();
-console.log('--new');
-area.show();
-area.top();
-console.log('--top');
-area.show();
-area.newRandomItem();
-console.log('--new');
-area.show();
-area.bottom();
-console.log('--bottom');
-area.show();
-area.newRandomItem();
-console.log('--new');
-area.show();
-area.top();
-console.log('--top');
-area.show();
+setTimeout(() => {
+  area.newRandomItem();
+  console.log('--new');
+  area.show();
+  area.bottom();
+  console.log('--top');
+  area.show();
+  area.render();
+}, 1000);
 
-area.newRandomItem();
-console.log('--new');
-area.show();
-area.bottom();
-console.log('--bottom');
-area.show();
+setTimeout(() => {
+  area.newRandomItem();
+  console.log('--new');
+  area.show();
+  area.top();
+  console.log('--top');
+  area.show();
+  area.render();
+}, 2000);
+
+setTimeout(() => {
+  area.newRandomItem();
+  console.log('--new');
+  area.show();
+  area.bottom();
+  console.log('--bottom');
+  area.show();
+  area.render();
+}, 3000);
+
+setTimeout(() => {
+  area.newRandomItem();
+  console.log('--new');
+  area.show();
+  area.top();
+  console.log('--bottom');
+  area.show();
+  area.render();
+}, 4000);
 
 // console.log(area.empty);
 // console.log(area);

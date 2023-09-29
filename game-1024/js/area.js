@@ -1,4 +1,5 @@
 import Item from './item.js';
+import renderItem from './renderItem.js';
 
 export default class Area {
   constructor(n) {
@@ -11,6 +12,12 @@ export default class Area {
   toString() {
     this.area.forEach(console.dir);
   }
+
+  // rendering area
+  render() {
+    this.area.forEach(row => row.forEach(el => el && renderItem(el)));
+  }
+
   // show items
   show() {
     this.area.forEach((row, i) => {
