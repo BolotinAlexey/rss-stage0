@@ -7,6 +7,9 @@ const refs = getRefs();
 
 const api = new Api();
 refs.form.addEventListener('submit', onSubmit);
+window.addEventListener('load', () => {
+  runScript('', 1);
+});
 
 // Main script
 async function runScript(word, page) {
