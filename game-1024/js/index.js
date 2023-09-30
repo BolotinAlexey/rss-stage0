@@ -1,53 +1,46 @@
 import Area from './area.js';
-const area = new Area(3);
 
-area.newRandomItem();
-console.log('--new');
-area.show();
-area.top();
-console.log('--top');
-area.show();
-area.render();
+const arena = new Area(3);
 
-setTimeout(() => {
-  area.newRandomItem();
-  console.log('--new');
-  area.show();
-  area.bottom();
-  console.log('--top');
-  area.show();
-  area.render();
-}, 1000);
+arena.newRandomItem();
+// console.log('--new');
+// arena.show();
+arena.render();
 
-setTimeout(() => {
-  area.newRandomItem();
-  console.log('--new');
-  area.show();
-  area.top();
-  console.log('--top');
-  area.show();
-  area.render();
-}, 2000);
+document.addEventListener('keyup', e => {
+  // top
+  if (e.code === 'ArrowUp') {
+    arena.top();
+    arena.show();
+    arena.render();
+    setTimeout(() => {
+      arena.checkTop();
+      arena.render();
 
-setTimeout(() => {
-  area.newRandomItem();
-  console.log('--new');
-  area.show();
-  area.bottom();
-  console.log('--bottom');
-  area.show();
-  area.render();
-}, 3000);
+      setTimeout(() => {
+        arena.newRandomItem();
+        arena.show();
+        arena.render();
+      }, 250);
+    }, 500);
+  }
 
-setTimeout(() => {
-  area.newRandomItem();
-  console.log('--new');
-  area.show();
-  area.top();
-  console.log('--bottom');
-  area.show();
-  area.render();
-}, 4000);
+  // down
+  else if (e.code === 'ArrowDown') {
+    arena.bottom();
+    arena.show();
+    arena.render();
 
-// console.log(area.empty);
-// console.log(area);
+    setTimeout(() => {
+      arena.checkBottom();
+      arena.render();
+      arena.show();
+      setTimeout(() => {
+        arena.newRandomItem();
+
+        arena.show();
+        arena.render();
+      }, 250);
+    }, 500);
+  }
+});

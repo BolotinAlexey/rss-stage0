@@ -13,4 +13,7 @@ export default class Item {
     this.node.style.left = `${110 * x}px`;
     refs.area.appendChild(this.node);
   }
+  del() {
+    this.node.remove();
+  }
 }
