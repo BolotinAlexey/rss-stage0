@@ -52,6 +52,7 @@ export default class Area {
           this.area[i][j + 1].del();
           this.area[i][j + 1] = null;
           this.empty++;
+          if (j + 2 < this.div) j++;
         }
       }
     }
@@ -75,6 +76,7 @@ export default class Area {
           this.area[i][j - 1].del();
           this.area[i][j - 1] = null;
           this.empty++;
+          if (j > 2) j--;
         }
       }
     }
@@ -98,6 +100,7 @@ export default class Area {
           this.area[i + 1][j].del();
           this.area[i + 1][j] = null;
           this.empty++;
+          if (i + 2 < this.div) i++;
         }
       }
     }
@@ -122,6 +125,7 @@ export default class Area {
           this.area[i - 1][j].del();
           this.area[i - 1][j] = null;
           this.empty++;
+          if (i > 2) i--;
         }
       }
     }
