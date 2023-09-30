@@ -15,6 +15,7 @@ export default class Area {
     // this.emptyArr = new Array(n * n).fill(true);
     this.empty = n * n;
   }
+
   toString() {
     this.area.forEach(console.dir);
   }
@@ -36,29 +37,53 @@ export default class Area {
     });
   }
 
+  // shift matrix area to the left
+  left() {
+    supLeft(this.area);
+  }
+
+  // check same value in rows
+  checkLeft() {
+    for (let i = 0; i < this.div; i++) {
+      for (let j = 0; j < this.div - 1; j++) {
+        if (!this.area[i][j + 1] || !this.area[i][j]) break;
+        if (this.area[i][j + 1].value === this.area[i][j].value) {
+          this.area[i][j].value *= 2;
+          this.area[i][j + 1].del();
+          this.area[i][j + 1] = null;
+          this.empty++;
+        }
+      }
+    }
+    supLeft(this.area);
+  }
+
+  // shift matrix area to the right
+  right() {
+    supRight(this.area);
+  }
+
+  // check same value in rows
+  checkRight() {
+    for (let i = 0; i < this.div; i++) {
+      for (let j = this.div - 1; j > 0; j--) {
+        if (!this.area[i][j - 1] || !this.area[i][j]) break;
+
+        if (this.area[i][j - 1].value === this.area[i][j].value) {
+          this.area[i][j].value *= 2;
+
+          this.area[i][j - 1].del();
+          this.area[i][j - 1] = null;
+          this.empty++;
+        }
+      }
+    }
+    supRight(this.area);
+  }
+
   // shift matrix area to the top
   top() {
     supTop(this.area);
-    // let isHas;
-    // for (let j = 0; j < this.div; j++) {
-    //   for (let i = 0; i < this.div; i++) {
-    //     if (this.area[i][j]) continue;
-    //     isHas = false;
-
-    //     //shift column to top
-    //     for (let k = i; k < this.div - 1; k++) {
-    //       this.area[k][j] = this.area[k + 1][j];
-    //       // console.log(this.area[k][j]);
-    //       if (this.area[k][j]) this.area[k][j].y = k;
-    //       isHas = isHas || !!this.area[k][j];
-    //     }
-    //     this.area[this.div - 1][j] = null;
-    //     if (!isHas) break;
-
-    //     // return to the previous point
-    //     i--;
-    //   }
-    // }
   }
 
   // check same value in columns
@@ -76,31 +101,12 @@ export default class Area {
         }
       }
     }
-    supTop(this.area, 'check');
+    supTop(this.area);
   }
 
   // shift matrix area to the bottom
   bottom() {
     supBottom(this.area);
-    // let isHas;
-    // for (let j = 0; j < this.div; j++) {
-    //   for (let i = this.div - 1; i >= 0; i--) {
-    //     if (this.area[i][j]) continue;
-    //     isHas = false;
-
-    //     //shift column to the bottom
-    //     for (let k = i; k > 0; k--) {
-    //       this.area[k][j] = this.area[k - 1][j];
-    //       if (this.area[k][j]) this.area[k][j].y = k;
-    //       isHas = isHas || !!this.area[k][j];
-    //     }
-    //     this.area[0][j] = null;
-    //     if (!isHas) break;
-
-    //     // return to the previous point
-    //     i++;
-    //   }
-    // }
   }
 
   // check same value in columns
@@ -141,9 +147,8 @@ export default class Area {
     }
   }
 }
-function searchNULL(arr) {
-  console.log(arr);
-}
+
+// supply moving function
 function supTop(arr) {
   let isHas;
   for (let j = 0; j < arr.length; j++) {
@@ -185,6 +190,51 @@ function supBottom(arr) {
 
       // return to the previous point
       i++;
+    }
+  }
+}
+
+function supLeft(arr) {
+  let isHas;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i][j]) continue;
+
+      isHas = false;
+      //shift row to the left
+      for (let k = j; k < arr.length - 1; k++) {
+        arr[i][k] = arr[i][k + 1];
+
+        if (arr[i][k]) arr[i][k].x = k;
+        isHas = isHas || !!arr[i][k];
+      }
+      arr[i][arr.length - 1] = null;
+      if (!isHas) break;
+
+      // return to the previous point
+      j--;
+    }
+  }
+}
+
+function supRight(arr) {
+  let isHas;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = arr.length - 1; j >= 0; j--) {
+      if (arr[i][j]) continue;
+      isHas = false;
+
+      //shift row to the right
+      for (let k = j; k > 0; k--) {
+        arr[i][k] = arr[i][k - 1];
+        if (arr[i][k]) arr[i][k].x = k;
+        isHas = isHas || !!arr[i][k];
+      }
+      arr[i][0] = null;
+      if (!isHas) break;
+
+      // return to the previous point
+      j++;
     }
   }
 }
