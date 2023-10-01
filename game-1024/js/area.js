@@ -4,9 +4,9 @@ import renderItem from './renderItem.js';
 
 const refs = getRefs();
 const sizeArea =
-  window.innerWidth > window.innerHeight - 20
-    ? window.innerHeight - 100
-    : window.innerWidth - 80;
+  window.innerWidth > window.innerHeight
+    ? window.innerHeight - 150
+    : window.innerWidth - 150;
 
 export default class Area {
   constructor(n) {
