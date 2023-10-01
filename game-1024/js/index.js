@@ -1,16 +1,18 @@
+import getRefs from './getRefs.js';
 import Area from './area.js';
 import bgImage from './bgImage.js';
 
-const arena = new Area(3);
+const refs = getRefs();
+const arena = new Area(2);
 bgImage();
 arena.newRandomItem();
 arena.render();
 
-document.addEventListener('keyup', e => {
+const onArrow = e => {
   // top
   if (e.code === 'ArrowUp') {
     arena.top();
-    arena.show();
+    // arena.show();
     arena.render();
     setTimeout(() => {
       arena.checkTop();
@@ -18,8 +20,9 @@ document.addEventListener('keyup', e => {
 
       setTimeout(() => {
         arena.newRandomItem();
-        arena.show();
+        // arena.show();
         arena.render();
+        checkLose();
       }, 250);
     }, 500);
   }
@@ -27,38 +30,37 @@ document.addEventListener('keyup', e => {
   // down
   if (e.code === 'ArrowDown') {
     arena.bottom();
-    arena.show();
+    // arena.show();
     arena.render();
-
     setTimeout(() => {
       arena.checkBottom();
       arena.render();
-      arena.show();
+      // arena.show();
+
       setTimeout(() => {
         arena.newRandomItem();
-
-        arena.show();
+        // arena.show();
         arena.render();
+        checkLose();
       }, 250);
     }, 500);
   }
 
   // left
   if (e.code === 'ArrowLeft') {
-    console.log('left');
     arena.left();
-    arena.show();
+    // arena.show();
     arena.render();
 
     setTimeout(() => {
       arena.checkLeft();
       arena.render();
-      arena.show();
+      // arena.show();
       setTimeout(() => {
         arena.newRandomItem();
-
-        arena.show();
+        // arena.show();
         arena.render();
+        checkLose();
       }, 250);
     }, 500);
   }
@@ -67,19 +69,30 @@ document.addEventListener('keyup', e => {
   if (e.code === 'ArrowRight') {
     console.log('right');
     arena.right();
-    arena.show();
+    // arena.show();
     arena.render();
 
     setTimeout(() => {
       arena.checkRight();
       arena.render();
-      arena.show();
+      // arena.show();
       setTimeout(() => {
         arena.newRandomItem();
 
         arena.show();
         arena.render();
+        checkLose();
       }, 250);
     }, 500);
   }
-});
+};
+
+document.addEventListener('keyup', onArrow);
+
+function checkLose() {
+  console.log('-------->' + arena.empty);
+  if (arena.empty < 0) {
+    refs.bgModal.classList.add('block');
+    document.removeEventListener('keyup', onArrow);
+  }
+}

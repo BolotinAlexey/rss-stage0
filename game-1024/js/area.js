@@ -3,21 +3,29 @@ import Item from './item.js';
 import renderItem from './renderItem.js';
 
 const refs = getRefs();
-const sizeArea =
-  window.innerWidth > window.innerHeight
-    ? window.innerHeight - 150
-    : window.innerWidth - 150;
+let sizeArea = onResize();
+
+window.addEventListener('resize', () => (sizeArea = onResize()));
 
 export default class Area {
   constructor(n) {
+    window.addEventListener('resize', () => {
+      sizeArea = onResize();
+      refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
+
+      this.sizeItem = (sizeArea - 10 * (n + 1)) / n;
+      supRender(this.area, this.sizeItem);
+    });
+
     refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
 
     this.sizeItem = (sizeArea - 10 * (n + 1)) / n;
-
+    this.score = 0;
     this.div = n;
+
     const temp = new Array(n).fill(true);
     this.area = temp.map(el => new Array(n).fill(null));
-    // this.emptyArr = new Array(n * n).fill(true);
+
     this.empty = n * n;
   }
 
@@ -27,9 +35,7 @@ export default class Area {
 
   // rendering area
   render() {
-    this.area.forEach(row =>
-      row.forEach(el => el && renderItem(el, this.sizeItem))
-    );
+    supRender(this.area, this.sizeItem);
   }
 
   // show items
@@ -102,8 +108,7 @@ export default class Area {
         if (!this.area[i + 1][j] || !this.area[i][j]) break;
         if (this.area[i + 1][j].value === this.area[i][j].value) {
           this.area[i][j].value *= 2;
-          console.log(this.area[i + 1][j]);
-          console.log('del:', [i + 1], [j], 'val:', this.area[i + 1][j].value);
+
           this.area[i + 1][j].del();
           this.area[i + 1][j] = null;
           this.empty++;
@@ -248,4 +253,15 @@ function supRight(arr) {
       j++;
     }
   }
+}
+
+function onResize() {
+  return window.innerWidth > window.innerHeight
+    ? window.innerHeight - 150
+    : window.innerWidth - 150;
+}
+
+function countSizes(sizeArea) {}
+function supRender(arr, sizeItem) {
+  arr.forEach(row => row.forEach(el => el && renderItem(el, sizeItem)));
 }
