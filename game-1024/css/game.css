@@ -5,20 +5,28 @@
 }
 #area {
   position: relative;
-  /* width: 330px;
-  height: 330px; */
+
   margin: 0 auto;
   outline: 3px solid blue;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
 }
 
 .area__item {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
   color: white;
-  font-size: 80px;
-  line-height: 1;
-  text-align: center;
-  background-color: red;
-  transition: all 0.3s linear;
+  margin-left: 10px;
+  margin-top: 10px;
+  opacity: 0.9;
+  transition: all 0.25s linear;
 }
+
+/* .area__value {
+  color: white;
+} */

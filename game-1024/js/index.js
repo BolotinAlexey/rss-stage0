@@ -1,7 +1,8 @@
 import Area from './area.js';
+import bgImage from './bgImage.js';
 
-const arena = new Area(4);
-
+const arena = new Area(6);
+bgImage();
 arena.newRandomItem();
 arena.render();
 

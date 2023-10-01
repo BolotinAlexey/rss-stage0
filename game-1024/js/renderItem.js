@@ -1,8 +1,10 @@
 import itemBgColor from './itemBgColor.js';
 
-export default function renderItem(el) {
-  el.node.style.top = 110 * el.y + 'px';
-  el.node.style.left = 110 * el.x + 'px';
+export default function renderItem(el, sizeItem) {
+  el.node.style.top = (sizeItem + 10) * el.y + 'px';
+  el.node.style.left = (sizeItem + 10) * el.x + 'px';
   el.node.style.backgroundColor = itemBgColor(el.value);
-  el.node.innerText = el.value;
+
+  el.node.childNodes[0].innerText = el.value;
+  el.node.childNodes[0].style.fontSize = `${sizeItem / 3}px`;
 }

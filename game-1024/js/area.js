@@ -3,11 +3,16 @@ import Item from './item.js';
 import renderItem from './renderItem.js';
 
 const refs = getRefs();
+const sizeArea =
+  window.innerWidth > window.innerHeight - 20
+    ? window.innerHeight - 100
+    : window.innerWidth - 80;
 
 export default class Area {
   constructor(n) {
-    refs.area.style.width = `${110 * n}px`;
-    refs.area.style.height = `${110 * n}px`;
+    refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
+
+    this.sizeItem = (sizeArea - 10 * (n + 1)) / n;
 
     this.div = n;
     const temp = new Array(n).fill(true);
@@ -22,7 +27,9 @@ export default class Area {
 
   // rendering area
   render() {
-    this.area.forEach(row => row.forEach(el => el && renderItem(el)));
+    this.area.forEach(row =>
+      row.forEach(el => el && renderItem(el, this.sizeItem))
+    );
   }
 
   // show items
@@ -140,8 +147,8 @@ export default class Area {
       for (let j = 0; j < this.div; j++) {
         // console.log(count);
         if (count === rndIndex && !this.area[i][j]) {
-          this.area[i][j] = new Item(j, i, 2);
-          console.log('[' + i + ',' + j + ']=');
+          this.area[i][j] = new Item(j, i, 2, this.sizeItem);
+
           isBreak = true;
           break;
         }
