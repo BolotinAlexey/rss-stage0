@@ -136,8 +136,7 @@ export default class Area {
 
         if (this.area[i - 1][j].value === this.area[i][j].value) {
           this.area[i][j].value *= 2;
-          console.log(this.area[i - 1][j]);
-          console.log('del:', [i - 1], [j], 'val:', this.area[i - 1][j].value);
+
           this.area[i - 1][j].del();
           this.area[i - 1][j] = null;
           this.empty++;

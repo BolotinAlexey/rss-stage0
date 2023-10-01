@@ -32,6 +32,7 @@ const onArrow = e => {
     arena.bottom();
     // arena.show();
     arena.render();
+
     setTimeout(() => {
       arena.checkBottom();
       arena.render();
@@ -56,6 +57,7 @@ const onArrow = e => {
       arena.checkLeft();
       arena.render();
       // arena.show();
+
       setTimeout(() => {
         arena.newRandomItem();
         // arena.show();
@@ -67,7 +69,6 @@ const onArrow = e => {
 
   // right
   if (e.code === 'ArrowRight') {
-    console.log('right');
     arena.right();
     // arena.show();
     arena.render();
@@ -79,7 +80,7 @@ const onArrow = e => {
       setTimeout(() => {
         arena.newRandomItem();
 
-        arena.show();
+        // arena.show();
         arena.render();
         checkLose();
       }, 250);
