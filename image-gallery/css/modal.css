@@ -9,9 +9,20 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .modal {
-  width: 80vw;
-  height: 80vh;
+  width: 90vw;
+  height: 99vh;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 97vw;
+  }
+}
+@media screen and (min-height: 768px) and (max-width: 1024px) {
+  .modal {
+    height: 90vw;
+  }
 }
 
 .cross {
