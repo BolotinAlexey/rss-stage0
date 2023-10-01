@@ -1,6 +1,10 @@
 import getRefs from './getRefs.js';
 import Item from './item.js';
 import renderItem from './renderItem.js';
+import supTop from './auxilaryMove/supTop.js';
+import supBottom from './auxilaryMove/supBottom.js';
+import supLeft from './auxilaryMove/supLeft.js';
+import supRight from './auxilaryMove/supRight.js';
 
 const refs = getRefs();
 let sizeArea = onResize();
@@ -160,97 +164,6 @@ export default class Area {
         if (!this.area[i][j]) count++;
       }
       if (isBreak) break;
-    }
-  }
-}
-
-// supply moving function
-function supTop(arr) {
-  let isHas;
-  for (let j = 0; j < arr.length; j++) {
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i][j]) continue;
-      isHas = false;
-
-      //shift column to top
-      for (let k = i; k < arr.length - 1; k++) {
-        arr[k][j] = arr[k + 1][j];
-
-        if (arr[k][j]) arr[k][j].y = k;
-        isHas = isHas || !!arr[k][j];
-      }
-      arr[arr.length - 1][j] = null;
-      if (!isHas) break;
-
-      // return to the previous point
-      i--;
-    }
-  }
-}
-
-function supBottom(arr) {
-  let isHas;
-  for (let j = 0; j < arr.length; j++) {
-    for (let i = arr.length - 1; i >= 0; i--) {
-      if (arr[i][j]) continue;
-      isHas = false;
-
-      //shift column to the bottom
-      for (let k = i; k > 0; k--) {
-        arr[k][j] = arr[k - 1][j];
-        if (arr[k][j]) arr[k][j].y = k;
-        isHas = isHas || !!arr[k][j];
-      }
-      arr[0][j] = null;
-      if (!isHas) break;
-
-      // return to the previous point
-      i++;
-    }
-  }
-}
-
-function supLeft(arr) {
-  let isHas;
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[i][j]) continue;
-
-      isHas = false;
-      //shift row to the left
-      for (let k = j; k < arr.length - 1; k++) {
-        arr[i][k] = arr[i][k + 1];
-
-        if (arr[i][k]) arr[i][k].x = k;
-        isHas = isHas || !!arr[i][k];
-      }
-      arr[i][arr.length - 1] = null;
-      if (!isHas) break;
-
-      // return to the previous point
-      j--;
-    }
-  }
-}
-
-function supRight(arr) {
-  let isHas;
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = arr.length - 1; j >= 0; j--) {
-      if (arr[i][j]) continue;
-      isHas = false;
-
-      //shift row to the right
-      for (let k = j; k > 0; k--) {
-        arr[i][k] = arr[i][k - 1];
-        if (arr[i][k]) arr[i][k].x = k;
-        isHas = isHas || !!arr[i][k];
-      }
-      arr[i][0] = null;
-      if (!isHas) break;
-
-      // return to the previous point
-      j++;
     }
   }
 }
