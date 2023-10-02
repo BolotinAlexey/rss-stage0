@@ -1,7 +1,21 @@
 .container {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   padding: 20px;
+}
+.describe {
+  display: flex;
+  color: var(--text-second);
+}
+
+.score__sign {
+  font-family: 'Croissant One', cursive;
+}
+.score__value {
+  color: var(--accent-prime);
+  font-family: 'Orbitron', sans-serif;
 }
 #area {
   position: relative;

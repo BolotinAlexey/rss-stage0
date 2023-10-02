@@ -3,7 +3,7 @@ import Area from './area.js';
 import bgImage from './bgImage.js';
 
 const refs = getRefs();
-const arena = new Area(2);
+const arena = new Area(4);
 bgImage();
 arena.newRandomItem();
 arena.render();

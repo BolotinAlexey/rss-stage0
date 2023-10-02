@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&family=Croissant+One&family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/game.css" />
@@ -13,7 +21,19 @@
     <header></header>
     <main>
       <div class="container">
-        <div id="area" tabindex="1"></div>
+        <div class="describe">
+          <div class="change-images">
+            <label for="change">ch</label>
+            <input type="checkbox" name="change" id="change" />
+          </div>
+          <div class="score">
+            <p class="score__sign">SCORE</p>
+            <p class="score__value">0123</p>
+          </div>
+
+          <div class="radio"></div>
+        </div>
+        <div id="area"></div>
         <div class="describe">
           <div class="score">
             <p class="score__sign">SCORE</p>
