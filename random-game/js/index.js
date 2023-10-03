@@ -4,7 +4,7 @@ import bgImage from './bgImage.js';
 import localStorageOperation from './localStorageOperation.js';
 
 const refs = getRefs();
-const arena = new Area(4);
+const arena = new Area(3);
 bgImage();
 arena.newRandomItem();
 arena.render();
@@ -20,7 +20,7 @@ const onArrow = e => {
       arena.render();
 
       setTimeout(() => {
-        arena.newRandomItem();
+        arena.empty && arena.newRandomItem();
         checkLose();
         // arena.show();
         arena.render();
@@ -40,7 +40,7 @@ const onArrow = e => {
       // arena.show();
 
       setTimeout(() => {
-        arena.newRandomItem();
+        arena.empty && arena.newRandomItem();
         checkLose();
         // arena.show();
         arena.render();
@@ -60,7 +60,7 @@ const onArrow = e => {
       // arena.show();
 
       setTimeout(() => {
-        arena.newRandomItem();
+        arena.empty && arena.newRandomItem();
         checkLose();
         // arena.show();
         arena.render();
@@ -79,7 +79,7 @@ const onArrow = e => {
       arena.render();
       // arena.show();
       setTimeout(() => {
-        arena.newRandomItem();
+        arena.empty && arena.newRandomItem();
         checkLose();
         // arena.show();
         arena.render();
