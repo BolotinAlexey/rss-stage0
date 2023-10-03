@@ -34,17 +34,6 @@
           <div class="radio"></div>
         </div>
         <div id="area"></div>
-        <div class="describe">
-          <div class="score">
-            <p class="score__sign">SCORE</p>
-            <p class="score__value"></p>
-          </div>
-          <div class="change-images">
-            <label for="change">ch</label>
-            <input type="checkbox" name="change" id="change" />
-            <div class="radio"></div>
-          </div>
-        </div>
       </div>
     </main>
     <!---FOOTER -->
@@ -296,8 +285,13 @@
     </footer>
 
     <div class="bg-modal">
-      <div class="modal modal-center">
-        <button aria-label="close modal" class="cross">
+      <div class="modal modal-lose modal-center">
+        <h3 class="modal__title">You lose!</h3>
+        <p class="modal__text">
+          You scored points in when playing with dimensions. You can dial more
+          if you choose a large dimension.
+        </p>
+        <button aria-label="close" class="cross">
           <span>
             <svg class="svg_center modal-center" width="21" height="21">
               <use href="./assets/sprite.svg#cross"></use>

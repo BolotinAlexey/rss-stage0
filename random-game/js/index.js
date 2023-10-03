@@ -3,7 +3,7 @@ import Area from './area.js';
 import bgImage from './bgImage.js';
 
 const refs = getRefs();
-const arena = new Area(4);
+const arena = new Area(3);
 bgImage();
 arena.newRandomItem();
 arena.render();
@@ -20,11 +20,11 @@ const onArrow = e => {
 
       setTimeout(() => {
         arena.newRandomItem();
+        checkLose();
         // arena.show();
         arena.render();
-        checkLose();
-      }, 250);
-    }, 500);
+      }, 100);
+    }, 200);
   }
 
   // down
@@ -40,11 +40,11 @@ const onArrow = e => {
 
       setTimeout(() => {
         arena.newRandomItem();
+        checkLose();
         // arena.show();
         arena.render();
-        checkLose();
-      }, 250);
-    }, 500);
+      }, 100);
+    }, 200);
   }
 
   // left
@@ -60,11 +60,11 @@ const onArrow = e => {
 
       setTimeout(() => {
         arena.newRandomItem();
+        checkLose();
         // arena.show();
         arena.render();
-        checkLose();
-      }, 250);
-    }, 500);
+      }, 100);
+    }, 200);
   }
 
   // right
@@ -79,21 +79,22 @@ const onArrow = e => {
       // arena.show();
       setTimeout(() => {
         arena.newRandomItem();
-
+        checkLose();
         // arena.show();
         arena.render();
-        checkLose();
-      }, 250);
-    }, 500);
+      }, 100);
+    }, 200);
   }
 };
 
 document.addEventListener('keyup', onArrow);
 
 function checkLose() {
-  console.log('-------->' + arena.empty);
-  if (arena.empty < 0) {
-    refs.bgModal.classList.add('block');
-    document.removeEventListener('keyup', onArrow);
+  if (arena.empty > 0 || !arena.checkFull()) {
+    return;
   }
+  refs.bgModal.classList.add('block');
+  refs.modalLose.classList.add('block');
+  document.removeEventListener('keyup', onArrow);
+  arena.show();
 }

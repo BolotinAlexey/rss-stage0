@@ -165,6 +165,55 @@ export default class Area {
       if (isBreak) break;
     }
   }
+
+  checkFull() {
+    for (let i = 0; i < this.div; i++) {
+      for (let j = 0; j < this.div; j++) {
+        // if (j > 0)
+        //   console.log(
+        //     '[',
+        //     i,
+        //     ',',
+        //     j,
+        //     ']=',
+        //     this.area[i][j].value,
+        //     '   [',
+        //     i,
+        //     ',',
+        //     j - 1,
+        //     ']=',
+        //     this.area[i][j - 1].value
+        //   );
+
+        // if (i > 0)
+        //   console.log(
+        //     '[',
+        //     i,
+        //     ',',
+        //     j,
+        //     ']=',
+        //     this.area[i][j].value,
+        //     '   [',
+        //     i - 1,
+        //     ',',
+        //     j,
+        //     ']=',
+        //     this.area[i - 1][j].value
+        //   );
+
+        if (j > 0 && this.area[i][j].value === this.area[i][j - 1].value) {
+          console.log(this.area[i][j].value + 'x');
+          return false;
+        }
+
+        if (i > 0 && this.area[i][j].value === this.area[i - 1][j].value) {
+          console.log(this.area[j][i].value + 'y');
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 }
 
 function onResize() {

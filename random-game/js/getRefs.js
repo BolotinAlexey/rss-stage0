@@ -3,5 +3,6 @@ export default function efs() {
     area: document.querySelector('#area'),
     bgModal: document.querySelector('.bg-modal'),
     modal: document.querySelector('.modal'),
+    modalLose: document.querySelector('.modal-lose'),
   };
 }
