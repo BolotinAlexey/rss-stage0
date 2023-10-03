@@ -4,7 +4,7 @@ import bgImage from './bgImage.js';
 import localStorageOperation from './localStorageOperation.js';
 
 const refs = getRefs();
-const arena = new Area(2);
+const arena = new Area(4);
 bgImage();
 arena.newRandomItem();
 arena.render();

@@ -5,6 +5,7 @@ import supTop from './auxilaryMove/supTop.js';
 import supBottom from './auxilaryMove/supBottom.js';
 import supLeft from './auxilaryMove/supLeft.js';
 import supRight from './auxilaryMove/supRight.js';
+import animationScore from './animationScore.js';
 
 const SCORE_RATIO = 3;
 const refs = getRefs();
@@ -41,7 +42,6 @@ export default class Area {
   // rendering area
   render() {
     supRender(this.area, this.sizeItem);
-    refs.score.innerHTML = this.score;
   }
 
   // show items
@@ -68,7 +68,9 @@ export default class Area {
       for (let j = 0; j < this.div - 1; j++) {
         if (!this.area[i][j + 1] || !this.area[i][j]) break;
         if (this.area[i][j + 1].value === this.area[i][j].value) {
+          const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
+          animationScore(old, this.score);
           this.area[i][j].value *= 2;
           this.area[i][j + 1].del();
           this.area[i][j + 1] = null;
@@ -93,7 +95,9 @@ export default class Area {
         if (!this.area[i][j - 1] || !this.area[i][j]) break;
 
         if (this.area[i][j - 1].value === this.area[i][j].value) {
+          const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
+          animationScore(old, this.score);
           this.area[i][j].value *= 2;
           this.area[i][j - 1].del();
           this.area[i][j - 1] = null;
@@ -117,7 +121,9 @@ export default class Area {
       for (let i = 0; i < this.div - 1; i++) {
         if (!this.area[i + 1][j] || !this.area[i][j]) break;
         if (this.area[i + 1][j].value === this.area[i][j].value) {
+          const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
+          animationScore(old, this.score);
           this.area[i][j].value *= 2;
 
           this.area[i + 1][j].del();
@@ -143,7 +149,9 @@ export default class Area {
         if (!this.area[i - 1][j] || !this.area[i][j]) break;
 
         if (this.area[i - 1][j].value === this.area[i][j].value) {
+          const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
+          animationScore(old, this.score);
           this.area[i][j].value *= 2;
 
           this.area[i - 1][j].del();
