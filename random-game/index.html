@@ -27,8 +27,9 @@
             <input type="checkbox" name="change" id="change" />
           </div>
           <div class="score">
-            <p class="score__sign">SCORE</p>
-            <p class="score__value">0123</p>
+            <p class="score__sign">
+              SCORE: <span class="score__value">0</span>
+            </p>
           </div>
 
           <div class="radio"></div>
@@ -285,12 +286,20 @@
     </footer>
 
     <div class="bg-modal">
-      <div class="modal modal-lose modal-center">
-        <h3 class="modal__title">You lose!</h3>
-        <p class="modal__text">
-          You scored points in when playing with dimensions. You can dial more
-          if you choose a large dimension.
-        </p>
+      <div class="modal modal-center">
+        <h3 class="modal__title"></h3>
+        <p class="modal__text"></p>
+        <label for="name" class="modal__label-name">
+          Enter your name for history.
+          <input
+            class="modal__input-name"
+            type="search"
+            placeholder="Enter your name.."
+            autofocus
+            reset
+          />
+        </label>
+
         <button aria-label="close" class="cross">
           <span>
             <svg class="svg_center modal-center" width="21" height="21">

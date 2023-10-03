@@ -1,9 +1,10 @@
 import getRefs from './getRefs.js';
 import Area from './area.js';
 import bgImage from './bgImage.js';
+import localStorageOperation from './localStorageOperation.js';
 
 const refs = getRefs();
-const arena = new Area(3);
+const arena = new Area(2);
 bgImage();
 arena.newRandomItem();
 arena.render();
@@ -90,11 +91,19 @@ const onArrow = e => {
 document.addEventListener('keyup', onArrow);
 
 function checkLose() {
-  if (arena.empty > 0 || !arena.checkFull()) {
-    return;
-  }
-  refs.bgModal.classList.add('block');
-  refs.modalLose.classList.add('block');
+  if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
+
+  lossCase(arena.score, arena.div);
   document.removeEventListener('keyup', onArrow);
   arena.show();
+}
+
+function lossCase(score, dimension) {
+  refs.modalTitle.innerText = 'GAME OVER!';
+  refs.modalText.innerText = `You scored ${score} points in when playing with ${dimension}x${dimension} dimensions. You can dial more if you choose a large dimension.`;
+  refs.bgModal.classList.add('block');
+  refs.modal.classList.add('block');
+  refs.inputName.addEventListener('change', () =>
+    localStorageOperation(score, dimension)
+  );
 }

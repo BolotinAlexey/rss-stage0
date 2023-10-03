@@ -9,9 +9,44 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .modal {
-  width: 80vw;
+  width: 95vw;
   height: 80vh;
+  padding: 4vw;
   border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__title {
+  margin: 40px 0;
+  color: var(--accent-prime);
+  font: 800 50px 'Croissant One', cursive;
+  text-align: center;
+}
+.modal__text {
+  margin-bottom: 30px;
+  color: var(--text);
+  text-shadow: 2px 2px 2px var(--accent-second);
+  font: 400 40px 'Caveat';
+  text-align: center;
+}
+.modal__label-name {
+  display: block;
+  margin: 0 auto;
+  color: var(--accent-second);
+  font: 400 30px 'Croissant One', cursive;
+  text-align: center;
+}
+
+.modal__input-name {
+  width: 90%;
+  margin-top: 20px;
+  padding: 0 10px;
+  color: var(--text);
+  background-color: var(--bg);
+  border-radius: 10px;
+  border: none;
+}
+.modal__input-name::placeholder {
+  font: 200 35px Caveat;
 }
 
 .cross {
@@ -21,7 +56,7 @@
   padding: 15px;
   z-index: 20;
   cursor: pointer;
-  color: var(--start);
+  color: var(--accent-prime);
   background-color: transparent;
   border: none;
   transition: filter 0.25s linear, transform 0.25s linear;
@@ -47,4 +82,47 @@
   z-index: -10;
 
   transition: opacity 1s ease-in;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 460px) {
+  .modal__title {
+    margin: 25px 0;
+    font-size: 40px;
+  }
+  .modal__text {
+    margin-bottom: 25px;
+
+    text-shadow: 2px 2px 2px var(--accent-second);
+    font-size: 30px;
+  }
+  .modal__label-name {
+    font-size: 25px;
+  }
+
+  .modal__input-name {
+    margin-top: 15px;
+    padding: 0 8px;
+    border-radius: 8px;
+  }
+  .modal__input-name::placeholder {
+    font-size: 25px;
+  }
+
+  .cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 15px;
+    z-index: 20;
+    cursor: pointer;
+    color: var(--accent-prime);
+    background-color: transparent;
+    border: none;
+    transition: filter 0.25s linear, transform 0.25s linear;
+  }
 }
