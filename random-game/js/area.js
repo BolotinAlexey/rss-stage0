@@ -227,8 +227,8 @@ export default class Area {
 
 function onResize() {
   return window.innerWidth > window.innerHeight
-    ? window.innerHeight - 150
-    : window.innerWidth - 150;
+    ? window.innerHeight - 180
+    : window.innerWidth - 180;
 }
 
 function supRender(arr, sizeItem) {

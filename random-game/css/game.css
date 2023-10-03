@@ -3,24 +3,44 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  padding: 20px;
+  padding: 10px;
 }
 .describe {
   display: flex;
   color: var(--text-second);
 }
 
-.score__sign {
-  font-family: 'Croissant One', cursive;
+.score {
+  margin-bottom: 25px;
+  font: 700 20px 'Croissant One', cursive;
+  text-align: center;
 }
 .score__value {
+  font: 400 20px 'Orbitron', sans-serif;
   color: var(--accent-prime);
-  font-family: 'Orbitron', sans-serif;
+}
+
+.game {
+  display: flex;
+  margin: 0 auto;
+}
+
+.game__left,
+.game__right {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.game__left {
+  padding-right: 10px;
+}
+.game__right {
+  padding-left: 10px;
 }
 #area {
   position: relative;
 
-  margin: 0 auto;
   outline: 3px solid blue;
   background-repeat: no-repeat;
   background-size: cover;

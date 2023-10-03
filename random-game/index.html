@@ -21,20 +21,34 @@
     <header></header>
     <main>
       <div class="container">
-        <div class="describe">
-          <div class="change-images">
-            <label for="change">ch</label>
-            <input type="checkbox" name="change" id="change" />
-          </div>
-          <div class="score">
-            <p class="score__sign">
-              SCORE: <span class="score__value">0</span>
-            </p>
+        <!-- score -->
+        <p class="score">SCORE: <span class="score__value">0</span></p>
+        <div class="game">
+          <!-- left -->
+          <div class="game__left">
+            <div class="dimension">
+              <label for="dimemension">
+                <span>dm</span>
+              </label>
+              <input type="checkbox" name="dimemension" id="dimemension" />
+            </div>
+            <div class="change-images">
+              <label for="change">ch</label>
+              <input type="checkbox" name="change" id="change" />
+            </div>
           </div>
 
-          <div class="radio"></div>
+          <!-- area -->
+          <div id="area"></div>
+
+          <!-- right -->
+          <div class="game__right">
+            <!-- new game -->
+            <button class="ngButton">
+              <span> ng </span>
+            </button>
+          </div>
         </div>
-        <div id="area"></div>
       </div>
     </main>
     <!---FOOTER -->
