@@ -18,15 +18,15 @@
   position: relative;
   width: fit-content;
   margin-right: 40px;
-  margin-bottom: 25px;
-  font: 700 20px 'Croissant One', cursive;
+  margin-bottom: 20px;
+  font: 700 36px 'Tilt Prism';
 }
 .score__value {
   position: absolute;
-  right: -80px;
+  right: -60px;
   transform: translateY(-50%);
   top: 50%;
-  font: 400 20px 'Orbitron', sans-serif;
+  font: 400 34px 'Orbitron', sans-serif;
   color: var(--accent-prime);
 }
 
@@ -71,6 +71,17 @@
   transition: all 0.1s linear;
 }
 
-/* .area__value {
-  color: white;
-} */
+/* new game button */
+.ngButton {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font: 900 18px 'Tilt Prism';
+  color: var(--text-second);
+
+  background-color: var(--accent-second);
+}
+.ngButton:hover {
+  cursor: pointer;
+  filter: saturate(10);
+}
