@@ -4,12 +4,47 @@ import bgImage from './bgImage.js';
 import localStorageOperation from './localStorageOperation.js';
 
 const refs = getRefs();
-const arena = new Area(3);
-bgImage();
-arena.newRandomItem();
-arena.render();
 
-const onArrow = e => {
+let previousGame, onArrowBind;
+refs.newGame.addEventListener('click', runGame);
+
+function runGame() {
+  refs.area.innerHTML = '';
+  previousGame && document.removeEventListener('keyup', onArrowBind);
+  previousGame?.clear();
+
+  const arena = new Area(+refs.inputDimension.value);
+  bgImage();
+  arena.newRandomItem();
+  arena.render();
+
+  onArrowBind = onArrow.bind(null, arena);
+
+  document.addEventListener('keyup', onArrowBind);
+  return arena;
+}
+
+// check is lose
+function checkLose(arena) {
+  if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
+
+  lossCase(arena.score, arena.div);
+  document.removeEventListener('keyup', onArrow);
+  arena.show();
+}
+
+function lossCase(score, dimension) {
+  refs.modalTitle.innerText = 'GAME OVER!';
+  refs.modalText.innerText = `You scored ${score} points in when playing with ${dimension}x${dimension} dimensions. You can dial more if you choose a large dimension.`;
+  refs.bgModal.classList.add('block');
+  refs.modal.classList.add('block');
+  refs.inputName.addEventListener('change', () =>
+    localStorageOperation(score, dimension)
+  );
+}
+
+// handler arrow keys
+function onArrow(arena, e) {
   // top
   if (e.code === 'ArrowUp') {
     arena.top();
@@ -21,7 +56,7 @@ const onArrow = e => {
 
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
-        checkLose();
+        checkLose(arena);
         // arena.show();
         arena.render();
       }, 100);
@@ -41,7 +76,7 @@ const onArrow = e => {
 
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
-        checkLose();
+        checkLose(arena);
         // arena.show();
         arena.render();
       }, 100);
@@ -61,7 +96,7 @@ const onArrow = e => {
 
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
-        checkLose();
+        checkLose(arena);
         // arena.show();
         arena.render();
       }, 100);
@@ -80,30 +115,12 @@ const onArrow = e => {
       // arena.show();
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
-        checkLose();
+        checkLose(arena);
         // arena.show();
         arena.render();
       }, 100);
     }, 200);
   }
-};
-
-document.addEventListener('keyup', onArrow);
-
-function checkLose() {
-  if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
-
-  lossCase(arena.score, arena.div);
-  document.removeEventListener('keyup', onArrow);
-  arena.show();
 }
 
-function lossCase(score, dimension) {
-  refs.modalTitle.innerText = 'GAME OVER!';
-  refs.modalText.innerText = `You scored ${score} points in when playing with ${dimension}x${dimension} dimensions. You can dial more if you choose a large dimension.`;
-  refs.bgModal.classList.add('block');
-  refs.modal.classList.add('block');
-  refs.inputName.addEventListener('change', () =>
-    localStorageOperation(score, dimension)
-  );
-}
+previousGame = runGame();

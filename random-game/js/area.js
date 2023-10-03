@@ -165,6 +165,7 @@ export default class Area {
   }
 
   newRandomItem() {
+    console.log(this.area);
     const rndIndex = Math.floor(Math.random() * this.empty--);
     let isBreak,
       count = 0;
@@ -230,6 +231,11 @@ export default class Area {
       }
     }
     return true;
+  }
+
+  clear() {
+    this.area.forEach(row => row.forEach(el => (el = null)));
+    delete this.area;
   }
 }
 

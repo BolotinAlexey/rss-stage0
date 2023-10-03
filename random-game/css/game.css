@@ -10,6 +10,36 @@
   color: var(--text-second);
 }
 
+.dimension {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: var(--text);
+  border-radius: 20px;
+}
+label[for='dimension'] {
+  color: var(--text-second);
+  background-color: var(--text);
+  font: 400 16px/2 'Orbitron';
+}
+label[for='dimension'] > span {
+  position: relative;
+  font: 400 20px 'Tilt Prism';
+  top: 2px;
+}
+
+#dimension {
+  width: 44px;
+  height: 30px;
+  padding-left: 8px;
+  border-radius: 8px;
+  border: solid 1px var(--text);
+  color: var(--text-second);
+  font: 400 16px 'Orbitron';
+}
+
 .score {
   display: flex;
   justify-content: center;
@@ -72,7 +102,7 @@
 }
 
 /* new game button */
-.ngButton {
+.ng-button {
   padding: 10px;
   border: none;
   border-radius: 20px;

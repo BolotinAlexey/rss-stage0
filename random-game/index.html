@@ -30,10 +30,15 @@
           <!-- left -->
           <div class="game__left">
             <div class="dimension">
-              <label for="dimemension">
-                <span>dm</span>
-              </label>
-              <input type="checkbox" name="dimemension" id="dimemension" />
+              <label for="dimension"> <span>N</span>x<span>N</span></label>
+              <input
+                type="number"
+                name="dimension"
+                id="dimension"
+                value="4"
+                min="2"
+                max="9"
+              />
             </div>
             <div class="change-images">
               <label for="change">ch</label>
@@ -47,7 +52,7 @@
           <!-- right -->
           <div class="game__right">
             <!-- new game -->
-            <button class="ngButton">
+            <button class="ng-button">
               <span>
                 New <br />
                 game
