@@ -1,8 +1,10 @@
 import getRefs from './getRefs.js';
 import Area from './area.js';
 import bgImage from './bgImage.js';
-import localStorageOperation from './localStorageOperation.js';
+import winModal from './winModal.js';
+import lossModal from './loseModal.js';
 
+const WIN_TILE = 8;
 const refs = getRefs();
 
 let previousGame, onArrowBind;
@@ -28,19 +30,9 @@ function runGame() {
 function checkLose(arena) {
   if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
 
-  lossCase(arena.score, arena.div);
-  document.removeEventListener('keyup', onArrow);
+  lossModal(arena);
+  document.removeEventListener('keyup', onArrowBind);
   arena.show();
-}
-
-function lossCase(score, dimension) {
-  refs.modalTitle.innerText = 'GAME OVER!';
-  refs.modalText.innerText = `You scored ${score} points in when playing with ${dimension}x${dimension} dimensions. You can dial more if you choose a large dimension.`;
-  refs.bgModal.classList.add('block');
-  refs.modal.classList.add('block');
-  refs.inputName.addEventListener('change', () =>
-    localStorageOperation(score, dimension)
-  );
 }
 
 // handler arrow keys
@@ -50,6 +42,8 @@ function onArrow(arena, e) {
     arena.top();
     // arena.show();
     arena.render();
+    arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
+
     setTimeout(() => {
       arena.checkTop();
       arena.render();
@@ -73,7 +67,7 @@ function onArrow(arena, e) {
       arena.checkBottom();
       arena.render();
       // arena.show();
-
+      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
         checkLose(arena);
@@ -93,7 +87,7 @@ function onArrow(arena, e) {
       arena.checkLeft();
       arena.render();
       // arena.show();
-
+      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
         checkLose(arena);
@@ -113,6 +107,7 @@ function onArrow(arena, e) {
       arena.checkRight();
       arena.render();
       // arena.show();
+      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
         checkLose(arena);

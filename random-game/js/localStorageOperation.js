@@ -8,10 +8,5 @@ export default function localStorageOperation(score, dimension) {
     ? JSON.parse(localStorage.getItem('scoreNames'))
     : [];
   scoreNames.push({ name, score, dimension });
-  console.log('after', scoreNames);
   localStorage.setItem('scoreNames', JSON.stringify(scoreNames));
-  refs.modalTitle.innerText = '';
-  refs.modalText.innerText = '';
-  refs.bgModal.classList.remove('block');
-  refs.modal.classList.remove('block');
 }

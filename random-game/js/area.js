@@ -28,6 +28,8 @@ export default class Area {
     this.sizeItem = (sizeArea - 10 * (n + 1)) / n;
     this.score = 0;
     this.div = n;
+    this.isContinue = false;
+    this.maxTile = 2;
 
     const temp = new Array(n).fill(true);
     this.area = temp.map(el => new Array(n).fill(null));
@@ -71,7 +73,13 @@ export default class Area {
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
+
           this.area[i][j].value *= 2;
+          this.maxTile =
+            this.maxTile < this.area[i][j].value
+              ? this.area[i][j].value
+              : this.maxTile;
+
           this.area[i][j + 1].del();
           this.area[i][j + 1] = null;
           this.empty++;
@@ -99,6 +107,11 @@ export default class Area {
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
           this.area[i][j].value *= 2;
+
+          this.maxTile =
+            this.maxTile < this.area[i][j].value
+              ? this.area[i][j].value
+              : this.maxTile;
           this.area[i][j - 1].del();
           this.area[i][j - 1] = null;
           this.empty++;
@@ -124,7 +137,12 @@ export default class Area {
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
+
           this.area[i][j].value *= 2;
+          this.maxTile =
+            this.maxTile < this.area[i][j].value
+              ? this.area[i][j].value
+              : this.maxTile;
 
           this.area[i + 1][j].del();
           this.area[i + 1][j] = null;
@@ -152,7 +170,12 @@ export default class Area {
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
+
           this.area[i][j].value *= 2;
+          this.maxTile =
+            this.maxTile < this.area[i][j].value
+              ? this.area[i][j].value
+              : this.maxTile;
 
           this.area[i - 1][j].del();
           this.area[i - 1][j] = null;
@@ -165,7 +188,6 @@ export default class Area {
   }
 
   newRandomItem() {
-    console.log(this.area);
     const rndIndex = Math.floor(Math.random() * this.empty--);
     let isBreak,
       count = 0;
@@ -234,7 +256,7 @@ export default class Area {
   }
 
   clear() {
-    this.area.forEach(row => row.forEach(el => (el = null)));
+    // this.area.forEach(row => row.forEach(el => (el = null)));
     delete this.area;
   }
 }
@@ -246,5 +268,5 @@ function onResize() {
 }
 
 function supRender(arr, sizeItem) {
-  arr.forEach(row => row.forEach(el => el && renderItem(el, sizeItem)));
+  arr?.forEach(row => row.forEach(el => el && renderItem(el, sizeItem)));
 }

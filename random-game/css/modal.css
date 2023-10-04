@@ -29,7 +29,7 @@
   text-align: center;
 }
 .modal__label-name {
-  display: block;
+  display: none;
   margin: 0 auto;
   color: var(--accent-second);
   font: 400 30px 'Croissant One', cursive;
@@ -50,6 +50,7 @@
 }
 
 .cross {
+  display: none;
   position: absolute;
   top: 10px;
   right: 10px;

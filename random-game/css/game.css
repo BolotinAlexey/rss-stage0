@@ -111,7 +111,7 @@ label[for='dimension'] > span {
 
   background-color: var(--accent-second);
 }
-.ngButton:hover {
+.ng-button:hover {
   cursor: pointer;
   filter: saturate(10);
 }

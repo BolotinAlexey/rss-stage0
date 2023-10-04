@@ -112,6 +112,7 @@ button:active {
 .bg-modal.block {
   display: block;
 }
+
 .invisible {
   visibility: hidden;
 }
@@ -252,38 +253,11 @@ footer {
   font-size: 1.5rem;
 }
 
-/* anchor */
-
-a[href='#anchor'] {
-  display: none;
-}
-a[href='#anchor'].block {
+.cross.block {
   display: block;
 }
-.anchor {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  z-index: 7;
-  background-color: rgb(0, 0, 255);
-  opacity: 0.4;
-  clip-path: polygon(
-    50% 0%,
-    100% 40%,
-    80% 40%,
-    80% 100%,
-    20% 100%,
-    20% 40%,
-    0% 40%
-  );
-  transition: var(--transitionBgColor), opacity 0.25s linear;
-}
-
-.anchor:hover {
-  transform: scale(1.1);
-  opacity: 1;
+.modal__label-name.block {
+  display: block;
 }
 
 /* animation */
