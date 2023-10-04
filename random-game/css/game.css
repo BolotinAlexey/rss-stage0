@@ -5,11 +5,46 @@
   height: 100vh;
   padding: 10px;
 }
-.describe {
+
+/* SCORE */
+.score {
   display: flex;
-  color: var(--text-second);
+  justify-content: center;
+}
+.score__sign {
+  position: relative;
+  width: fit-content;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  font: 700 36px 'Tilt Prism';
+}
+.score__value {
+  position: absolute;
+  right: -60px;
+  transform: translateY(-50%);
+  top: 50%;
+  font: 400 34px 'Orbitron', sans-serif;
+  color: var(--accent-prime);
 }
 
+.game {
+  display: flex;
+  margin: 0 auto;
+}
+
+/* LEFT */
+.game__left,
+.game__right {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.game__left {
+  padding-right: 10px;
+}
+
+/* dimension */
 .dimension {
   padding: 10px;
   display: flex;
@@ -40,44 +75,51 @@ label[for='dimension'] > span {
   font: 400 16px 'Orbitron';
 }
 
-.score {
+/* change images */
+.change-images {
+  position: relative;
   display: flex;
   justify-content: center;
+  border-radius: 5px;
 }
-.score__sign {
-  position: relative;
-  width: fit-content;
-  margin-right: 40px;
-  margin-bottom: 20px;
-  font: 700 36px 'Tilt Prism';
-}
-.score__value {
+.change-images::before {
+  content: url(../assets/64x64.png);
   position: absolute;
-  right: -60px;
-  transform: translateY(-50%);
-  top: 50%;
-  font: 400 34px 'Orbitron', sans-serif;
+  transform: scale(0.55) translateY(-4px);
+
+  z-index: -1;
+}
+
+#change {
+  display: none;
+}
+
+label:has(~ #change) {
+  color: var(--accent-second);
+}
+label:has(~ #change:checked) {
   color: var(--accent-prime);
 }
-
-.game {
-  display: flex;
-  margin: 0 auto;
-}
-
-.game__left,
-.game__right {
-  width: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-.game__left {
-  padding-right: 10px;
-}
+/* RIGHT */
 .game__right {
   padding-left: 10px;
 }
+/* new game button */
+.ng-button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font: 900 18px 'Tilt Prism';
+  color: var(--text-second);
+
+  background-color: var(--accent-second);
+}
+.ng-button:hover {
+  cursor: pointer;
+  filter: saturate(10);
+}
+
+/* AREA */
 #area {
   position: relative;
 
@@ -99,19 +141,4 @@ label[for='dimension'] > span {
   margin-top: 10px;
   opacity: 0.9;
   transition: all 0.1s linear;
-}
-
-/* new game button */
-.ng-button {
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  font: 900 18px 'Tilt Prism';
-  color: var(--text-second);
-
-  background-color: var(--accent-second);
-}
-.ng-button:hover {
-  cursor: pointer;
-  filter: saturate(10);
 }

@@ -32,7 +32,6 @@ function checkLose(arena) {
 
   lossModal(arena);
   document.removeEventListener('keyup', onArrowBind);
-  arena.show();
 }
 
 // handler arrow keys
