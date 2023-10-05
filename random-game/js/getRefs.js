@@ -14,5 +14,7 @@ export default function getRefs() {
     newGame: document.querySelector('.ng-button'),
     // modalLose: document.querySelector('.modal-lose'),
     score: document.querySelector('.score__value'),
+    tableButton: document.querySelector('.table-button'),
+    table: document.querySelector('.table'),
   };
 }

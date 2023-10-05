@@ -126,6 +126,20 @@ label:has(~ #change):hover {
   filter: saturate(10);
 }
 
+/* table */
+.table-button {
+  border: none;
+}
+/* .table {
+  transition: fill 1s linear;
+} */
+
+.table-button:hover svg {
+  cursor: pointer;
+  --color-table-prime: #ec310c;
+  --color-table-second: #82f524;
+}
+
 /* AREA */
 #area {
   position: relative;

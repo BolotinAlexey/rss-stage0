@@ -16,7 +16,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .modal__title {
-  margin: 40px 0;
+  margin: 0 0 20px;
   color: var(--accent-prime);
   font: 800 50px 'Croissant One', cursive;
   text-align: center;
@@ -67,6 +67,34 @@
   transform: scale(1.1) rotate(180deg);
 }
 
+.table {
+  display: none;
+  justify-content: center;
+  border-collapse: collapse;
+  overflow: auto;
+}
+
+th,
+td {
+  border: 2px solid var(--accent-second);
+  padding: 7px 20px;
+  text-align: center;
+  font: 800 17px 'Orbitron';
+}
+th {
+  font-family: 'Croissant One';
+  background-color: var(--accent-prime);
+  font-size: 24px;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+td:first-child {
+  font-family: Caveat;
+  font-size: 24px;
+  line-height: 1;
+}
+
 .svg_center {
   stroke: currentColor;
 }
@@ -92,9 +120,10 @@
 }
 @media screen and (max-width: 460px) {
   .modal__title {
-    margin: 25px 0;
+    margin: 10px 0 20px;
     font-size: 40px;
   }
+
   .modal__text {
     margin-bottom: 25px;
 
@@ -125,5 +154,10 @@
     background-color: transparent;
     border: none;
     transition: filter 0.25s linear, transform 0.25s linear;
+  }
+
+  th,
+  td {
+    padding: 5px;
   }
 }

@@ -3,12 +3,14 @@ import Area from './area.js';
 import bgImage from './bgImage.js';
 import winModal from './winModal.js';
 import lossModal from './loseModal.js';
+import tableShow from './tableShow.js';
 
 const WIN_TILE = 8;
 const refs = getRefs();
 
 let previousGame, onArrowBind;
 refs.newGame.addEventListener('click', runGame);
+refs.tableButton.addEventListener('click', tableShow);
 
 function runGame() {
   if (refs.newGame.classList.contains('shake-rotate'))
