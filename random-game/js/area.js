@@ -15,6 +15,9 @@ window.addEventListener('resize', () => (sizeArea = onResize()));
 
 export default class Area {
   constructor(n) {
+    // this.audioShift = new Audio('../assets/sounds/shiftAlt.mp3');
+    this.audioCollapse = new Audio('../assets/sounds/collapse.mp3');
+    this.audioCollapse.autoplay = true;
     window.addEventListener('resize', () => {
       sizeArea = onResize();
       refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
@@ -70,6 +73,8 @@ export default class Area {
       for (let j = 0; j < this.div - 1; j++) {
         if (!this.area[i][j + 1] || !this.area[i][j]) break;
         if (this.area[i][j + 1].value === this.area[i][j].value) {
+          console.log(this.audioCollapse);
+          this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
@@ -103,6 +108,8 @@ export default class Area {
         if (!this.area[i][j - 1] || !this.area[i][j]) break;
 
         if (this.area[i][j - 1].value === this.area[i][j].value) {
+          console.log(this.audioCollapse);
+          this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
@@ -134,6 +141,8 @@ export default class Area {
       for (let i = 0; i < this.div - 1; i++) {
         if (!this.area[i + 1][j] || !this.area[i][j]) break;
         if (this.area[i + 1][j].value === this.area[i][j].value) {
+          console.log(this.audioCollapse);
+          this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
@@ -167,6 +176,8 @@ export default class Area {
         if (!this.area[i - 1][j] || !this.area[i][j]) break;
 
         if (this.area[i - 1][j].value === this.area[i][j].value) {
+          this.audioCollapse.play();
+          console.log(this.audioCollapse);
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
