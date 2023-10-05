@@ -96,10 +96,17 @@ label[for='dimension'] > span {
 
 label:has(~ #change) {
   color: var(--accent-second);
+  transition: transform 0.5s linear;
 }
-label:has(~ #change:checked) {
+/* label:has(~ #change:checked) {
   color: var(--accent-prime);
+} */
+label:has(~ #change):hover {
+  cursor: pointer;
+  filter: saturate(2);
+  animation: rotate 1s infinite;
 }
+
 /* RIGHT */
 .game__right {
   padding-left: 10px;
@@ -141,4 +148,16 @@ label:has(~ #change:checked) {
   margin-top: 10px;
   opacity: 0.9;
   transition: all 0.1s linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

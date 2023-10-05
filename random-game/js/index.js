@@ -14,7 +14,7 @@ function runGame() {
   refs.area.innerHTML = '';
   previousGame && document.removeEventListener('keyup', onArrowBind);
   previousGame?.clear();
-
+  refs.inputChange.addEventListener('change', bgImage);
   const arena = new Area(+refs.inputDimension.value);
   bgImage();
   arena.newRandomItem();

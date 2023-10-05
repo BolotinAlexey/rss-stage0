@@ -1,19 +1,25 @@
 import getRefs from './getRefs.js';
-
-const words = ['cats', 'dogs', 'nature', 'arts'];
+const words = ['cats', 'dogs', 'nature', 'arts', 'surrealism'];
 const refs = getRefs();
 
 const url =
   'https://pixabay.com/api/?key=33299161-c9719a65dfe469cb85eb97047&q=';
 
-export default async function bgImage() {
-  const word = words[Math.floor(Math.random() * 4)];
+export default async function bgImage(isNotFirst) {
+  const word = isNotFirst
+    ? words[Math.floor(Math.random() * words.length)]
+    : 'montains';
   const index = Math.floor(Math.random() * 20);
+
+  const result = await newFetch(word);
+  refs.area.style.backgroundImage = `url(${result.hits[index].webformatURL})`;
+}
+
+async function newFetch(word) {
   try {
     const resultFetch = await fetch(url + word);
     const result = await resultFetch.json();
-
-    refs.area.style.backgroundImage = `url(${result.hits[index].webformatURL})`;
+    return result;
   } catch (error) {
     console.log(error.message);
   }
