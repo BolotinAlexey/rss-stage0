@@ -16,6 +16,7 @@ export default function lossModal(arena) {
       refs.modalTitle.innerText = '';
       refs.modalText.innerText = '';
       links.forEach(el => refs[el].classList.remove('block'));
+      refs.newGame.classList.add('shake-rotate');
     },
     { once: true }
   );

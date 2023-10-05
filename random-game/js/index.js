@@ -11,6 +11,8 @@ let previousGame, onArrowBind;
 refs.newGame.addEventListener('click', runGame);
 
 function runGame() {
+  if (refs.newGame.classList.contains('shake-rotate'))
+    refs.newGame.classList.remove('shake-rotate');
   refs.area.innerHTML = '';
   previousGame && document.removeEventListener('keyup', onArrowBind);
   previousGame?.clear();

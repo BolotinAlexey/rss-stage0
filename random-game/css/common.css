@@ -260,6 +260,10 @@ footer {
   display: block;
 }
 
+.shake-rotate {
+  animation: shake-rotate 1s linear infinite;
+}
+
 /* animation */
 @keyframes shake-rotate {
   15% {

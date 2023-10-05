@@ -1,5 +1,5 @@
 import getRefs from './getRefs.js';
-const words = ['cats', 'dogs', 'nature', 'arts', 'surrealism'];
+const words = ['cats', 'dogs', 'nature', 'arts', 'surrealism', 'flowers'];
 const refs = getRefs();
 
 const url =
@@ -8,11 +8,12 @@ const url =
 export default async function bgImage(isNotFirst) {
   const word = isNotFirst
     ? words[Math.floor(Math.random() * words.length)]
-    : 'montains';
-  const index = Math.floor(Math.random() * 20);
+    : 'montain';
 
   const result = await newFetch(word);
-  refs.area.style.backgroundImage = `url(${result.hits[index].webformatURL})`;
+  refs.area.style.backgroundImage = `url(${
+    result.hits[Math.floor(Math.random() * result.hits.length)].webformatURL
+  })`;
 }
 
 async function newFetch(word) {
