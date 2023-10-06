@@ -10,7 +10,6 @@ export default function winModal(area) {
   refs.modalTitle.innerText = 'YOU WIN!';
   refs.modalText.innerText = `Your maximum tile is ${area.maxTile}. You scored ${area.score} points in when playing with ${area.div}x${area.div} dimensions. You can close this window and continue to earn points or start a new game..`;
   nodes.forEach(node => {
-    console.log(refs[node]);
     refs[node].classList.add('block');
   });
   refs.cross.addEventListener('click', () => closeModal(nodes));

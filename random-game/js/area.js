@@ -236,6 +236,8 @@ export default class Area {
     // this.area.forEach(row => row.forEach(el => (el = null)));
     this.audioCollapse = this.audioShift = this.audioResult = null;
     delete this.area;
+    refs.score.innerHTML = '0';
+    refs.score.style.right = '-60px';
   }
 }
 

@@ -13,7 +13,7 @@ export default function lossModal(arena) {
   refs.inputName.addEventListener(
     'change',
     () => {
-      localStorageOperation(arena.score, arena.div);
+      localStorageOperation(arena.score, arena.div, arena.maxTile);
       closeModal(nodes);
       refs.newGame.classList.add('shake-rotate');
     },

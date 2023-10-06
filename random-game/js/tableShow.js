@@ -17,6 +17,7 @@ export default function () {
     closeModal(nodes);
   });
 
+  if (!scoreNames.length) return;
   // create table
 
   scoreNames.reverse().length = 10;
@@ -28,12 +29,13 @@ export default function () {
   refs.table.insertAdjacentHTML('beforeend', insertString);
 }
 
-function tableRow({ name, score, dimension }) {
+function tableRow({ name, score, dimension, max_tile }) {
   return `
   <tr>
   <td>${name}</td>
   <td>${score}</td>
   <td>${dimension}x${dimension}</td>
+   <td>${max_tile}</td>
 </tr>
     `;
 }

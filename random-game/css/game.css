@@ -61,7 +61,7 @@ label[for='dimension'] {
 }
 label[for='dimension'] > span {
   position: relative;
-  font: 400 20px 'Tilt Prism';
+  font: 400 20px 'Croissant One';
   top: 2px;
 }
 
@@ -83,10 +83,9 @@ label[for='dimension'] > span {
   border-radius: 5px;
 }
 .change-images::before {
-  content: url(../assets/64x64.png);
+  content: url(../assets/images/img.png);
   position: absolute;
   transform: scale(0.55) translateY(-4px);
-
   z-index: -1;
 }
 
@@ -144,7 +143,7 @@ label:has(~ #change):hover {
 #area {
   position: relative;
 
-  outline: 3px solid blue;
+  /* outline: 3px solid blue; */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
