@@ -33,7 +33,8 @@ function runGame() {
 // check is lose
 function checkLose(arena) {
   if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
-
+  arena.audioResult.src = './assets/sounds/gameOver.wav';
+  arena.audioResult.play();
   lossModal(arena);
   document.removeEventListener('keyup', onArrowBind);
 }
@@ -45,11 +46,11 @@ function onArrow(arena, e) {
     arena.top();
     // arena.show();
     arena.render();
-    arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
 
     setTimeout(() => {
       arena.checkTop();
       arena.render();
+      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
 
       setTimeout(() => {
         arena.empty && arena.newRandomItem();

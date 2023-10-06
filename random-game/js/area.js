@@ -15,9 +15,9 @@ window.addEventListener('resize', () => (sizeArea = onResize()));
 
 export default class Area {
   constructor(n) {
-    // this.audioShift = new Audio('../assets/sounds/shiftAlt.mp3');
-    this.audioCollapse = new Audio('../assets/sounds/collapse.mp3');
-    this.audioCollapse.autoplay = true;
+    this.audioShift = new Audio('./assets/sounds/shift.mp3');
+    this.audioCollapse = new Audio('./assets/sounds/collapse.mp3');
+    this.audioResult = new Audio();
     window.addEventListener('resize', () => {
       sizeArea = onResize();
       refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
@@ -64,6 +64,7 @@ export default class Area {
   // shift matrix area to the left
   left() {
     supLeft(this.area);
+    this.audioShift.play();
   }
 
   // check same value in rows
@@ -73,7 +74,6 @@ export default class Area {
       for (let j = 0; j < this.div - 1; j++) {
         if (!this.area[i][j + 1] || !this.area[i][j]) break;
         if (this.area[i][j + 1].value === this.area[i][j].value) {
-          console.log(this.audioCollapse);
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
@@ -98,6 +98,7 @@ export default class Area {
   // shift matrix area to the right
   right() {
     supRight(this.area);
+    this.audioShift.play();
   }
 
   // check same value in rows
@@ -108,7 +109,6 @@ export default class Area {
         if (!this.area[i][j - 1] || !this.area[i][j]) break;
 
         if (this.area[i][j - 1].value === this.area[i][j].value) {
-          console.log(this.audioCollapse);
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
@@ -132,6 +132,7 @@ export default class Area {
   // shift matrix area to the top
   top() {
     supTop(this.area);
+    this.audioShift.play();
   }
 
   // check same value in columns
@@ -141,7 +142,6 @@ export default class Area {
       for (let i = 0; i < this.div - 1; i++) {
         if (!this.area[i + 1][j] || !this.area[i][j]) break;
         if (this.area[i + 1][j].value === this.area[i][j].value) {
-          console.log(this.audioCollapse);
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
@@ -166,6 +166,7 @@ export default class Area {
   // shift matrix area to the bottom
   bottom() {
     supBottom(this.area);
+    this.audioShift.play();
   }
 
   // check same value in columns
@@ -177,7 +178,6 @@ export default class Area {
 
         if (this.area[i - 1][j].value === this.area[i][j].value) {
           this.audioCollapse.play();
-          console.log(this.audioCollapse);
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
@@ -220,45 +220,11 @@ export default class Area {
   checkFull() {
     for (let i = 0; i < this.div; i++) {
       for (let j = 0; j < this.div; j++) {
-        // if (j > 0)
-        //   console.log(
-        //     '[',
-        //     i,
-        //     ',',
-        //     j,
-        //     ']=',
-        //     this.area[i][j].value,
-        //     '   [',
-        //     i,
-        //     ',',
-        //     j - 1,
-        //     ']=',
-        //     this.area[i][j - 1].value
-        //   );
-
-        // if (i > 0)
-        //   console.log(
-        //     '[',
-        //     i,
-        //     ',',
-        //     j,
-        //     ']=',
-        //     this.area[i][j].value,
-        //     '   [',
-        //     i - 1,
-        //     ',',
-        //     j,
-        //     ']=',
-        //     this.area[i - 1][j].value
-        //   );
-
         if (j > 0 && this.area[i][j].value === this.area[i][j - 1].value) {
-          console.log(this.area[i][j].value + 'x');
           return false;
         }
 
         if (i > 0 && this.area[i][j].value === this.area[i - 1][j].value) {
-          console.log(this.area[j][i].value + 'y');
           return false;
         }
       }
@@ -268,6 +234,7 @@ export default class Area {
 
   clear() {
     // this.area.forEach(row => row.forEach(el => (el = null)));
+    this.audioCollapse = this.audioShift = this.audioResult = null;
     delete this.area;
   }
 }
