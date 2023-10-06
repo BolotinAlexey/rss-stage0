@@ -12,7 +12,6 @@ export default function getRefs() {
     inputChange: document.querySelector('#change'),
     inputDimension: document.querySelector('#dimension'),
     newGame: document.querySelector('.ng-button'),
-    // modalLose: document.querySelector('.modal-lose'),
     score: document.querySelector('.score__value'),
     tableButton: document.querySelector('.table-button'),
     table: document.querySelector('.table'),

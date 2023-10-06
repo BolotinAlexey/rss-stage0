@@ -51,7 +51,9 @@ function onArrow(arena, e) {
     setTimeout(() => {
       arena.checkTop();
       arena.render();
-      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
+      arena.maxTile === WIN_TILE &&
+        !arena.isContinue &&
+        winModal(arena, onArrowBind);
 
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
@@ -72,7 +74,9 @@ function onArrow(arena, e) {
       arena.checkBottom();
       arena.render();
       // arena.show();
-      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
+      arena.maxTile === WIN_TILE &&
+        !arena.isContinue &&
+        winModal(arena, onArrowBind);
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
         checkLose(arena);
@@ -92,7 +96,9 @@ function onArrow(arena, e) {
       arena.checkLeft();
       arena.render();
       // arena.show();
-      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
+      arena.maxTile === WIN_TILE &&
+        !arena.isContinue &&
+        winModal(arena, onArrowBind);
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
         checkLose(arena);
@@ -112,7 +118,9 @@ function onArrow(arena, e) {
       arena.checkRight();
       arena.render();
       // arena.show();
-      arena.maxTile === WIN_TILE && !arena.isContinue && winModal(arena);
+      arena.maxTile === WIN_TILE &&
+        !arena.isContinue &&
+        winModal(arena, onArrowBind);
       setTimeout(() => {
         arena.empty && arena.newRandomItem();
         checkLose(arena);
