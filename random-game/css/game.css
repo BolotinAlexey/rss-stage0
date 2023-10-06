@@ -117,6 +117,7 @@ label:has(~ #change):hover {
   border-radius: 20px;
   font: 900 18px 'Tilt Prism';
   color: var(--text-second);
+  transition: filter 0.3s linear;
 
   background-color: var(--accent-second);
 }

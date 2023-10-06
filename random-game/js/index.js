@@ -41,6 +41,7 @@ function checkLose(arena) {
 
 // handler arrow keys
 function onArrow(arena, e) {
+  refs.inputDimension.blur();
   // top
   if (e.code === 'ArrowUp') {
     arena.top();

@@ -158,7 +158,7 @@ footer {
 }
 .contacts__link:hover,
 .contacts__link:active {
-  color: var(--stop);
+  color: var(--accent-second);
 }
 .contacts__icon-invert {
   fill: currentColor;
@@ -168,7 +168,7 @@ footer {
 .logo {
   width: 100px;
   color: var(--text);
-  transition: color 1s linear;
+  transition: color 0.3s linear;
 }
 .st0,
 .st5,
@@ -184,7 +184,7 @@ footer {
 
 .logo:hover {
   animation: shake-rotate 1s linear;
-  color: var(--stop);
+  color: var(--accent-second);
 }
 
 .logo > a,
