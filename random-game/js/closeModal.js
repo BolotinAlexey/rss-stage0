@@ -6,4 +6,5 @@ export default function closeModal(nodes) {
   refs.modalText.innerText = '';
   refs.labelName.value = '';
   nodes.forEach(el => refs[el].classList.remove('block'));
+  refs.inputName;
 }

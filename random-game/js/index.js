@@ -35,8 +35,7 @@ function checkLose(arena) {
   if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
   arena.audioResult.src = './assets/sounds/gameOver.wav';
   arena.audioResult.play();
-  lossModal(arena);
-  document.removeEventListener('keyup', onArrowBind);
+  lossModal(arena, onArrowBind);
 }
 
 // handler arrow keys
