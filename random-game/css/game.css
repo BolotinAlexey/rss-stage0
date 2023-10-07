@@ -126,7 +126,7 @@ label:has(~ #change):hover {
   filter: saturate(10);
 }
 
-/* table */
+/* table button */
 .table-button {
   border: none;
 }

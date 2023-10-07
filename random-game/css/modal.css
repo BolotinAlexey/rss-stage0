@@ -77,7 +77,7 @@
 th,
 td {
   border: 2px solid var(--accent-second);
-  padding: 7px 20px;
+  padding: 7px;
   text-align: center;
   font: 800 17px 'Orbitron';
 }
@@ -117,7 +117,21 @@ td:first-child {
   .modal {
     width: 70vw;
   }
+
+  td,
+  th {
+    padding: 7px 5px;
+  }
 }
+@media screen and (max-width: 580px) {
+  td {
+    font-size: 3vw;
+  }
+  th {
+    font-size: 4vw;
+  }
+}
+
 @media screen and (max-width: 460px) {
   .modal__title {
     margin: 10px 0 20px;
