@@ -95,6 +95,16 @@ td:first-child {
   line-height: 1;
 }
 
+.btn-th {
+  border: none;
+  /* border: 1px solid currentColor;
+  border-radius: 6px; */
+  margin-left: 3px;
+}
+.btn-th:hover {
+  cursor: pointer;
+}
+
 .svg_center {
   stroke: currentColor;
 }

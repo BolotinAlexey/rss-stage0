@@ -5,7 +5,6 @@ import localStorageOperation from './localStorageOperation.js';
 const refs = getRefs();
 
 export default function (area, onArrowBind, nodes) {
-  console.log(nodes);
   localStorageOperation(area.score, area.div, area.maxTile);
   closeModal(nodes);
   refs.newGame.classList.add('shake-rotate');
