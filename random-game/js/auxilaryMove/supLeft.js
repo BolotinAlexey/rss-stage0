@@ -1,4 +1,4 @@
-export default function supLeft(arr) {
+export default function supLeft(arr, audio) {
   let isHas;
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
@@ -9,7 +9,10 @@ export default function supLeft(arr) {
       for (let k = j; k < arr.length - 1; k++) {
         arr[i][k] = arr[i][k + 1];
 
-        if (arr[i][k]) arr[i][k].x = k;
+        if (arr[i][k]) {
+          arr[i][k].x = k;
+          audio?.play();
+        }
         isHas = isHas || !!arr[i][k];
       }
       arr[i][arr.length - 1] = null;

@@ -63,8 +63,7 @@ export default class Area {
 
   // shift matrix area to the left
   left() {
-    supLeft(this.area);
-    this.audioShift.play();
+    supLeft(this.area, this.audioShift);
   }
 
   // check same value in rows
@@ -97,8 +96,7 @@ export default class Area {
 
   // shift matrix area to the right
   right() {
-    supRight(this.area);
-    this.audioShift.play();
+    supRight(this.area, this.audioShift);
   }
 
   // check same value in rows
@@ -131,8 +129,7 @@ export default class Area {
 
   // shift matrix area to the top
   top() {
-    supTop(this.area);
-    this.audioShift.play();
+    supTop(this.area, this.audioShift);
   }
 
   // check same value in columns
@@ -165,8 +162,7 @@ export default class Area {
 
   // shift matrix area to the bottom
   bottom() {
-    supBottom(this.area);
-    this.audioShift.play();
+    supBottom(this.area, this.audioShift);
   }
 
   // check same value in columns

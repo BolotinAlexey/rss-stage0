@@ -1,4 +1,4 @@
-export default function supRight(arr) {
+export default function supRight(arr, audio) {
   let isHas;
   for (let i = 0; i < arr.length; i++) {
     for (let j = arr.length - 1; j >= 0; j--) {
@@ -8,7 +8,10 @@ export default function supRight(arr) {
       //shift row to the right
       for (let k = j; k > 0; k--) {
         arr[i][k] = arr[i][k - 1];
-        if (arr[i][k]) arr[i][k].x = k;
+        if (arr[i][k]) {
+          arr[i][k].x = k;
+          audio?.play();
+        }
         isHas = isHas || !!arr[i][k];
       }
       arr[i][0] = null;
