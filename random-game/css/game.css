@@ -38,6 +38,7 @@
   width: 80px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 50px;
 }
 .game__left {
@@ -106,6 +107,33 @@ label:has(~ #change):hover {
   animation: rotate 1s infinite;
 }
 
+.hammer__btn {
+  position: relative;
+  border: none;
+}
+.hammer__btn:enabled svg:hover {
+  cursor: pointer;
+  animation: shake-rotate 1s linear infinite;
+}
+
+.hammer__count {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--accent-prime);
+}
+.hammer__score {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: var(--accent-second);
+  font-size: 0.8rem;
+}
+
+.add-hammer {
+  background-color: blue;
+}
+
 /* RIGHT */
 .game__right {
   padding-left: 10px;
@@ -129,6 +157,15 @@ label:has(~ #change):hover {
 /* table button */
 .table-button {
   border: none;
+}
+
+.on-button:hover {
+  cursor: url('../assets/images/hammer.svg'), crosshair;
+  animation: shake-rotate 1s linear infinite;
+}
+
+.on-hammer-btn {
+  animation: shake-rotate 1s linear infinite;
 }
 /* .table {
   transition: fill 1s linear;

@@ -97,12 +97,14 @@ td:first-child {
 
 .btn-th {
   border: none;
-  /* border: 1px solid currentColor;
-  border-radius: 6px; */
   margin-left: 3px;
+  padding: 2px;
+  transition: all 0.3s linear;
 }
 .btn-th:hover {
   cursor: pointer;
+  color: var(--accent-second);
+  animation: skewY 1s linear infinite;
 }
 
 .svg_center {
@@ -123,7 +125,7 @@ td:first-child {
   transition: opacity 1s ease-in;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 868px) {
   .modal {
     width: 70vw;
   }

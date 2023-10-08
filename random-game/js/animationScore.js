@@ -11,11 +11,14 @@ export default function animationScore(old, now) {
   const t = 80;
 
   const intID = setInterval(() => {
-    old += 2;
+    old += 3;
     if (old >= now) {
       clearInterval(intID);
+      console.log('IDnow= ', now, 'IDold= ', old);
+      refs.score.innerText = now;
     }
-    refs.score.innerHTML = old;
+    refs.score.innerText = old;
   }, t);
-  refs.score.innerHTML = now;
+
+  console.log('now= ', now, 'old= ', old);
 }

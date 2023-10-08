@@ -242,3 +242,21 @@ footer {
     display: none;
   }
 }
+
+@keyframes skewY {
+  0% {
+    transform: skewY(0);
+  }
+  25% {
+    transform: skewY(30deg);
+  }
+  50% {
+    transform: skewY(0);
+  }
+  75% {
+    transform: skewY(-30deg);
+  }
+  100% {
+    transform: skewY(0);
+  }
+}

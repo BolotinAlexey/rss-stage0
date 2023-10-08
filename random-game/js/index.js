@@ -5,7 +5,7 @@ import winModal from './winModal.js';
 import lossModal from './loseModal.js';
 import tableShow from './tableShow.js';
 
-const WIN_TILE = 8;
+const WIN_TILE = 256;
 const refs = getRefs();
 
 let previousGame, onArrowBind;

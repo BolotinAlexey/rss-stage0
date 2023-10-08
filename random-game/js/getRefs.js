@@ -15,5 +15,8 @@ export default function getRefs() {
     score: document.querySelector('.score__value'),
     tableButton: document.querySelector('.table-button'),
     table: document.querySelector('.table'),
+    hammerBtn: document.querySelector('.hammer__btn'),
+    hammerCount: document.querySelector('.hammer__count'),
+    hammerScore: document.querySelector('.hammer__score'),
   };
 }

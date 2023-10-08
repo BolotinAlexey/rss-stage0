@@ -6,8 +6,12 @@ import supBottom from './auxilaryMove/supBottom.js';
 import supLeft from './auxilaryMove/supLeft.js';
 import supRight from './auxilaryMove/supRight.js';
 import animationScore from './animationScore.js';
+import renderHammer from './renderHammer.js';
+import resetHammer from './resetHammer.js';
 
 const SCORE_RATIO = 3;
+const SCORE_HAMMER_START = 50;
+const HAMMER_LOG_KOEF = 2;
 const refs = getRefs();
 let sizeArea = onResize();
 
@@ -15,6 +19,8 @@ window.addEventListener('resize', () => (sizeArea = onResize()));
 
 export default class Area {
   constructor(n) {
+    this.hammer = 0;
+    this.hammerKoef = 1;
     this.audioShift = new Audio('./assets/sounds/shift.mp3');
     this.audioCollapse = new Audio('./assets/sounds/collapse.mp3');
     this.audioResult = new Audio();
@@ -35,9 +41,60 @@ export default class Area {
     this.maxTile = 2;
 
     const temp = new Array(n).fill(true);
-    this.area = temp.map(el => new Array(n).fill(null));
+    this.area = temp.map(() => new Array(n).fill(null));
 
     this.empty = n * n;
+
+    resetHammer(SCORE_HAMMER_START);
+
+    //listener hammer button
+    refs.hammerBtn.addEventListener('click', onClickHammerBtn);
+
+    // listener tails
+    refs.area.addEventListener('click', e => {
+      console.log(e.target);
+
+      console.log(
+        !e.target.classList.contains('area__item'),
+        !this.hammer,
+        !refs.hammerBtn.classList.contains('on-hammer-btn')
+      );
+      if (
+        !e.target.classList.contains('area__item') ||
+        !this.hammer ||
+        !refs.hammerBtn.classList.contains('on-hammer-btn')
+      ) {
+        Object.values(document.querySelectorAll('.area__item')).forEach(el => {
+          el.classList.contains('on-button') &&
+            el.classList.remove('on-button');
+        });
+        refs.hammerBtn.classList.contains('on-hammer-btn') &&
+          refs.hammerBtn.classList.remove('on-hammer-btn');
+        return;
+      }
+      const sizeItem = parseInt(e.target.style.width);
+      const x = parseInt(e.target.style.left) / (10 + sizeItem);
+      const y = parseInt(e.target.style.top) / (10 + sizeItem);
+      console.log(x, y);
+      this.area[y][x] = null;
+      console.log(this.area);
+      e.target.remove();
+      Object.values(document.querySelectorAll('.area__item')).forEach(el => {
+        el.classList.contains('on-button') && el.classList.remove('on-button');
+      });
+      refs.hammerBtn.classList.contains('on-hammer-btn') &&
+        refs.hammerBtn.classList.remove('on-hammer-btn');
+
+      this.empty++;
+      // decrease hammer count and render
+      refs.hammerCount.innerText = --this.hammer;
+
+      if (!this.hammer) {
+        refs.hammerBtn.classList.contains('add-hammer') &&
+          refs.hammerBtn.classList.remove('add-hammer');
+        refs.hammerBtn.disabled = true;
+      }
+    });
   }
 
   toString() {
@@ -78,6 +135,14 @@ export default class Area {
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
 
+          // check score for adding a hammer
+          if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
+            this.hammerKoef *= HAMMER_LOG_KOEF;
+            renderHammer(++this.hammer, SCORE_HAMMER_START * this.hammerKoef);
+          }
+
+          setTimeout(() => (refs.score.innerText = this.score), 0);
+
           this.area[i][j].value *= 2;
           this.maxTile =
             this.maxTile < this.area[i][j].value
@@ -111,6 +176,14 @@ export default class Area {
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
+
+          if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
+            this.hammerKoef *= HAMMER_LOG_KOEF;
+            renderHammer(++this.hammer, SCORE_HAMMER_START * this.hammerKoef);
+          }
+
+          setTimeout(() => (refs.score.innerText = this.score), 0);
+
           this.area[i][j].value *= 2;
 
           this.maxTile =
@@ -143,6 +216,12 @@ export default class Area {
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
+          if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
+            this.hammerKoef *= HAMMER_LOG_KOEF;
+            renderHammer(++this.hammer, SCORE_HAMMER_START * this.hammerKoef);
+          }
+
+          setTimeout(() => (refs.score.innerText = this.score), 0);
 
           this.area[i][j].value *= 2;
           this.maxTile =
@@ -177,6 +256,12 @@ export default class Area {
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
           animationScore(old, this.score);
+          if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
+            this.hammerKoef *= HAMMER_LOG_KOEF;
+            renderHammer(++this.hammer, SCORE_HAMMER_START * this.hammerKoef);
+          }
+
+          setTimeout(() => (refs.score.innerText = this.score), 0);
 
           this.area[i][j].value *= 2;
           this.maxTile =
@@ -245,4 +330,11 @@ function onResize() {
 
 function supRender(arr, sizeItem) {
   arr?.forEach(row => row.forEach(el => el && renderItem(el, sizeItem)));
+}
+
+function onClickHammerBtn() {
+  Object.values(document.querySelectorAll('.area__item')).forEach(el => {
+    el.classList.add('on-button');
+  });
+  refs.hammerBtn.classList.add('on-hammer-btn');
 }
