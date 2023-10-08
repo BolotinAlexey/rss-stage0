@@ -8,6 +8,7 @@ import supRight from './auxilaryMove/supRight.js';
 import animationScore from './animationScore.js';
 import renderHammer from './renderHammer.js';
 import resetHammer from './resetHammer.js';
+import onTails from './onTails.js';
 
 const SCORE_RATIO = 3;
 const SCORE_HAMMER_START = 50;
@@ -52,47 +53,16 @@ export default class Area {
 
     // listener tails
     refs.area.addEventListener('click', e => {
-      console.log(e.target);
+      if (onTails(e, this.area, this.hammer)) {
+        this.empty++;
+        // decrease hammer count and render
+        refs.hammerCount.innerText = --this.hammer;
 
-      console.log(
-        !e.target.classList.contains('area__item'),
-        !this.hammer,
-        !refs.hammerBtn.classList.contains('on-hammer-btn')
-      );
-      if (
-        !e.target.classList.contains('area__item') ||
-        !this.hammer ||
-        !refs.hammerBtn.classList.contains('on-hammer-btn')
-      ) {
-        Object.values(document.querySelectorAll('.area__item')).forEach(el => {
-          el.classList.contains('on-button') &&
-            el.classList.remove('on-button');
-        });
-        refs.hammerBtn.classList.contains('on-hammer-btn') &&
-          refs.hammerBtn.classList.remove('on-hammer-btn');
-        return;
-      }
-      const sizeItem = parseInt(e.target.style.width);
-      const x = parseInt(e.target.style.left) / (10 + sizeItem);
-      const y = parseInt(e.target.style.top) / (10 + sizeItem);
-      console.log(x, y);
-      this.area[y][x] = null;
-      console.log(this.area);
-      e.target.remove();
-      Object.values(document.querySelectorAll('.area__item')).forEach(el => {
-        el.classList.contains('on-button') && el.classList.remove('on-button');
-      });
-      refs.hammerBtn.classList.contains('on-hammer-btn') &&
-        refs.hammerBtn.classList.remove('on-hammer-btn');
-
-      this.empty++;
-      // decrease hammer count and render
-      refs.hammerCount.innerText = --this.hammer;
-
-      if (!this.hammer) {
-        refs.hammerBtn.classList.contains('add-hammer') &&
-          refs.hammerBtn.classList.remove('add-hammer');
-        refs.hammerBtn.disabled = true;
+        if (!this.hammer) {
+          refs.hammerBtn.classList.contains('add-hammer') &&
+            refs.hammerBtn.classList.remove('add-hammer');
+          refs.hammerBtn.disabled = true;
+        }
       }
     });
   }
