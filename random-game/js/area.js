@@ -82,7 +82,7 @@ export default class Area {
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
-          animationScore(old, this.score);
+          animationScore(old, this);
 
           // check score for adding a hammer
           if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
@@ -124,7 +124,7 @@ export default class Area {
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
-          animationScore(old, this.score);
+          animationScore(old, this);
 
           if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
             this.hammerKoef *= HAMMER_LOG_KOEF;
@@ -164,7 +164,8 @@ export default class Area {
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
-          animationScore(old, this.score);
+
+          animationScore(old, this);
           if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
             this.hammerKoef *= HAMMER_LOG_KOEF;
             renderHammer(++this.hammer, SCORE_HAMMER_START * this.hammerKoef);
@@ -204,7 +205,7 @@ export default class Area {
           this.audioCollapse.play();
           const old = this.score;
           this.score += this.area[i][j].value * SCORE_RATIO * coefScore++;
-          animationScore(old, this.score);
+          animationScore(old, this);
           if (this.score >= SCORE_HAMMER_START * this.hammerKoef) {
             this.hammerKoef *= HAMMER_LOG_KOEF;
             renderHammer(++this.hammer, SCORE_HAMMER_START * this.hammerKoef);
