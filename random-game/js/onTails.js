@@ -6,7 +6,6 @@ export default function onTails(e, area, hammer) {
   const tail = e.target.classList.contains('area__value')
     ? e.target.parentNode
     : e.target;
-  console.log(tail);
 
   // if click not tail or hammerCount===0 or hammerBtn not active
   if (
@@ -26,7 +25,7 @@ export default function onTails(e, area, hammer) {
   const sizeItem = parseInt(tail.style.width);
   const x = parseInt(tail.style.left) / (10 + sizeItem);
   const y = parseInt(tail.style.top) / (10 + sizeItem);
-  console.log(x, y);
+
   area[y][x] = null;
   tail.remove();
   Object.values(document.querySelectorAll('.area__item')).forEach(el => {

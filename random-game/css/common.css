@@ -10,6 +10,7 @@
   --logoJS: #ec310c;
   --color-table-prime: #82f524;
   --color-table-second: #ec310c;
+  --hammer-color: #aab8b9;
 
   --placeholderColor: #8e8e8e;
   --transitionColor: color 0.3s linear;
@@ -258,5 +259,31 @@ footer {
   }
   100% {
     transform: skewY(0);
+  }
+}
+
+@keyframes breath {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

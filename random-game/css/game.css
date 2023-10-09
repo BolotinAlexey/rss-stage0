@@ -35,6 +35,7 @@
 /* LEFT */
 .game__left,
 .game__right {
+  position: relative;
   width: 80px;
   display: flex;
   flex-direction: column;
@@ -111,9 +112,16 @@ label:has(~ #change):hover {
   position: relative;
   border: none;
 }
+.on-hammer-btn.hammer__btn:enabled svg {
+  animation: shake-rotate 1s linear infinite;
+}
+
 .hammer__btn:enabled svg:hover {
   cursor: pointer;
   animation: shake-rotate 1s linear infinite;
+}
+.on-hammer-btn.hammer__btn:enabled svg:hover {
+  animation: none;
 }
 
 .hammer__count {
@@ -121,17 +129,18 @@ label:has(~ #change):hover {
   right: 0;
   top: 0;
   color: var(--accent-prime);
+  font: 0.8rem Orbitron;
 }
 .hammer__score {
   position: absolute;
   left: 0;
   bottom: 0;
-  color: var(--accent-second);
-  font-size: 0.8rem;
+  color: var(--accent-prime);
+  font: 0.6rem Orbitron;
 }
 
-.add-hammer {
-  background-color: blue;
+.hammer__btn:enabled .hammer__count {
+  animation: breath 1s linear infinite;
 }
 
 /* RIGHT */
@@ -161,15 +170,12 @@ label:has(~ #change):hover {
 
 .on-button:hover {
   cursor: url('../assets/images/hammer.svg'), crosshair;
-  animation: shake-rotate 1s linear infinite;
+  animation: breath 1s linear infinite;
 }
 
 .on-hammer-btn {
-  animation: shake-rotate 1s linear infinite;
+  --hammer-color: var(--accent-prime);
 }
-/* .table {
-  transition: fill 1s linear;
-} */
 
 .table-button:hover svg {
   cursor: pointer;
@@ -201,14 +207,9 @@ label:has(~ #change):hover {
   transition: all 0.1s linear;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
+/* @media screen and (max-width: 512px) {
+  .game__left,
+  .game__right {
+    transform: scale(0.9);
   }
-  50% {
-    transform: rotate(180deg) translateY(2px);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+} */

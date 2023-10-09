@@ -1,6 +1,5 @@
 import getRefs from './getRefs.js';
 import Item from './item.js';
-import renderItem from './renderItem.js';
 import supTop from './auxilaryMove/supTop.js';
 import supBottom from './auxilaryMove/supBottom.js';
 import supLeft from './auxilaryMove/supLeft.js';
