@@ -8,7 +8,7 @@ import onTails from './onTails.js';
 import currentSize from './onResize.js';
 import supRender from './supRender.js';
 
-const WIN_TILE = 256;
+const WIN_TILE = 1024;
 const refs = getRefs();
 
 let previousGame, onArrowBind, tailListenerBind, onResizeBind;

@@ -11,7 +11,7 @@ import currentSize from './onResize.js';
 import supRender from './supRender.js';
 
 const SCORE_RATIO = 3;
-const SCORE_HAMMER_START = 50;
+const SCORE_HAMMER_START = 100;
 const HAMMER_LOG_KOEF = 2;
 const refs = getRefs();
 

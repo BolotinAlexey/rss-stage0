@@ -22,7 +22,7 @@ export default function onTails(e, area, hammer) {
   }
 
   // if click on tail
-  const audioHammer = new Audio('./assets/sounds/hammer.wav');
+  let audioHammer = new Audio('./assets/sounds/hammer.wav');
   audioHammer.play();
   const sizeItem = parseInt(tail.style.width);
   const x = parseInt(tail.style.left) / (10 + sizeItem);
