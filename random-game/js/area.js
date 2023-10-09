@@ -8,34 +8,28 @@ import supRight from './auxilaryMove/supRight.js';
 import animationScore from './animationScore.js';
 import renderHammer from './renderHammer.js';
 import resetHammer from './resetHammer.js';
-import onTails from './onTails.js';
+import currentSize from './onResize.js';
+import supRender from './supRender.js';
 
 const SCORE_RATIO = 3;
 const SCORE_HAMMER_START = 50;
 const HAMMER_LOG_KOEF = 2;
 const refs = getRefs();
-let sizeArea = onResize();
 
-window.addEventListener('resize', () => (sizeArea = onResize()));
+// window.addEventListener('resize', () => (this.sizeArea = onResize()));
 
 export default class Area {
   constructor(n) {
+    this.sizeArea = currentSize();
     this.hammer = 0;
     this.hammerKoef = 1;
     this.audioShift = new Audio('./assets/sounds/shift.mp3');
     this.audioCollapse = new Audio('./assets/sounds/collapse.mp3');
     this.audioResult = new Audio();
-    window.addEventListener('resize', () => {
-      sizeArea = onResize();
-      refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
 
-      this.sizeItem = (sizeArea - 10 * (n + 1)) / n;
-      supRender(this.area, this.sizeItem);
-    });
+    refs.area.style.width = refs.area.style.height = `${this.sizeArea}px`;
 
-    refs.area.style.width = refs.area.style.height = `${sizeArea}px`;
-
-    this.sizeItem = (sizeArea - 10 * (n + 1)) / n;
+    this.sizeItem = (this.sizeArea - 10 * (n + 1)) / n;
     this.score = 0;
     this.div = n;
     this.isContinue = false;
@@ -50,21 +44,6 @@ export default class Area {
 
     //listener hammer button
     refs.hammerBtn.addEventListener('click', onClickHammerBtn);
-
-    // listener tails
-    refs.area.addEventListener('click', e => {
-      if (onTails(e, this.area, this.hammer)) {
-        this.empty++;
-        // decrease hammer count and render
-        refs.hammerCount.innerText = --this.hammer;
-
-        if (!this.hammer) {
-          refs.hammerBtn.classList.contains('add-hammer') &&
-            refs.hammerBtn.classList.remove('add-hammer');
-          refs.hammerBtn.disabled = true;
-        }
-      }
-    });
   }
 
   toString() {
@@ -289,17 +268,10 @@ export default class Area {
     delete this.area;
     refs.score.innerHTML = '0';
     refs.score.style.right = '-60px';
+
+    //listener hammer button
+    refs.hammerBtn.removeEventListener('click', onClickHammerBtn);
   }
-}
-
-function onResize() {
-  return window.innerWidth > window.innerHeight
-    ? window.innerHeight - 180
-    : window.innerWidth - 180;
-}
-
-function supRender(arr, sizeItem) {
-  arr?.forEach(row => row.forEach(el => el && renderItem(el, sizeItem)));
 }
 
 function onClickHammerBtn() {
