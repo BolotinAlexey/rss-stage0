@@ -22,6 +22,8 @@ export default function onTails(e, area, hammer) {
   }
 
   // if click on tail
+  const audioHammer = new Audio('./assets/sounds/hammer.wav');
+  audioHammer.play();
   const sizeItem = parseInt(tail.style.width);
   const x = parseInt(tail.style.left) / (10 + sizeItem);
   const y = parseInt(tail.style.top) / (10 + sizeItem);
@@ -33,5 +35,6 @@ export default function onTails(e, area, hammer) {
   });
   refs.hammerBtn.classList.contains('on-hammer-btn') &&
     refs.hammerBtn.classList.remove('on-hammer-btn');
+  audioHammer = null;
   return true;
 }
