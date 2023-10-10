@@ -1,0 +1,189 @@
+.bg-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal {
+  width: 95vw;
+  height: 80vh;
+  padding: 4vw;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__title {
+  margin: 0 0 20px;
+  color: var(--accent-prime);
+  font: 800 50px 'Croissant One', cursive;
+  text-align: center;
+}
+.modal__text {
+  margin-bottom: 30px;
+  color: var(--text);
+  text-shadow: 2px 2px 2px var(--accent-second);
+  font: 400 40px 'Caveat';
+  text-align: center;
+}
+.modal__label-name {
+  display: none;
+  margin: 0 auto;
+  color: var(--accent-second);
+  font: 400 30px 'Croissant One', cursive;
+  text-align: center;
+}
+
+.modal__input-name {
+  width: 90%;
+  margin-top: 20px;
+  padding: 0 10px;
+  color: var(--text);
+  background-color: var(--bg);
+  border-radius: 10px;
+  border: none;
+}
+.modal__input-name::placeholder {
+  font: 200 35px Caveat;
+}
+
+.cross {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 15px;
+  z-index: 20;
+  cursor: pointer;
+  color: var(--accent-prime);
+  background-color: transparent;
+  border: none;
+  transition: filter 0.25s linear, transform 0.25s linear;
+}
+.cross:hover {
+  filter: saturate(10);
+  transform: scale(1.1) rotate(180deg);
+}
+
+.table {
+  display: none;
+  justify-content: center;
+  border-collapse: collapse;
+  overflow: auto;
+}
+
+th,
+td {
+  border: 2px solid var(--accent-second);
+  padding: 7px;
+  text-align: center;
+  font: 800 17px 'Orbitron';
+}
+th {
+  font-family: 'Croissant One';
+  background-color: var(--accent-prime);
+  font-size: 24px;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+td:first-child {
+  font-family: Caveat;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.btn-th {
+  border: none;
+  margin-left: 3px;
+  padding: 2px;
+  transition: all 0.3s linear;
+}
+.btn-th:hover {
+  cursor: pointer;
+  color: var(--accent-second);
+  animation: skewY 1s linear infinite;
+}
+
+.svg_center {
+  stroke: currentColor;
+}
+
+/* modal-message */
+.modal-message {
+  position: fixed;
+  right: 20px;
+  top: 70px;
+  width: 250px;
+  padding: 20px;
+  opacity: 0;
+  border-radius: 20px;
+  z-index: -10;
+
+  transition: opacity 1s ease-in;
+}
+
+@media screen and (min-width: 868px) {
+  .modal {
+    width: 70vw;
+  }
+
+  td,
+  th {
+    padding: 7px 5px;
+  }
+}
+@media screen and (max-width: 580px) {
+  td {
+    font-size: 3vw;
+  }
+  th {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .modal__title {
+    margin: 10px 0 20px;
+    font-size: 40px;
+  }
+
+  .modal__text {
+    margin-bottom: 25px;
+
+    text-shadow: 2px 2px 2px var(--accent-second);
+    font-size: 30px;
+  }
+  .modal__label-name {
+    font-size: 25px;
+  }
+
+  .modal__input-name {
+    margin-top: 15px;
+    padding: 0 8px;
+    border-radius: 8px;
+  }
+  .modal__input-name::placeholder {
+    font-size: 25px;
+  }
+
+  .cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 15px;
+    z-index: 20;
+    cursor: pointer;
+    color: var(--accent-prime);
+    background-color: transparent;
+    border: none;
+    transition: filter 0.25s linear, transform 0.25s linear;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+}
