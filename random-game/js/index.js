@@ -159,8 +159,6 @@ function tailListener(arena, e) {
     refs.hammerCount.innerText = --arena.hammer;
 
     if (!arena.hammer) {
-      refs.hammerBtn.classList.contains('add-hammer') &&
-        refs.hammerBtn.classList.remove('add-hammer');
       refs.hammerBtn.disabled = true;
     }
   }
