@@ -8,7 +8,7 @@ const url =
 export default async function bgImage(isNotFirst) {
   const word = isNotFirst
     ? words[Math.floor(Math.random() * words.length)]
-    : 'montain';
+    : 'alps';
 
   const result = await newFetch(word);
   refs.area.style.backgroundImage = `url(${

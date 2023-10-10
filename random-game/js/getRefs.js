@@ -1,5 +1,6 @@
 export default function getRefs() {
   return {
+    game: document.querySelector('.game'),
     area: document.querySelector('#area'),
     bgModal: document.querySelector('.bg-modal'),
     modal: document.querySelector('.modal'),

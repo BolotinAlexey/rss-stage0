@@ -7,11 +7,14 @@ import tableShow from './tableShow.js';
 import onTails from './onTails.js';
 import currentSize from './onResize.js';
 import supRender from './supRender.js';
+import welcomeModal from './welcomeModal.js';
+import { DELAY_WELCOME } from './constants.js';
 
 const WIN_TILE = 1024;
 const refs = getRefs();
 
 let previousGame, onArrowBind, tailListenerBind, onResizeBind;
+welcomeModal();
 refs.newGame.addEventListener('click', runGame);
 refs.tableButton.addEventListener('click', tableShow);
 
@@ -63,7 +66,7 @@ function checkLose(arena) {
 function onArrow(arena, e) {
   refs.inputDimension.blur();
   // top
-  if (e.code === 'ArrowUp') {
+  if (e.code === 'ArrowUp' || e.code === 'KeyW') {
     arena.top();
     // arena.show();
     arena.render();
@@ -85,7 +88,7 @@ function onArrow(arena, e) {
   }
 
   // down
-  if (e.code === 'ArrowDown') {
+  if (e.code === 'ArrowDown' || e.code === 'KeyS') {
     arena.bottom();
     // arena.show();
     arena.render();
@@ -107,7 +110,7 @@ function onArrow(arena, e) {
   }
 
   // left
-  if (e.code === 'ArrowLeft') {
+  if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
     arena.left();
     // arena.show();
     arena.render();
@@ -129,7 +132,7 @@ function onArrow(arena, e) {
   }
 
   // right
-  if (e.code === 'ArrowRight') {
+  if (e.code === 'ArrowRight' || e.code === 'KeyD') {
     arena.right();
     // arena.show();
     arena.render();
@@ -159,14 +162,15 @@ function tailListener(arena, e) {
     refs.hammerCount.innerText = --arena.hammer;
 
     if (!arena.hammer) {
-      refs.hammerBtn.classList.contains('add-hammer') &&
-        refs.hammerBtn.classList.remove('add-hammer');
       refs.hammerBtn.disabled = true;
     }
   }
 }
 
-previousGame = runGame();
+setTimeout(() => {
+  refs.game.style.display = 'flex';
+  previousGame = runGame();
+}, DELAY_WELCOME);
 
 function onResize(arena) {
   arena.sizeArea = currentSize();
