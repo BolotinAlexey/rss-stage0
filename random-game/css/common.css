@@ -264,15 +264,18 @@ footer {
 
 @keyframes breath {
   0% {
-    transform: scale(1);
+    transform: scale(1.1);
+    color: var(--accent-prime);
   }
 
   50% {
     transform: scale(0.8);
+    color: var(--accent-second);
   }
 
   100% {
-    transform: scale(1);
+    transform: scale(1.1);
+    color: var(--accent-prime);
   }
 }
 
