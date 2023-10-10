@@ -210,10 +210,6 @@ header {
   padding: 10px;
   line-height: 2.5;
 }
-/* .header__link:hover,
-.header__link:focus {
-  color: var(--accentColor);
-} */
 
 .logo {
   position: relative;
@@ -1558,8 +1554,6 @@ body.visibleMobile {
 
 /* BUY A LIBRARY CARD modal */
 
-.library {
-}
 .library__modal {
   position: absolute;
   width: 640px;
@@ -1592,6 +1586,7 @@ body.visibleMobile {
   padding: 30px 40px 40px;
   background-color: var(--textColor-invert);
 }
+
 .library__form {
   width: 200px;
 }
@@ -1618,7 +1613,7 @@ body.visibleMobile {
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 100% */
+  line-height: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -1661,7 +1656,7 @@ body.visibleMobile {
 .card .information__description {
   font-size: 10px;
   font-weight: 400;
-  line-height: 20px; /* 200% */
+  line-height: 20px;
   letter-spacing: 0.2px;
   text-transform: capitalize;
 }
@@ -1669,6 +1664,4 @@ body.visibleMobile {
 .myprofile .modal__cross {
   top: 23px;
   right: 24px;
-}
-.card .information__item {
 }
