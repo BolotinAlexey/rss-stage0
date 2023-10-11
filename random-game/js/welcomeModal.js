@@ -1,9 +1,8 @@
 import closeModal from './closeModal.js';
-import { DELAY_WELCOME } from './constants.js';
 import getRefs from './getRefs.js';
 
 const refs = getRefs();
-const nodes = ['bgModal', 'modal'];
+const nodes = ['bgModal', 'modal', 'cross'];
 
 export default function welcomeModal() {
   refs.modalTitle.innerText = 'Welcome to 1024!';
@@ -13,5 +12,11 @@ export default function welcomeModal() {
     refs[node].classList.add('block');
   });
 
-  setTimeout(() => closeModal(nodes), DELAY_WELCOME);
+  refs.cross.addEventListener(
+    'click',
+    () => {
+      closeModal(nodes);
+    },
+    { once: true }
+  );
 }

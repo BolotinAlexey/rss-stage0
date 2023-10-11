@@ -55,6 +55,10 @@ body {
   margin: 0;
 }
 
+main {
+  background: linear-gradient(to bottom, hsl(190, 100%, 19%), var(--bg));
+}
+
 img {
   display: block;
   max-width: 100%;
