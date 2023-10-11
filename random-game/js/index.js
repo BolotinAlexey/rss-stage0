@@ -9,12 +9,12 @@ import currentSize from './onResize.js';
 import supRender from './supRender.js';
 import welcomeModal from './welcomeModal.js';
 
-const WIN_TILE = 1024;
+const WIN_TILE = 256;
 const refs = getRefs();
 
 let previousGame, onArrowBind, tailListenerBind, onResizeBind;
 welcomeModal();
-refs.newGame.addEventListener('click', runGame);
+refs.newGame.addEventListener('click', () => (previousGame = runGame()));
 refs.tableButton.addEventListener('click', tableShow);
 
 function runGame() {
@@ -24,13 +24,15 @@ function runGame() {
   refs.area.innerHTML = '';
 
   // clear listeners previous game
-  previousGame && document.removeEventListener('keyup', onArrowBind);
+  if (previousGame) {
+    document.removeEventListener('keyup', onArrowBind);
 
-  previousGame && refs.area.removeEventListener('click', tailListenerBind);
+    refs.area.removeEventListener('click', tailListenerBind);
 
-  previousGame && window.addEventListener('resize', onResizeBind);
+    window.addEventListener('resize', onResizeBind);
 
-  previousGame?.clear();
+    previousGame?.clear();
+  }
 
   //
   refs.inputChange.addEventListener('change', bgImage);
