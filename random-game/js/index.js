@@ -8,7 +8,6 @@ import onTails from './onTails.js';
 import currentSize from './onResize.js';
 import supRender from './supRender.js';
 import welcomeModal from './welcomeModal.js';
-import { DELAY_WELCOME } from './constants.js';
 
 const WIN_TILE = 1024;
 const refs = getRefs();
@@ -64,6 +63,7 @@ function checkLose(arena) {
 
 // handler arrow keys
 function onArrow(arena, e) {
+  if (refs.bgModal.classList.contains('block')) return;
   refs.inputDimension.blur();
   // top
   if (e.code === 'ArrowUp' || e.code === 'KeyW') {
@@ -167,10 +167,7 @@ function tailListener(arena, e) {
   }
 }
 
-setTimeout(() => {
-  refs.game.style.display = 'flex';
-  previousGame = runGame();
-}, DELAY_WELCOME);
+previousGame = runGame();
 
 function onResize(arena) {
   arena.sizeArea = currentSize();
