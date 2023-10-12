@@ -19,6 +19,7 @@ const refs = getRefs();
 
 export default class Area {
   constructor(n) {
+    this.intID = null;
     this.sizeArea = currentSize();
     this.hammer = 0;
     this.hammerKoef = 1;
@@ -264,6 +265,8 @@ export default class Area {
 
   clear() {
     // this.area.forEach(row => row.forEach(el => (el = null)));
+    clearInterval(this.intID);
+    refs.score.innerText = '0';
     this.audioCollapse = this.audioShift = this.audioResult = null;
     delete this.area;
     refs.score.innerHTML = '0';

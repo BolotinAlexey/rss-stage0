@@ -15,4 +15,6 @@ export default function lossModal(arena, onArrowBind) {
     () => onChangeName(arena, onArrowBind, nodes),
     { once: true }
   );
+  clearInterval(arena.intID);
+  refs.score.innerText = arena.score;
 }

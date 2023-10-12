@@ -14,7 +14,7 @@ const refs = getRefs();
 
 let previousGame, onArrowBind, tailListenerBind, onResizeBind;
 welcomeModal();
-refs.newGame.addEventListener('click', runGame);
+refs.newGame.addEventListener('click', () => (previousGame = runGame()));
 refs.tableButton.addEventListener('click', tableShow);
 
 function runGame() {
@@ -24,13 +24,15 @@ function runGame() {
   refs.area.innerHTML = '';
 
   // clear listeners previous game
-  previousGame && document.removeEventListener('keyup', onArrowBind);
+  if (previousGame) {
+    document.removeEventListener('keyup', onArrowBind);
 
-  previousGame && refs.area.removeEventListener('click', tailListenerBind);
+    refs.area.removeEventListener('click', tailListenerBind);
 
-  previousGame && window.addEventListener('resize', onResizeBind);
+    window.addEventListener('resize', onResizeBind);
 
-  previousGame?.clear();
+    previousGame?.clear();
+  }
 
   //
   refs.inputChange.addEventListener('change', bgImage);
@@ -55,7 +57,11 @@ function runGame() {
 
 // check is lose
 function checkLose(arena) {
-  if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
+  if (
+    (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) ||
+    arena.hammer > 0
+  )
+    return;
   arena.audioResult.src = './assets/sounds/gameOver.wav';
   arena.audioResult.play();
   lossModal(arena, onArrowBind);
