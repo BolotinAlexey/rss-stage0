@@ -9,7 +9,7 @@ import currentSize from './onResize.js';
 import supRender from './supRender.js';
 import welcomeModal from './welcomeModal.js';
 
-const WIN_TILE = 256;
+const WIN_TILE = 1024;
 const refs = getRefs();
 
 let previousGame, onArrowBind, tailListenerBind, onResizeBind;
@@ -57,7 +57,11 @@ function runGame() {
 
 // check is lose
 function checkLose(arena) {
-  if (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) return;
+  if (
+    (arena.empty >= 0 && (arena.empty > 0 || !arena.checkFull())) ||
+    arena.hammer > 0
+  )
+    return;
   arena.audioResult.src = './assets/sounds/gameOver.wav';
   arena.audioResult.play();
   lossModal(arena, onArrowBind);
