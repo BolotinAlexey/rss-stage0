@@ -20,6 +20,8 @@ export default class Item {
     this.p = document.createElement('p');
     this.p.classList.add('area__value');
     this.node.appendChild(this.p);
+    setTimeout(() => (this.node.style.opacity = '0.9'), 40);
+    // this.node.style.opacity = '0.9';
   }
   del() {
     this.node.remove();
