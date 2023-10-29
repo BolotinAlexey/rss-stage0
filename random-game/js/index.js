@@ -89,8 +89,8 @@ function onArrow(arena, e) {
         checkLose(arena);
         // arena.show();
         arena.render();
-      }, 20);
-    }, 40);
+      }, 40);
+    }, 60);
   }
 
   // down
@@ -111,8 +111,8 @@ function onArrow(arena, e) {
         checkLose(arena);
         // arena.show();
         arena.render();
-      }, 20);
-    }, 40);
+      }, 40);
+    }, 60);
   }
 
   // left
@@ -133,8 +133,8 @@ function onArrow(arena, e) {
         checkLose(arena);
         // arena.show();
         arena.render();
-      }, 20);
-    }, 40);
+      }, 40);
+    }, 60);
   }
 
   // right
@@ -155,8 +155,8 @@ function onArrow(arena, e) {
         checkLose(arena);
         // arena.show();
         arena.render();
-      }, 20);
-    }, 40);
+      }, 40);
+    }, 60);
   }
 }
 
