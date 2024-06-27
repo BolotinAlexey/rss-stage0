@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+TZ:wght@100..400&family=Poetsen+One&family=Press+Start+2P&family=Sedan+SC&family=Ubuntu:wght@300;700&
+      family=Gochi+Hand&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Stage 0</title>
+
+  </head>
+  <body>
+    <script src="persistTheme.js" defer></script>
+  <!-- H E A D E R -->
+    <header class="header">
+      <div class="logo">
+        <h2 class="logo__title">
+          Oleksii Bolotin
+        </h2>
+      </div>
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a
+                href="https://bolotinalexey.github.io/rss-stage1-stage2"
+                class="link header__link"
+                >RSS Stage1-2</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <label class="theme-btn">
+        <svg class="weather__icon" width="20" height="20">
+                  <use href="./assets/sprite.svg#moon"></use>
+                </svg>
+          <input type="checkbox" class="theme-btn__input">
+          </input>
+          <span class="theme-btn__inner">
+          </span>
+          <svg class="weather__icon" width="20" height="20" fill="none">
+                  <use href="./assets/sprite.svg#sun"></use>
+                </svg>
+        </label>
+    </header>
+
+    <main class="main">
+      <h1 class="page-title">
+        My written projects in
+        <a class="link" href="https://rs.school/">RS-School</a> stage 0
+      </h1>
+      <ul class="list container">
+        <!-- LIBRARY -->
+        <li
+          class="project library"
+          title=" Website for a library with the ability to issue a library card and purchase books."
+        >
+          <div class="project__wrap">
+            <div class="project__overlay-top">
+              <p class="project__pet">Pet project</p>
+              <p class="project__describe">
+                Website for a library with the ability to issue a library card and purchase books.
+              </p>
+            </div>
+            <div class="project__overlay-bottom">
+              <p class="project__stack">
+                [HTML, CSS, JavaScript]
+              </p>
+            </div>
+            <img
+              class="project__img"
+              src="assets/library.jpg"
+              alt="Library"
+            />
+          </div>
+          <div class="project__links">
+            <a
+              href="https://bolotinalexey.github.io/rss-stage0/library/"
+              class="project__deploy link"
+              >deploy</a
+            >
+            <a
+              href="https://github.com/BolotinAlexey/rss-stage0/tree/library3/library"
+              class="project__code link"
+              >code</a
+            >
+          </div>
+          <h2 class="project__title">Library</h2>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
