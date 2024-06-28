@@ -1,5 +1,3 @@
-## Projects that I completed in the course of studying at a wonderful school [RSS-School](https://rs.school/)
-
 # rss-stage0
 
 ## [Library](https://bolotinalexey.github.io/rss-stage0/library)
